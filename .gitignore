@@ -6,3 +6,6 @@ venv/
 
 # Generated artefacts -- reproducible from the scripts, so not worth versioning.
 data/clean/
+
+# pytest
+.pytest_cache/

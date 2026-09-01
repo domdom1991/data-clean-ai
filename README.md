@@ -221,6 +221,36 @@ a report that flatters itself is worse than no report.
 
 ---
 
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
+
+39 tests covering the two stages where a bug would be invisible in the output:
+
+- **`tests/test_date_parsing.py`** — every source format resolves to the same date;
+  mixed formats in one column all parse; garbage becomes `NaT` instead of raising;
+  day-first vs month-first inference under each kind of evidence; the documented default
+  when a column offers no evidence at all; and two-digit-year century correction,
+  including the `12/04/55` → `1955-04-12` round trip.
+- **`tests/test_survivorship.py`** — exact duplicates collapse; the most complete record
+  wins; completeness beats recency; recency breaks a completeness tie; a record with no
+  admission date sorts last rather than winning by accident; the rule degrades gracefully
+  when there is no admission date column at all; and the report's row counts reconcile.
+
+The ambiguous-date test is the one worth reading. `04/12/1985` parses cleanly under both
+conventions, so no error and no null ever tells you it went wrong — the test asserts that
+day-first gives 4 December and month-first gives 12 April, pinning down which reading the
+pipeline commits to.
+
+These were checked by mutation: reversing the survivorship sort order fails 6 tests,
+flipping the no-evidence default fails 1, and disabling the century correction fails 4.
+A test suite that cannot fail is not evidence of anything.
+
+---
+
 ## Talking points
 
 Things worth being ready for:
@@ -243,7 +273,7 @@ SQL/dbt and keep this shape: staging (types and nulls) → deduplication with an
 survivorship rule → conformed dimensions → tested marts. The `dq_flags` column is the same
 idea as a dbt test, just carried in the data.
 
-**"What would you add next?"** Unit tests on the parsing and survivorship functions,
-schema validation with Pandera or Great Expectations, fuzzy matching on name plus date of
-birth to catch duplicates where the `patient_id` itself differs, and tracking the JSON
-report over time so source-system drift shows up as a trend rather than a surprise.
+**"What would you add next?"** Schema validation with Pandera or Great Expectations, fuzzy
+matching on name plus date of birth to catch duplicates where the `patient_id` itself
+differs, and tracking the JSON report over time so source-system drift shows up as a trend
+rather than a surprise.
