@@ -396,12 +396,37 @@ survivorship rule → conformed dimensions → tested marts. The `dq_flags` colu
 idea as a dbt test, just carried in the data.
 
 **"How do you catch duplicates when the ID itself is different?"** Fuzzy matching on name
-plus date of birth, blocked to stay tractable — and flagged rather than merged, because
-the cost of wrongly merging two patients is not symmetric with the cost of missing a
-duplicate. See step 10; it scores 7/7 precision and 7/8 recall on the sample.
+plus date of birth, blocked across four keys to stay tractable — and flagged rather than
+merged, because the cost of wrongly merging two patients is not symmetric with the cost of
+missing a duplicate. See step 10; 7/8 precision and 7/8 recall on the sample, reported per
+confidence tier rather than as one number.
+
+**"How did you pick your thresholds?"** By measuring them, and the measurement changed my
+answer. For name-only matching I first set the bar at 0.95, reasoning that weak evidence
+deserves a strict threshold. Sweeping it against ground truth showed 0.95 was **strictly
+worse than not having the feature at all** — it contributed one false positive and zero
+true ones. 0.92 is where the tier starts recovering real duplicates, taking recall from
+6/8 to 7/8.
+
+The general lesson is that a round number which *sounds* cautious is not automatically the
+safe one, and you cannot tell the difference by reasoning about it. Any threshold, join
+condition, or matching rule that gets picked by intuition should be swept against labelled
+data before it ships, and the sweep is cheap enough that there is no excuse not to.
+
+**"How do you know your evaluation is trustworthy?"** I did not, at first. The initial
+measurement showed precision collapsing from 7/7 to 7/14, which looked like the new feature
+was badly broken. It was not: my generated population drew from 30 given and 24 family
+names, so **136 of 364 patients shared a full name with someone else** and nearly every
+"false positive" was an accidental collision rather than a matcher error.
+
+Enlarging the pools to 70 × 55 brought collisions down to a realistic level and the true
+picture emerged. The point worth making is that a number from a benchmark is only as good
+as the data behind it — if a metric moves sharply, check whether the fixture changed before
+concluding the code did.
 
 **"What would you add next?"** Schema validation with Pandera or Great Expectations,
-phonetic blocking (Soundex/Metaphone) so the fuzzy matcher can catch records missing a
-date of birth, and tracking the JSON report over time so source-system drift shows up as a
-trend rather than a surprise.
+Metaphone or Jaro-Winkler in place of Soundex and `difflib` (both are crude, and
+Jaro-Winkler is designed for exactly this short-string case), an active-learning loop so
+reviewer decisions on the queue feed back into the thresholds, and tracking the JSON report
+over time so source-system drift shows up as a trend rather than a surprise.
 
