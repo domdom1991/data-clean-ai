@@ -1,5 +1,7 @@
 # Data-Clean-AI
 
+[![tests](https://github.com/domdom1991/data-clean-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/domdom1991/data-clean-ai/actions/workflows/tests.yml)
+
 A command-line data cleaning pipeline for messy healthcare extracts, built with pandas.
 
 It takes a raw patient CSV full of the problems real source systems produce — duplicate
@@ -248,6 +250,21 @@ pipeline commits to.
 These were checked by mutation: reversing the survivorship sort order fails 6 tests,
 flipping the no-evidence default fails 1, and disabling the century correction fails 4.
 A test suite that cannot fail is not evidence of anything.
+
+### CI
+
+`.github/workflows/tests.yml` runs on every push and pull request to `main`, across
+Python 3.11, 3.12 and 3.13. Three stages:
+
+1. **Unit tests** — the 39 above.
+2. **End-to-end run** — generate the messy file, then clean it. Proves the pipeline still
+   works as a whole, which unit tests on individual functions cannot tell you.
+3. **Output invariants** — asserts the things that must be true of any clean output
+   regardless of the input: no duplicate business keys, every date ISO-formatted, no
+   negative lengths of stay, no null keys.
+
+That third stage is the interesting one. It is the same idea as a dbt test — a contract
+asserted against the data itself rather than the code that produced it.
 
 ---
 
