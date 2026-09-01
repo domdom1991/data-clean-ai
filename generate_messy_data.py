@@ -30,6 +30,8 @@ import pandas as pd
 SEED = 42
 DEFAULT_ROWS = 400
 DUPLICATE_SHARE = 0.09  # ~9% of rows will be duplicates of an earlier patient
+# Same person, new patient_id -- the duplicate a key-based rule cannot catch.
+REREGISTRATION_SHARE = 0.02
 
 # Tokens a source system might use to mean "no value". A real extract almost
 # never uses just one of these, which is why the cleaner normalises them all.
@@ -218,6 +220,31 @@ def build_patient(patient_id: str, rng: random.Random) -> dict:
     }
 
 
+def parse_any_dob(value: str):
+    """Read back a date of birth written in any of the formats above."""
+    if value in MISSING_TOKENS:
+        return None
+    for fmt in DOB_FORMATS:
+        try:
+            return pd.to_datetime(value, format=fmt)
+        except (ValueError, TypeError):
+            continue
+    return None
+
+
+def introduce_typo(text: str, rng: random.Random) -> str:
+    """One realistic keyboard slip: a transposition, a drop, or a doubled letter."""
+    if len(text) < 3:
+        return text
+    position = rng.randrange(len(text) - 1)
+    style = rng.randint(0, 2)
+    if style == 0:  # swap two adjacent characters
+        return text[:position] + text[position + 1] + text[position] + text[position + 2:]
+    if style == 1:  # drop a character
+        return text[:position] + text[position + 1:]
+    return text[:position] + text[position] + text[position:]  # double a character
+
+
 def make_near_duplicate(row: dict, rng: random.Random) -> dict:
     """A second row for the same patient_id that is NOT byte-identical.
 
@@ -228,16 +255,9 @@ def make_near_duplicate(row: dict, rng: random.Random) -> dict:
     dup = dict(row)
 
     # Re-render the date of birth in a different format, if it is present.
-    if dup["date_of_birth"] not in MISSING_TOKENS:
-        parsed = None
-        for fmt in DOB_FORMATS:
-            try:
-                parsed = pd.to_datetime(dup["date_of_birth"], format=fmt)
-                break
-            except (ValueError, TypeError):
-                continue
-        if parsed is not None:
-            dup["date_of_birth"] = parsed.strftime(rng.choice(DOB_FORMATS))
+    parsed = parse_any_dob(dup["date_of_birth"])
+    if parsed is not None:
+        dup["date_of_birth"] = parsed.strftime(rng.choice(DOB_FORMATS))
 
     # Different casing / whitespace on the free-text fields.
     if dup["last_name"] not in MISSING_TOKENS:
@@ -255,11 +275,53 @@ def make_near_duplicate(row: dict, rng: random.Random) -> dict:
     return dup
 
 
+def make_reregistration(row: dict, new_id: str, rng: random.Random) -> dict:
+    """The same human, registered again under a BRAND NEW patient_id.
+
+    This is the duplicate that key-based deduplication can never catch, because
+    the key itself differs. It happens when someone re-registers at a different
+    site, or arrives via a second source system that mints its own IDs.
+
+    The name picks up a typo and the date of birth is sometimes day/month
+    transposed -- so matching has to tolerate both without becoming so loose
+    that it merges two genuinely different patients.
+    """
+    dup = dict(row)
+    dup["patient_id"] = new_id
+
+    for name_field in ("first_name", "last_name"):
+        if dup[name_field] not in MISSING_TOKENS and rng.random() < 0.6:
+            dup[name_field] = introduce_typo(dup[name_field], rng)
+
+    parsed = parse_any_dob(dup["date_of_birth"])
+    if parsed is not None:
+        # A third of the time the day and month get swapped, which is exactly
+        # what the date-convention ambiguity produces upstream.
+        if rng.random() < 0.33 and parsed.day <= 12:
+            parsed = parsed.replace(month=parsed.day, day=parsed.month)
+        dup["date_of_birth"] = parsed.strftime(rng.choice(DOB_FORMATS))
+
+    # A fresh registration means fresh contact details and a new episode of care.
+    dup["email"] = rng.choice(MISSING_TOKENS)
+    dup["phone"] = format_phone(
+        "".join(str(rng.randint(0, 9)) for _ in range(10)), rng
+    )
+    admission = date.today() - timedelta(days=rng.randint(1, 400))
+    dup["admission_date"] = admission.strftime(rng.choice(ADMISSION_FORMATS))
+    dup["discharge_date"] = (
+        admission + timedelta(days=rng.randint(0, 10))
+    ).strftime(rng.choice(ADMISSION_FORMATS))
+    dup["department"] = rng.choice(DEPARTMENT_VARIANTS[rng.choice(list(DEPARTMENT_VARIANTS))])
+
+    return dup
+
+
 def generate(n_rows: int, seed: int = SEED) -> pd.DataFrame:
     rng = random.Random(seed)
 
     n_duplicates = int(n_rows * DUPLICATE_SHARE)
-    n_unique = n_rows - n_duplicates
+    n_reregistrations = int(n_rows * REREGISTRATION_SHARE)
+    n_unique = n_rows - n_duplicates - n_reregistrations
 
     rows = [build_patient(f"P{1000 + i}", rng) for i in range(n_unique)]
 
@@ -268,6 +330,12 @@ def generate(n_rows: int, seed: int = SEED) -> pd.DataFrame:
     for _ in range(n_duplicates):
         source = rng.choice(rows[:n_unique])
         rows.append(dict(source) if rng.random() < 0.5 else make_near_duplicate(source, rng))
+
+    # Re-registrations get their own IDs, continuing the sequence so they look
+    # like ordinary new patients. Only name and date of birth betray them.
+    for offset in range(n_reregistrations):
+        source = rng.choice(rows[:n_unique])
+        rows.append(make_reregistration(source, f"P{1000 + n_unique + offset}", rng))
 
     rng.shuffle(rows)  # duplicates should not all sit at the bottom of the file
     return pd.DataFrame(rows)

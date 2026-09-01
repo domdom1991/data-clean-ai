@@ -30,6 +30,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import fuzzy_match
+
 # --------------------------------------------------------------------------
 # Configuration
 # --------------------------------------------------------------------------
@@ -533,6 +535,11 @@ def validate(df: pd.DataFrame, report: dict) -> pd.DataFrame:
         # nonsensical together -- a check on a single column cannot see this.
         "bmi_implausible": df["bmi"].notna() & ((df["bmi"] < 10) | (df["bmi"] > 60)),
         "no_contact_details": df["email"].isna() & df["phone"].isna(),
+        # Informational by design: a fuzzy match is a hypothesis for a human to
+        # confirm, not grounds for invalidating a record.
+        "possible_duplicate": df.get(
+            "possible_duplicate_of", pd.Series([pd.NA] * len(df), index=df.index)
+        ).notna(),
     }
     checks = {name: mask.fillna(False).astype(bool) for name, mask in checks.items()}
 
@@ -602,6 +609,21 @@ def print_report(report: dict) -> None:
         print(f"  {col:<16} implausible values nulled: {s['implausible_quarantined']}"
               f"   (kept range {s['plausible_range']})")
 
+    fuzzy = report.get("fuzzy_duplicates", {})
+    if fuzzy.get("enabled"):
+        header("Fuzzy duplicates (name + date of birth)")
+        print(f"  name threshold          : {fuzzy['threshold']}"
+              f"  (strict {fuzzy['strict_threshold']} when dates differ)")
+        print(f"  pairs compared          : {fuzzy['pairs_compared']}"
+              f"  across {fuzzy['blocks_built']} blocks")
+        print(f"  candidate pairs         : {fuzzy['candidate_pairs']}"
+              f"  involving {fuzzy['records_involved']} records")
+        for level in ("high", "medium", "low"):
+            if level in fuzzy["by_confidence"]:
+                print(f"    {level:<20} {fuzzy['by_confidence'][level]}")
+        print(f"  ineligible (no dob)     : {fuzzy['skipped_no_dob']}")
+        print("  -> flagged for review, never merged automatically")
+
     header("Validation flags")
     for name, count in report["validation"].items():
         print(f"  {name:<28} {count}")
@@ -614,7 +636,8 @@ def print_report(report: dict) -> None:
 # --------------------------------------------------------------------------
 
 def clean(df: pd.DataFrame, convention: str, as_of: pd.Timestamp,
-          key: str = "patient_id") -> tuple[pd.DataFrame, dict]:
+          key: str = "patient_id", fuzzy_threshold: float | None = None
+          ) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
     report: dict = {"dates": {}, "generated_at": datetime.now().isoformat(timespec="seconds")}
     report["volume"] = {"rows_in": len(df), "columns_in": len(df.columns)}
 
@@ -634,6 +657,19 @@ def clean(df: pd.DataFrame, convention: str, as_of: pd.Timestamp,
     df = add_age(df, as_of)
     df = impute(df, report)
     df = add_derived_columns(df)
+
+    # Runs after names and dates are standardised, so the matcher compares
+    # cleaned values rather than raw formatting noise.
+    if fuzzy_threshold is None:
+        fuzzy_pairs = pd.DataFrame()
+        report["fuzzy_duplicates"] = {"enabled": False}
+    else:
+        fuzzy_pairs, fuzzy_stats = fuzzy_match.find_fuzzy_duplicates(
+            df, key=key, threshold=fuzzy_threshold
+        )
+        df = fuzzy_match.annotate(df, fuzzy_pairs, key=key)
+        report["fuzzy_duplicates"] = {"enabled": True, **fuzzy_stats}
+
     df = validate(df, report)
 
     report["missing_after"] = {
@@ -641,7 +677,7 @@ def clean(df: pd.DataFrame, convention: str, as_of: pd.Timestamp,
     }
     report["volume"]["rows_out"] = len(df)
     report["volume"]["columns_out"] = len(df.columns)
-    return df, report
+    return df, report, fuzzy_pairs
 
 
 def write_output(df: pd.DataFrame, path: Path) -> None:
@@ -671,6 +707,13 @@ def main() -> None:
                         help="Reference date (YYYY-MM-DD) for age. Defaults to today.")
     parser.add_argument("--valid-only", action="store_true",
                         help="Write only rows that passed every blocking validation check.")
+    parser.add_argument("--fuzzy-threshold", type=float, default=fuzzy_match.DEFAULT_THRESHOLD,
+                        help="Name similarity required to call two records a possible "
+                             "duplicate (0-1). Lower catches more and costs more review.")
+    parser.add_argument("--no-fuzzy", action="store_true",
+                        help="Skip fuzzy duplicate detection entirely.")
+    parser.add_argument("--fuzzy-report", default=None,
+                        help="Optional CSV path for the candidate duplicate pairs.")
     args = parser.parse_args()
 
     in_path = Path(args.input)
@@ -680,7 +723,10 @@ def main() -> None:
     as_of = pd.Timestamp(args.as_of) if args.as_of else pd.Timestamp.today().normalize()
 
     raw = load_raw(in_path)
-    cleaned, report = clean(raw, args.date_convention, as_of, args.key)
+    cleaned, report, fuzzy_pairs = clean(
+        raw, args.date_convention, as_of, args.key,
+        fuzzy_threshold=None if args.no_fuzzy else args.fuzzy_threshold,
+    )
 
     if args.valid_only:
         kept = cleaned[cleaned["is_valid"]]
@@ -698,6 +744,13 @@ def main() -> None:
         report_path.parent.mkdir(parents=True, exist_ok=True)
         report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
         print(f"Quality report written to: {report_path}")
+
+    if args.fuzzy_report and not args.no_fuzzy:
+        pairs_path = Path(args.fuzzy_report)
+        pairs_path.parent.mkdir(parents=True, exist_ok=True)
+        fuzzy_pairs.to_csv(pairs_path, index=False)
+        print(f"Duplicate review queue written to: {pairs_path}  "
+              f"({len(fuzzy_pairs)} pairs)")
 
 
 if __name__ == "__main__":

@@ -40,6 +40,9 @@ Useful flags:
 | `--date-convention auto\|dayfirst\|monthfirst` | How to read ambiguous slash dates |
 | `--as-of 2026-01-01` | Reference date for age, so results are reproducible |
 | `--valid-only` | Write only rows that pass every blocking check |
+| `--fuzzy-threshold 0.88` | Name similarity needed to propose a duplicate pair |
+| `--fuzzy-report PATH` | Write the duplicate review queue to CSV |
+| `--no-fuzzy` | Skip fuzzy duplicate detection |
 
 ---
 
@@ -138,6 +141,9 @@ This is the bit most people skip. `drop_duplicates()` on its own keeps whichever
 happened to be first in the file — an arbitrary decision dressed up as a default. Naming
 a survivorship rule means the result is reproducible and defensible.
 
+**Pass 3 — same person, different `patient_id`.** See below; this one needs fuzzy
+matching, and it is handled separately because it cannot be resolved automatically.
+
 ### 5. Map categories to a controlled vocabulary
 
 Lower-case, strip, look up in a mapping dict. Anything not in the vocabulary becomes
@@ -209,7 +215,49 @@ idea behind `bp_inverted` and `discharge_before_admission`.
 certainly two swapped columns, but silently repairing a clinical value on a guess is not
 a call a pipeline should make on its own.
 
-### 10. Report
+### 10. Fuzzy duplicate detection (`fuzzy_match.py`)
+
+Passes 1 and 2 both rely on `patient_id`. Neither can see the same human registered
+twice under *two different IDs* — someone re-registering at another site, or arriving via
+a second source system that mints its own keys. That record has a new key, a typo in the
+name, and sometimes a transposed date of birth. It is the duplicate an exact match will
+never catch and a human always spots.
+
+**Candidates are flagged, never merged.** This is the important decision. Merging two
+records that turn out to be different people is a clinical safety incident; missing a
+duplicate is an inconvenience. Those costs are not symmetric, so the tool produces a
+review queue (`--fuzzy-report`) and a `possible_duplicate_of` column, and stops there.
+`possible_duplicate` is an informational flag — a hypothesis for a human to confirm is
+not grounds for invalidating a record.
+
+**Comparison is blocked, not all-pairs.** Comparing every record against every other is
+O(n²) — fine for 400 rows, ruinous at a million. Records are bucketed by date of birth
+and by (birth year + last-name prefix), and only records sharing a bucket are compared.
+Two keys, because either alone has a blind spot: blocking on date of birth misses a
+mistyped date, blocking on name misses a mistyped name. On the sample this turns 66,000
+possible pairs into **35 actual comparisons**.
+
+**Weaker date evidence demands stronger name evidence.** An exact date of birth clears at
+the 0.88 default; a transposed or same-year date has to clear 0.95. Names are compared
+with `difflib` after accent/punctuation normalisation, and both name orderings are scored
+— "Ng Dominic" and "Dominic Ng" are the same person.
+
+On the sample data, against the generator's ground truth:
+
+```
+precision  7/7      every pair proposed was a genuine re-registration
+recall     7/8      one planted duplicate missed
+```
+
+The miss is worth knowing rather than hiding. `P1344 "Lucia Wong"` and
+`P1356 "Ulcia Wogn"` both have **no date of birth**, so they never entered a block, and
+their name score is 0.800 against a 0.88 threshold. Matching on name alone would have
+caught it — and would also have proposed merging every unrelated pair who happen to share
+a common name. Given the asymmetry above, that is the right trade. The report states how
+many records were ineligible for exactly this reason, because a zero-match result is
+meaningless if half the file could not be compared.
+
+### 11. Report
 
 Every run prints a summary — rows in/out, duplicates removed by type, dates parsed per
 column and under which convention, missing before → after per column, values quarantined,
@@ -230,7 +278,7 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-39 tests covering the two stages where a bug would be invisible in the output:
+75 tests covering the stages where a bug would be invisible in the output:
 
 - **`tests/test_date_parsing.py`** — every source format resolves to the same date;
   mixed formats in one column all parse; garbage becomes `NaT` instead of raising;
@@ -241,15 +289,22 @@ pytest
   wins; completeness beats recency; recency breaks a completeness tie; a record with no
   admission date sorts last rather than winning by accident; the rule degrades gracefully
   when there is no admission date column at all; and the report's row counts reconcile.
+- **`tests/test_fuzzy_match.py`** — name normalisation across accents, punctuation and
+  casing; swapped given/family names still matching; two different people who share a
+  birthday *not* matching; the strict threshold rejecting a name pair that an exact date
+  would have accepted; records without a date of birth being excluded and counted; and
+  blocking actually reducing the comparison count.
 
 The ambiguous-date test is the one worth reading. `04/12/1985` parses cleanly under both
 conventions, so no error and no null ever tells you it went wrong — the test asserts that
 day-first gives 4 December and month-first gives 12 April, pinning down which reading the
 pipeline commits to.
 
-These were checked by mutation: reversing the survivorship sort order fails 6 tests,
-flipping the no-evidence default fails 1, and disabling the century correction fails 4.
-A test suite that cannot fail is not evidence of anything.
+These were checked by mutation. Reversing the survivorship sort order fails 6 tests;
+flipping the no-evidence date default fails 1; disabling the century correction fails 4;
+ignoring the fuzzy matcher's strict threshold, removing its name-swap tolerance, treating
+a same-year date as exact evidence, and dropping accent normalisation each fail their own
+test. A test suite that cannot fail is not evidence of anything.
 
 ### CI
 
@@ -290,7 +345,12 @@ SQL/dbt and keep this shape: staging (types and nulls) → deduplication with an
 survivorship rule → conformed dimensions → tested marts. The `dq_flags` column is the same
 idea as a dbt test, just carried in the data.
 
-**"What would you add next?"** Schema validation with Pandera or Great Expectations, fuzzy
-matching on name plus date of birth to catch duplicates where the `patient_id` itself
-differs, and tracking the JSON report over time so source-system drift shows up as a trend
-rather than a surprise.
+**"How do you catch duplicates when the ID itself is different?"** Fuzzy matching on name
+plus date of birth, blocked to stay tractable — and flagged rather than merged, because
+the cost of wrongly merging two patients is not symmetric with the cost of missing a
+duplicate. See step 10; it scores 7/7 precision and 7/8 recall on the sample.
+
+**"What would you add next?"** Schema validation with Pandera or Great Expectations,
+phonetic blocking (Soundex/Metaphone) so the fuzzy matcher can catch records missing a
+date of birth, and tracking the JSON report over time so source-system drift shows up as a
+trend rather than a surprise.

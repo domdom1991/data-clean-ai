@@ -1,401 +1,401 @@
 patient_id,first_name,last_name,gender,date_of_birth,blood_type,department,admission_date,discharge_date,diagnosis_code,height_cm,weight_kg,systolic_bp,diastolic_bp,smoker,insurance_provider,total_charges,email,phone
-P1161,Sean,Tan,female,"August 02, 1942",AB-,emergency,2024-12-07 00:00:00,15-Dec-2024,e11.9,165.5,71.2,136,74,False,-,"$4,739.59",SEAN.TAN@EXAMPLE.COM,313-402-6650
-P1158,Sofia,Farouk,f,"September 02, 1937",B-,A&E,19/09/2024,2024-09-21, E78.5,199.6,65.7,122,75,no,Prudential,"5,032.55",sofia.farouk@example.com,N/A
-P1051,Lucia,Wong,Male,04-Jun-1950,B-,General Medicine,2026-01-14 00:00:00,2026-01-16 00:00:00,i10,169.3,53.3,145,80,True,Prudential,?,lucia.wong@example.com,0506413836
-P1308,Sofia,Novak,M ,1945-10-17,B+,Orthopaedics,2024-12-23 00:00:00,2024-12-26,s72.001a,154.3,68.3,146,84,n,Allianz,"$4,241.22", sofia.novak@example.com ,(344) 096-6177
-P1129,Priya,Abadi,MALE,22/12/63,o+,Oncology,09/06/2025,10/06/2025, L40.0,173.5,83.0,158,71,No,Medicare,USD 7190.32,PRIYA.ABADI@EXAMPLE.COM,801-561-9318
-P1238,Aisha,Wong, F,1988-08-16,b+,,2025-08-01 00:00:00,2025-08-04 00:00:00, N39.0,182.8,127.5,106,   ,no,Aetna,"1,718.92",aisha.wong@example.com,8222618962
-P1182,Rajesh,Mwangi,female,13-Jan-1985,AB +,oncology,2024-12-04,2024-12-09 00:00:00,I10,unknown,71.5,null,88,Y,Great Eastern,2966.32,rajesh.mwangi@example.com,371-009-4388
-P1226,Sofia,Nguyen,M ,"May 18, 1939",AB+,N/A,2024-05-11 00:00:00,12-May-2024,a09,197.7,90.3,149,80,n,Medicare,"$4,702.59",sofia.nguyen@example.com,(176) 927-4381
-P1115,Rajesh,Larsen,M,19881024,B-,General Medicine,2025-01-07,21-Jan-2025,E78.5,149.1,60.8,128,86,1,Prudential,USD 6914.91,rajesh.larsen@example.com,2754801571
-P1275,Priya,Petrov,M ,29/04/1966,B+,General Medicine,21/05/2026,21/05/2026,S72.001A,195.4,59.7,111,75,False,Etiqa,6902.96,n/a,(760) 250-8261
-P1322,Hana,Lim,female,-,A+,Emergency,2024-09-27,02/10/2024,R07.9,125.2,28.3,102,56,FALSE,Aetna,7866.81, hana.lim@example.com ,327-980-5950
-P1202,Victor,Rossi,M ,03.04.1938,B+,CARDIOLOGY,10/04/2026,-, K21.9,157.4,59.5,NA,91,No,   ,1802.45,?,3503446945
-P1262,Daniel,Adeyemi,f,21/11/1934,O+,paediatrics,2026-06-24 00:00:00,N/A,I10,unknown,107.1,125,94,N,unknown,USD 6332.67,daniel.adeyemi@example.com,749.885.5829
-P1239,Tomas,unknown, F,11-May-1999,O-,Emergency,2025-06-02 00:00:00,02/06/2025,E78.5,174.5,108.1,119,58,n,AIA,   ,TOMAS.SILVA@EXAMPLE.COM,NA
-P1291,Hana,Rossi,MALE,18/12/2020,O +,neuro,09-Dec-2024,2024-12-11, J45.909,86.2,n/a,106,52,null,Great Eastern,USD 1477.90,HANA.ROSSI@EXAMPLE.COM,957-900-1248
-P1321,Farah,Haddad,F,"May 15, 1986",ab+, Cardiology,2024-08-27 00:00:00,2024-09-26 00:00:00,A09,175.3,105.9,,60,no,unknown,USD 4130.51, farah.haddad@example.com ,(913) 111-7861
-P1179,Owen,Silva,,2003-05-28,AB+, Cardiology,2025-05-25 00:00:00,2025-05-26 00:00:00,l40.0,165.8,63.8,122,61,0,AIA,,OWEN.SILVA@EXAMPLE.COM,(215) 632-1358
-P1355,Marcus,Farouk,null,23.11.1970,O-,NEURO,10/03/2026,15/03/2026,i10,190.1,75.9,143,72,No,   ,USD 6651.22,marcus.farouk@example.com,(734) 493-0537
-P1032,Victor,Okafor, F,30/07/59,B-,N/A,NULL,01-Oct-2025, I10,182.4,82.1,136,64,False,Allianz,USD 5123.43, victor.okafor@example.com ,6527858549
-P1304,Rajesh,Tan,M,   ,AB +,General Medicine,2025-01-06 00:00:00,08-Jan-2025,i10,144.1,57.6,158,85,Y,Aetna,7949.37, rajesh.tan@example.com ,4166123740
-P1144,Elena,Haddad, F,24-Sep-1948,ab-,Orthopaedics,04/07/2024,2024-07-18 00:00:00,m54.5,157.7,70.0,137,79,-,Prudential,USD 8932.72, elena.haddad@example.com ,412-182-0970
-P1139,Elena,Novak,FEMALE,19830311,-,GENMED,18-Jun-2026,2026-06-23,i10,166.3,53.3,103,64,True,Aetna,"1,776.61",N/A,9392845679
-P1278,null,nguyen,FEMALE,1940-02-14,A+,ONCOLOGY,10-Nov-2025,2025-11-12,E78.5,171.7,72.0,146,95,yes,Allianz,6888.05,,
-P1074,Grace,Haddad,m,1998-09-17,O+,cardiology,21/02/2026,22-Feb-2026,M54.5,null,46.1,104,61,0,Allianz,4576.84,GRACE.HADDAD@EXAMPLE.COM,298-425-7991
-P1249,Sofia,Haddad,F,23/12/13,AB +,Cardiology,2025-07-20,25-Jul-2025, K21.9,139.0,40.5,108,69,No,Aetna,"1,854.05",sofia.haddad@example.com,8825562965
-P1298,Daniel,Delgado,M,11-Jun-1981,B-,Paediatrics,18/10/2024,2024-11-01,J45.909,154.8,64.0,113,73,TRUE,Aetna,"10,185.59", daniel.delgado@example.com ,(585) 238-6003
-P1124,Clara,Adeyemi,m,n/a,ab-,Pediatrics,26-Aug-2026,2026-08-27 00:00:00,J45.909,111.7,19.7,93,69,0,Allianz,n/a,n/a,074.276.1707
-P1097,Sean,Delgado,M ,1946-01-25,O-, Cardiology,2026-07-11,null,n39.0,144.7,38.0,139,84,n,Etiqa,4733.94, sean.delgado@example.com ,5577017157
-P1352,Marcus,Adeyemi,Female,1933-04-22,?,Cardio,2024-05-28,2024-05-30 00:00:00, L40.0,196.4,101.5,157,94,False,Medicare,unknown,marcus.adeyemi@example.com,000.305.6619
-P1288,Nadia,Silva,male,26/05/1986,ab+,Neurology,2024-07-24,2024-07-26 00:00:00, K21.9,182.0,43.3,111,81,Yes,Aetna,4402.49,nadia.silva@example.com,210-217-9821
-P1151,Nadia,Petrov,N/A,19810522,b+,EMERGENCY,2025-12-26,28/12/2025, M54.5,170.0,85.7,114,72,1,BlueCross,"$3,600.53", nadia.petrov@example.com ,-
-P1190,Owen,Larsen,male,"March 18, 2011",B-,Ortho,13/02/2025,2025-02-15,e78.5,162.6,55.5,119,NA,No,Prudential,"$5,069.51",NA,010-272-4055
-P1143,Owen,Costa,f,1941-10-11,AB +,NEURO,2025-06-15 00:00:00,2025-06-17 00:00:00, J44.9,153.3,63.4,124,77,null,Etiqa,5301.91,owen.costa@example.com,0782633373
-P1333,Ines,Nguyen,f,17/11/2013,b-,Gen Med,19/10/2025,20-Oct-2025, J44.9,147.9,25.9,111,68,n,Allianz,USD 6774.51,ines.nguyen@example.com,NULL
-P1328,Rajesh,Larsen,F,07/06/85,A+,Pediatrics,18-Apr-2026,23/04/2026, E78.5,161.5,49.2,124,72,no,Medicare,1711.67,rajesh.larsen@example.com,706.362.1986
-P1126,Beatriz,Lim,MALE,"August 31, 2009",b+,Onc ,10-Aug-2026,18/08/2026,R07.9,NULL,65.4,102,80,False,Aetna,"$3,680.39",BEATRIZ.LIM@EXAMPLE.COM,(742) 243-8649
-P1279,Diego,Novak,m,"July 08, 1992",a+,general medicine,25/04/2026,2026-04-25, R07.9,170.9,74.0,119,76,False,Etiqa,-, diego.novak@example.com ,(258) 631-4417
-P1078,Mei Ling,Lim,male,19860216,A-,Peds,07/10/2024,2024-10-12 00:00:00,A09,171.5,60.6,107,81,Yes,Aetna,"$1,975.14",MEI.LIM@EXAMPLE.COM,-
-P1107,Farah,Rossi,Male,03/03/56,a-,oncology,14/08/2025,15-Aug-2025,i25.10,167.4,67.7,-,85,N,BlueCross,"3,932.64",farah.rossi@example.com,(600) 780-6867
-P1003,Daniel,Bergstrom,MALE,"July 29, 2013",b-,Cardiology,2026-07-30 00:00:00,2026-08-07,g43.909,145.3,41.2,110,62,No,?,"$2,623.49",DANIEL.BERGSTROM@EXAMPLE.COM,(326) 773-6026
-P1125,Beatriz,Mensah,f,19990208,A +,Pediatrics,2026-04-27,2026-04-29, G43.909,unknown,85.6,123,76,No,Great Eastern,473.30,beatriz.mensah@example.com,null
-P1178,Owen,Larsen,n/a,03/12/76,o+,Pediatrics,18/05/2024,2024-05-20 00:00:00, E78.5,,88.9,126,82,no,AIA,"6,117.71",owen.larsen@example.com,(491) 966-5533
-P1243,Owen,Adeyemi,MALE,01/09/1994,AB+,Pediatrics,2026-03-30,02-Apr-2026,m54.5,154.1,62.7,120,66,no,Medicare,5135.22,OWEN.ADEYEMI@EXAMPLE.COM,8455259710
-P1175,Yusuf,Tan,m,26-Aug-1973,O +,A&E,2024-04-11,, S72.001A,160.9,68.4,139,70,no,BlueCross,5365.66,YUSUF.TAN@EXAMPLE.COM,0962626582
-P1300,Clara,Mensah,MALE,20191211,o+,Oncology,2025-05-31 00:00:00,2025-06-01,N39.0,93.4,18.9,88,61,Yes,Medicare,"7,495.49",clara.mensah@example.com,093.556.1039
-P1318,Hana,Mensah,FEMALE,30.11.2000,null,Orthopedics,19/04/2025,2025-04-20 00:00:00,K21.9,152.6,-,128,76,n,Allianz,USD 3588.05,   ,001-635-6407
-P1015,Kwame,Petrov,Male,19640907,o-,GENMED,16-Jun-2024,19-Jun-2024, N39.0,152.6,63.5,117,?,TRUE,AIA,7497.77, kwame.petrov@example.com ,(026) 217-4596
-P1100,Nadia,Okonkwo, F,01/03/85,AB-,Neuro ,2026-02-22,2026-02-24,e78.5,180.9,84.3,116,58,No,Aetna,USD 7537.87,nadia.okonkwo@example.com,442-094-9407
-P1187,Lucia,Silva, F,1942-06-03,O-,PAEDS,01-Jul-2025,09/07/2025,a09,142.7,56.9,145,88,no,Etiqa,"$5,969.46", lucia.silva@example.com ,679.298.8425
-P1167,Aisha,Tan,F,2007-03-22,AB+,ER,2025-02-20 00:00:00,2025-02-21, A09,152.7,37.3,106,79,N,Etiqa,USD 8660.39, aisha.tan@example.com ,7541022526
-P1098,Yusuf,Nguyen,FEMALE,"July 13, 1934",o-,general medicine,2026-05-18,20-May-2026,e11.9,166.8,unknown,130,80,No,BlueCross,"$1,824.02",yusuf.nguyen@example.com,9022784699
-P1160,Mei Ling,Kumar,NA,07/08/82,O-,Gen Med,2026-05-28,29/05/2026, R07.9,185.0,97.2,n/a,69,Yes,BlueCross,"$5,483.25", mei.kumar@example.com ,8144744309
-P1314,Marcus,Mwangi,M ,29/01/80,O-,General Medicine,14-Dec-2025,2025-12-28 00:00:00, G43.909,176.2,75.8,97,81,FALSE,Great Eastern,USD 629.50,marcus.mwangi@example.com,7147246301
-P1019,Priya,Kumar,m,1988-07-01,-,Onco,2025-01-08,2025-01-09 00:00:00,L40.0,0,84.4,?,83,False,Great Eastern,8668.15,priya.kumar@example.com,711.592.1249
-P1255,Jonas,Mwangi,M ,19550208,o-,Gen Med,17-Nov-2025,2025-11-19, G43.909,172.6,87.6,102,76,no,Prudential,USD 7238.71, jonas.mwangi@example.com ,644.963.9243
-P1335,Jonas,Chen, F,"December 26, 1997",AB-,Orthopaedics,2024-08-27 00:00:00,04-Sep-2024, N39.0,NULL,94.1,111,75,No,N/A,"8,075.47", jonas.chen@example.com ,084.639.7561
-P1112,Aisha,Fischer,F,13-Oct-1963,O +,Orthopedics,06-Sep-2025,08-Sep-2025,a09,154.7,66.2,134,96,N,BlueCross,null,aisha.fischer@example.com,4787300244
-P1026,Tomas,Petrov,male,26/08/43,B +,Ortho,2026-06-28,2026-06-29 00:00:00,N/A,180.3,70.6,152,83,True,?,USD 2164.60, tomas.petrov@example.com ,772-217-0430
-P1134,Elena,Lim, F,19400526,n/a,Neurology,2024-04-29 00:00:00,2024-05-04,m54.5,153.3,47.7,120,81,FALSE,Aetna,"$7,282.06",ELENA.LIM@EXAMPLE.COM,204.339.7189
-P1348,Talia,Petrov,MALE,07.09.1999,A-,neuro,01/03/2026,01/03/2026, I25.10,-,86.8,n/a,71,NA,Allianz,"3,612.28",talia.petrov@example.com,(105) 052-4383
-P1057,Arjun,Abadi,MALE,10-Feb-1998,a-,paediatrics,07-Jul-2026,unknown,L40.0,163.6,58.2,N/A,62,no,BlueCross,"1,203.64",ARJUN.ABADI@EXAMPLE.COM,(868) 793-7416
-P1141,Arjun,Okafor,f,27.07.1960,B-,oncology,n/a,21-Aug-2026,K21.9,165.5,76.5,131,77,no,BlueCross,"$5,854.32",arjun.okafor@example.com,(233) 865-5963
-P1301,Rajesh,Bergstrom,FEMALE,"April 04, 1944",AB+,GENMED,02-May-2026,03/05/2026, A09,171.3,87.3,166,71,Yes,null,"$3,205.14",rajesh.bergstrom@example.com,203.403.0109
-P1093,Grace,Okafor,n/a,1943-05-18,,Cardio,2025-04-09 00:00:00,-, A09,142.5,50.7,135,86,FALSE,Allianz,USD 2912.03,null,(556) 168-1472
-P1250,Kwame,Abadi,female,29/06/52,B +,Onc ,28-Aug-2025,2025-09-11, N39.0,175.2,84.3,154,96,False,Medicare,USD 4594.27, kwame.abadi@example.com ,8686395613
-P1247,Aisha,Okonkwo,Male,16-Mar-2011,AB-,ONCOLOGY,13-Jan-2025,21-Jan-2025,F32.9,-170,NA,105,61,False,Prudential,USD 5099.65,NA,943-804-0325
-P1039,Tomas,Mensah,FEMALE,19990627,ab-,Cardio,2026-08-15,2026-08-16,g43.909,164.9,85.7,104,64,False,Prudential,   ,TOMAS.MENSAH@EXAMPLE.COM,-
-P1076,Sofia,Petrov, F,28/02/80,o-,Peds,07/12/2025,15-Dec-2025, K21.9,158.7,69.8,-,87,No,Allianz,5640.93,SOFIA.PETROV@EXAMPLE.COM,(519) 066-9849
-P1104,Nadia,Tan, F,27/05/2009,O+,ORTHO,22-Aug-2025,2025-08-25 00:00:00, R07.9,172.4,51.1,NULL,,?,Aetna,"3,034.55",NADIA.TAN@EXAMPLE.COM,(102) 707-9032
-P1027,Arjun,CHEN, F,23/09/2040,O +,Ortho,15/12/2025,2025-12-15 00:00:00,i25.10,179.4,74.1,126,83,0,NULL,USD 3579.98,ARJUN.CHEN@EXAMPLE.COM,n/a
-P1055,Noah,Rossi,m,"August 11, 1967",O +,Gen Med,2026-07-02 00:00:00,02/07/2026,e11.9,156.4,39.0,   ,79,y,Great Eastern,USD 50.00, noah.rossi@example.com ,391-725-1355
-P1347,Mei Ling,Rossi,M,05.06.1998,O +,Cardio,27-May-2026,2026-06-10 00:00:00, F32.9,161.6,-,117,69,0,Aetna,USD 1088.43,mei.rossi@example.com,664.641.9623
-P1240,Owen,Delgado, F,30-May-2018,b-,Ortho,2025-11-25 00:00:00,2025-11-30 00:00:00,f32.9,108.1,16.6,119,69,No,Medicare,n/a, owen.delgado@example.com ,
-P1291,Hana,Rossi,MALE,18/12/2020,O +,neuro,09-Dec-2024,2024-12-11, J45.909,86.2,n/a,106,52,null,Great Eastern,USD 1477.90,HANA.ROSSI@EXAMPLE.COM,957-900-1248
-P1272,Noah,Tan,M ,31/03/84,O+,A&E,2025-12-19 00:00:00,24/12/2025,N39.0,166.0,49.5,125,77,Y,Etiqa,unknown, noah.tan@example.com ,078.436.1424
-P1173,Clara,Lim, F,"June 22, 2014",B+,NEURO,2024-05-26,28-May-2024,J45.909,138.3,27.6,112,82,True,BlueCross,5943.89, clara.lim@example.com ,9319925502
-P1305,Marcus,Delgado, F,12/04/1947,A-,Onco,2026-02-25,2026-02-26,l40.0,175.2,71.4,120,75,y,AIA,3038.01,marcus.delgado@example.com,1708894801
-P1089,Kwame,Mwangi,M,19390101,B-,ONCOLOGY,2024-12-02,07-Dec-2024,e78.5,153.9,NULL,152,93,No,Aetna,?,KWAME.MWANGI@EXAMPLE.COM,762.055.5438
-P1184,Yusuf,Okonkwo,null,1973-12-02,AB+,Paediatrics,11/05/2026,2026-05-25 00:00:00,I25.10,151.3,58.5,115,76,N,Prudential,"$3,252.93",NULL,3666144942
-P1358,Farah,Mensah,m,24/05/12,ab+,Peds,2024-05-14,15/05/2024,G43.909,147.4,37.3,84,54,No,Aetna,$50.00, farah.mensah@example.com ,(900) 992-1779
-P1330,Tomas,Nguyen,null,13-Feb-1975,A-,Neuro ,2025-05-17 00:00:00,16-Jun-2025,l40.0,172.1,88.6,139,78,False,Prudential,"4,898.37",tomas.nguyen@example.com,NULL
-P1123,Owen,Larsen,Male,"December 28, 1978",O-,cardiology,2026-04-01 00:00:00,01/04/2026, M54.5,168.7,49.3,146,84,N,unknown,"6,983.61", owen.larsen@example.com ,(636) 694-1180
-P1332,Talia,Rossi, F,unknown,O +,neurology,2026-04-30,30-Apr-2026,g43.909,166.5,55.7,127,62,FALSE,Medicare,"3,184.74", talia.rossi@example.com ,n/a
-P1234,Jonas,Chen,male,-,B-,Orthopaedics,2024-05-10,2024-05-18 00:00:00,N39.0,127.4,22.7,96,n/a,FALSE,Etiqa,2593.24,jonas.chen@example.com,4346066643
-P1327,Sofia,n/a,M ,1980-06-17,AB-,Oncology,02/06/2026,03/06/2026, E78.5,163.0,57.0,121,74,no,Great Eastern,"5,541.26",SOFIA.TAN@EXAMPLE.COM,0646300593
-P1191,Hana,Silva,male,2011-11-21,AB +,neuro,2026-06-14,15/06/2026, M54.5,153.6,33.3,102,64,n,Prudential,1767.23,,-
-P1209,Diego,Rossi,FEMALE,1949-04-14,O-,Cardio,-,31-Mar-2026, N39.0,169.4,53.0,151,103,0,Aetna,USD 5623.91,diego.rossi@example.com,6861205943
-P1222,Owen,Haddad,F,06/12/87,a-,ER,2026-05-31 00:00:00,05/06/2026,?,999,75.2,129,NA,n,Etiqa,2768.09,OWEN.HADDAD@EXAMPLE.COM,282.251.2073
-P1090,Arjun,Okafor,f,25.05.1975,o+,paediatrics,13/01/2026,14/01/2026, A09,180.8,?,134,79,no,Allianz,USD 1255.84,arjun.okafor@example.com,647.423.1220
-P1254,Sofia,Delgado,m,12/12/81,B+,orthopaedics,02-Apr-2024,NULL, I25.10,NULL,96.4,110,74,False,Aetna,5022.89,sofia.delgado@example.com,N/A
-P1273,Amara,Kumar,male,18/02/1944,B+,PAEDS,2025-09-09,2025-09-11 00:00:00,   ,178.9,null,145,93,False,Allianz,$445.92,?,695.073.2146
-P1145,Hakim,Adeyemi,FEMALE,20130210,a-,Orthopedics,23-May-2025,2025-05-23,A09,145.3,33.1,105,71,TRUE,Aetna,"$2,136.07",HAKIM.ADEYEMI@EXAMPLE.COM,7546926329
-P1018,Farah,Okonkwo,M,"August 18, 1978",O-,ORTHO,10-Jan-2025,12-Jan-2025, K21.9,161.2,56.7,114,64,NULL,Prudential,"4,368.13",NULL,NULL
-P1212,Jonas,Kumar,male,05.06.1988,a+,A&E,2024-07-27,26/08/2024, J44.9,161.8,74.7,108,83,N,Etiqa,USD 1726.83,JONAS.KUMAR@EXAMPLE.COM,5888636774
-P1295,Diego,Bergstrom,f,13-Aug-2012,A +,EMERGENCY,01-Jan-2026,02-Jan-2026, M54.5,153.2,51.5,60,190,y,Etiqa,76.09,DIEGO.BERGSTROM@EXAMPLE.COM,(825) 431-8328
-P1197,Liam,Novak,F,17/05/95,O +,Onc ,03/08/2026,2026-08-06, I25.10,179.7,115.3,n/a,64,yes,AIA,USD 3795.72,N/A,853-800-3296
-P1351,Owen,Reyes,MALE,   ,O +,Neuro ,2024-07-10 00:00:00,2024-07-12 00:00:00,K21.9,69.9,8.3,108,63,No,Prudential,3776.54,OWEN.REYES@EXAMPLE.COM,(369) 881-6498
-P1252,Arjun,Wong,MALE,20/10/2008,B +, Cardiology,2025-05-23,2025-05-25, L40.0,172.2,62.2,95,67,yes,Allianz,"$3,883.44", arjun.wong@example.com ,0626042359
-P1006,Ines,Delgado,Male,18/10/51,AB+,Peds,2024-06-01 00:00:00,2024-06-06,M54.5,167.2,60.8,   ,92,True,BlueCross,"$5,373.18",ines.delgado@example.com,406.088.3561
-P1204,Sean,null,Female,13-Mar-1963,A+,Emergency,2026-03-02,02-Mar-2026,i25.10,159.8,75.8,   ,65,y,Aetna,2992.48,sean.petrov@example.com,8105092221
-P1357,Owen,Mwangi,Female,19640527,A +,PAEDS,2026-07-09 00:00:00,2026-07-12 00:00:00,A09,176.1,54.7,116,75,n,Aetna,3022.30, owen.mwangi@example.com ,(575) 958-2819
-P1276,Rajesh,Petrov,MALE,14/07/84,B +,CARDIOLOGY,2024-09-14,2024-09-22 00:00:00, J44.9,166.7,87.6,99,67,Yes,AIA,9596.69, rajesh.petrov@example.com ,(208) 283-2308
-P1307,Hana,Wong,male,15.06.1985,A +,Onco,2025-09-24 00:00:00,2025-09-29 00:00:00,a09,160.1,51.8,137,56,no,Prudential,5349.46,HANA.WONG@EXAMPLE.COM,(089) 348-6883
-P1108,Aisha,Wong,Male,19520916,O-,Cardiology,2026-01-20 00:00:00,2026-01-21 00:00:00, L40.0,163.5,86.7,146,86,No,Medicare,$50.00, aisha.wong@example.com ,501-657-9055
-P1028,Jonas,Lim,Male,10/11/2019,b+,GENMED,20/12/2024,21-Dec-2024,j44.9,94.0,16.3,97,64,False,AIA,USD 4203.11,JONAS.LIM@EXAMPLE.COM,258.313.2370
-P1121,Rajesh,Rossi,   ,1987-04-03,b-,Paediatrics,23/11/2025,25-Nov-2025,A09,163.7,67.9,136,63,y,Great Eastern,4352.54, rajesh.rossi@example.com ,413.432.7560
-P1316,Daniel,Abadi,null,31-Jan-1976,B-,Neuro ,,01-Jul-2025,G43.909,169.4,55.1,-,80,no,AIA,"4,372.71",unknown,(851) 699-4970
-P1059,Beatriz,Wong,F,18/01/2008,b-,Ortho,2024-03-25,26/03/2024,s72.001a,184.1,77.7,130,67,n,BlueCross,"$1,938.79",BEATRIZ.WONG@EXAMPLE.COM,797.279.8552
-P1214,Hana,Adeyemi,M ,04-Oct-1952,a+, Cardiology,2024-03-27,2024-03-30 00:00:00, I25.10,157.3,65.4,140,58,N,Aetna,"$2,263.75", hana.adeyemi@example.com ,773.454.7574
-P1136,Jonas,Chen,Male,29/06/1995,o-,General Medicine,2024-06-22,23-Jun-2024,e78.5,194.8,82.6,110,68,FALSE,Medicare,USD 4284.37, jonas.chen@example.com ,743-553-7950
-P1176,Yusuf,Lim,M ,23/12/1978,O+,NEURO,26/04/2024,29-Apr-2024, S72.001A,175.0,74.8,133,79,TRUE,AIA,$50.00, yusuf.lim@example.com ,N/A
-P1050,Ines,Bergstrom,m,20150413,o-,Orthopaedics,2025-12-24,24-Dec-2025, J44.9,125.7,29.7,unknown,59,No,Allianz,USD 4455.68, ines.bergstrom@example.com ,1380003075
-P1181,Jonas,Lim,MALE,1944-06-28,b+,ONCOLOGY,2024-03-26,29/03/2024,A09,173.6,null,149,-,True,Prudential,5340.00,jonas.lim@example.com,(978) 610-3131
-P1306,Kwame,Silva,f,"September 11, 1944",a+,Neuro ,2025-09-01,04-Sep-2025,i25.10,167.4,61.3,173,79,Y,BlueCross,4963.89,,?
-P1156,Priya,Wong,Female,06.01.1955,B+,orthopaedics,24-May-2026,25/05/2026, M54.5,168.2,53.5,?,63,FALSE,Allianz,1412.67,priya.wong@example.com,6749261764
-P1325,Farah,Bergstrom,male,02/04/01,o-,Cardiology,08/12/2024,22/12/2024, L40.0,169.2,68.8,132,unknown,0,unknown,"$2,651.02", farah.bergstrom@example.com ,?
-P1186,Hana,   ,M,27/02/2016,O-,Cardio,2024-09-12,2024-09-13 00:00:00,S72.001A,127.6,34.8,94,64,False,AIA,"$3,023.63",HANA.NOVAK@EXAMPLE.COM,3288377441
-P1044,Yusuf,Wong,Female,1935-11-15,NULL,Paediatrics,30/03/2026,01/04/2026,I25.10,173.1,77.5,105,93,False,BlueCross,"1,686.39",YUSUF.WONG@EXAMPLE.COM,033.419.1825
-P1041,Nadia,Adeyemi,null,23/02/66,AB-,NEURO,03-Aug-2025,   , G43.909,184.5,null,159,75,False,BlueCross,"$1,175.53",nadia.adeyemi@example.com,N/A
-P1356,?,Kumar,Male,06-Aug-1989,O-,NEURO,29/12/2025,06/01/2026,I25.10,153.2,   ,130,90,True,Etiqa,8405.00, mei.kumar@example.com ,7629691433
-P1157,Victor,Reyes,male,17/03/34,o+,Cardio,13-Jan-2026,2026-01-13,E78.5,172.5,58.5,127,79,Yes,n/a,"8,452.78",null,011-845-8260
-P1323,Nadia,Fischer,M,19861115,NA,CARDIOLOGY,24/10/2025,2025-10-29 00:00:00, E78.5,161.9,86.8,119,-,-,Aetna,"$4,103.97",NADIA.FISCHER@EXAMPLE.COM,680-186-7740
-P1334,Sean,Bergstrom,f,N/A,O-,Emergency,13/01/2026,14/01/2026, G43.909,163.8,71.1,126,80,n,Etiqa,5807.01,SEAN.BERGSTROM@EXAMPLE.COM,(422) 332-2280
-P1189,Yusuf,Abadi,null,21/10/35,AB+,Oncology,05/09/2025,2025-09-07,e11.9,182.0,110.7,119,85,FALSE,AIA,USD 1550.58,-,   
-P1269,Nadia,Petrov,Female,01/02/2007,NA,Cardiology,2024-05-27,2024-05-30 00:00:00,a09,167.8,75.5,99,71,?,AIA,7645.01, nadia.petrov@example.com ,(519) 053-4864
-P1053,Aisha,Lim,F,19440713,A-,Gen Med,08-Feb-2025,13-Feb-2025,e78.5,-,77.4,151,83,no,   ,"2,854.20",AISHA.LIM@EXAMPLE.COM,870-146-2638
-P1300,Clara,Mensah,MALE,20191211,o+,Oncology,2025-05-31 00:00:00,2025-06-01,N39.0,93.4,18.9,88,61,Yes,Medicare,"7,495.49",clara.mensah@example.com,093.556.1039
-P1029,Liam,Nguyen,female,14/03/2010,a-,PAEDS,2026-06-25,27/06/2026, I25.10,167.2,62.3,107,50,no,Etiqa,USD 3484.33, liam.nguyen@example.com ,818.299.2299
-P1027,Arjun,Chen, F,23/09/40,O +,Ortho,15/12/2025,2025-12-15 00:00:00,i25.10,179.4,74.1,126,83,0,Great Eastern,USD 3579.98,ARJUN.CHEN@EXAMPLE.COM,(016) 582-0297
-P1257,Priya,Tan,m,04/12/14,AB-,Emergency,2026-08-21,2026-08-22 00:00:00,J45.909,135.0,40.5,102,63,N,NA,USD 6085.03, priya.tan@example.com ,6733116772
-P1312,Jonas,Costa,M ,"March 24, 2023",AB+,Neuro ,01/06/2024,2024-06-02 00:00:00,s72.001a,78.3,12.9,108,45,no,Medicare,-,jonas.costa@example.com,547-523-1123
-P1017,Noah,FISCHER,Female,25/09/2021,B-,neurology,2024-05-04,NULL,g43.909,86.7,NA,120,57,N,Medicare,USD 248.61,NOAH.FISCHER@EXAMPLE.COM,-
-P1242,Arjun,Okonkwo, F,20.06.1982,A-,Onco,2025-03-06,2025-03-06 00:00:00, G43.909,180.9,67.7,118,78,False,NULL,699.84,arjun.okonkwo@example.com,677.722.6602
-P1045,Victor,Novak,m,08/06/1969,A-,orthopaedics,28-Dec-2024,30/12/2024,j45.909,184.1,79.9,130,NULL,No,Prudential,6506.31, victor.novak@example.com ,772-190-3404
-P1303,Mei Ling,Tan, F,16-Jan-1974,AB-,NA,27/08/2025,10/09/2025, L40.0,165.2,84.8,60,190,y,Medicare,"6,699.29",mei.tan@example.com,700.046.6614
-P1283,Jonas,Lim,male,"April 15, 1954",b-,Neuro ,17/12/2024,2024-12-17 00:00:00,a09,158.4,66.0,130,85,0,Medicare,6561.29,jonas.lim@example.com,(826) 033-5910
-P1171,Mei Ling,Wong,-,13/02/1984,O-,Cardiology,23-Jan-2026,2026-01-31,n39.0,169.6,59.4,99,84,No,Allianz,   ,MEI.WONG@EXAMPLE.COM,null
-P1116,Farah,Bergstrom,F,04/08/1952,A-,ER,07-Nov-2025,07-Dec-2025,j45.909,148.5,65.7,60,190,False,Medicare,6403.85, farah.bergstrom@example.com ,(271) 147-7320
-P1259,Tomas,Kumar,F,08.03.1997,b-,orthopaedics,29-May-2026,01/06/2026,K21.9,177.8,69.3,N/A,62,y,AIA,USD 3884.67,tomas.kumar@example.com,(230) 524-8088
-P1260,Beatriz,Nguyen,M ,06.04.1982,O+,Cardio,2024-04-01 00:00:00,04-Apr-2024,i10,155.1,76.9,104,75,NULL,-,4227.47, beatriz.nguyen@example.com ,573.036.2792
-P1040,Amara,Nguyen,MALE,"June 07, 1982",n/a,Cardiology,16-Feb-2026,2026-02-19 00:00:00, L40.0,167.8,85.0,NA,69,False,Aetna,"$4,796.41", amara.nguyen@example.com ,(890) 250-3926
-P1363,Mei Ling,reyes,m,19950205,O-,Cardiology,31-Mar-2024,n/a, E78.5,164.0,-65,?,68,False,Etiqa,1792.48,N/A,?
-P1199,Priya,Petrov,male,05.10.2014,b-,ORTHO,02/02/2025,2025-02-07,-,135.8,31.9,117,57,,Prudential,"5,971.25", priya.petrov@example.com ,
-P1049,Aisha,Adeyemi,F,19-Jul-1971,b-,GENMED,02/02/2026,N/A,NA,,47.8,123,74,False,BlueCross,5035.60,aisha.adeyemi@example.com,924.141.8328
-P1091,Hana,Okafor,Male,17/03/1961,B+,neurology,11-Jun-2026,16-Jun-2026,M54.5,175.1,60.3,131,67,y,Medicare,"$1,691.42",hana.okafor@example.com,038-860-8680
-P1058,Farah,Rossi,Male,   ,A-, Cardiology,27/01/2026,2026-02-04, F32.9,176.1,90.7,128,69,0,Aetna,null,FARAH.ROSSI@EXAMPLE.COM,null
-P1119,Priya,Fischer,M,03-Feb-1978,A-,Gen Med,14-Jul-2026,15-Jul-2026, G43.909,167.4,48.8,110,58,0,Aetna,50.00,PRIYA.FISCHER@EXAMPLE.COM,0835723246
-P1034,Liam,Mensah,MALE,23/12/2018,a-,emergency,2026-03-05 00:00:00,07-Mar-2026,k21.9,NULL,13.6,129,67,N,BlueCross,USD 4453.61,LIAM.MENSAH@EXAMPLE.COM,227.530.4637
-P1083,Lucia,Tan,FEMALE,1966-05-31,A+,Orthopaedics,10/06/2026,2026-06-18 00:00:00, G43.909,185.4,93.2,125,77,0,Prudential,"$3,212.32",LUCIA.TAN@EXAMPLE.COM,
-P1067,Amara,Nguyen,female,01.03.1936,B +,PAEDS,27/08/2026,2026-08-30 00:00:00,L40.0,183.8,123.8,145,87,no,Medicare,"1,666.82", amara.nguyen@example.com ,4522885158
-P1354,Kwame,Rossi,m,11-Aug-1992,AB +,orthopaedics,N/A,09/04/2024, K21.9,160.3,58.2,119,82,NA,n/a,"$2,230.96",unknown,327.726.4883
+P1125,Beatriz, Mensah ,f,"February 08, 1999",A +,Pediatrics,2026-04-27,2026-04-29, G43.909,unknown,85.6,123,76,No,Great Eastern,473.30,beatriz.mensah@example.com,NULL
+P1180,Daniel,Silva,male,"January 21, 2017",O +,Ortho,2025-10-24 00:00:00,2025-10-24, I25.10,114.6,27.7,108,57,No,Great Eastern,"3,579.03",daniel.silva@example.com,715-398-8547
 P1203,Rajesh,Mensah,NA,01/11/1986,AB +,cardiology,18-Nov-2025,, L40.0,188.7,82.3,115,59,?,BlueCross,3677.12, rajesh.mensah@example.com ,8581932426
+P1206,Tomas,Fischer,female,20/05/91,ab+,   ,27-Jul-2024,01/08/2024,s72.001a,170.4,77.6,113,65,FALSE,NA,USD 3952.57,tomas.fischer@example.com,1827279559
+P1314,Marcus,Mwangi,M ,29/01/80,O-,General Medicine,14-Dec-2025,2025-12-28 00:00:00, G43.909,176.2,75.8,97,81,FALSE,Great Eastern,USD 629.50,marcus.mwangi@example.com,7147246301
+P1155,Yusuf,Bergstrom,male,2006-07-18,B +,neuro,23/07/2025,NULL, R07.9,163.1,74.8,99,70,n/a,Aetna,USD 2203.78,YUSUF.BERGSTROM@EXAMPLE.COM,(208) 656-7566
+P1009,Liam,Larsen,FEMALE,"February 05, 1986",a+,NEURO,2025-04-19 00:00:00,20-Apr-2025, E78.5,156.6,59.8,119,65,No,Medicare,"$7,560.14",liam.larsen@example.com,033-092-3271
+P1123,Owen,Larsen,Male,"December 28, 1978",O-,cardiology,2026-04-01 00:00:00,01/04/2026, M54.5,168.7,49.3,146,84,N,unknown,"6,983.61", owen.larsen@example.com ,(636) 694-1180
+P1221,Yusuf,Adeyemi,M,24.01.1967,NULL,orthopaedics,04/03/2025,06-Mar-2025,J45.909,155.6,51.2,unknown,69,NA,unknown,3102.94,yusuf.adeyemi@example.com,(911) 289-8123
+P1160,Mei Ling,Kumar,NA,07/08/82,O-,Gen Med,2026-05-28,29/05/2026, R07.9,185.0,97.2,n/a,69,Yes,BlueCross,"$5,483.25", mei.kumar@example.com ,8144744309
+P1129,Priya,Abadi,MALE,22/12/63,o+,Oncology,09/06/2025,10/06/2025, L40.0,173.5,83.0,158,71,No,Medicare,USD 7190.32,PRIYA.ABADI@EXAMPLE.COM,801-561-9318
+P1356,uLcia,Wogn,M,NULL,A-,EMERGENCY,26-Aug-2025,2025-08-26,unknown,151.0,NA,147,70,FALSE,Etiqa,50.00,,382-974-2551
+P1072,Hakim,Wong,female,19980429,ab-,orthopaedics,29/01/2025,2025-02-01,i25.10,177.8,43.3,118,75,n,Great Eastern,4949.04,HAKIM.WONG@EXAMPLE.COM,639.427.8816
+P1173,Clara,Lim, F,"June 22, 2014",B+,NEURO,2024-05-26,28-May-2024,J45.909,138.3,27.6,112,82,True,BlueCross,5943.89, clara.lim@example.com ,9319925502
+P1133,Kwame,Lim,female,10/05/1978,n/a,neuro,2025-01-10,12-Jan-2025,I25.10,172.7,61.8,128,83,no,n/a,"2,933.97",kwame.lim@example.com,(443) 270-1851
+P1000,Tomas,Bergstrom,m,19-Aug-2000,O+,CARDIOLOGY,07-Aug-2024,2024-08-08 00:00:00, I25.10,167.2,53.8,108,67,FALSE,Medicare,NA, tomas.bergstrom@example.com ,131-647-5255
+P1298,Daniel,Delgado,M,11-Jun-1981,B-,Paediatrics,18/10/2024,2024-11-01,J45.909,154.8,64.0,113,73,TRUE,Aetna,"10,185.59", daniel.delgado@example.com ,(585) 238-6003
+P1270,Sofia,Wong,male,30/04/79,null,Orthopedics,2024-05-18,20/05/2024, J45.909,null,88.2,116,75,?,Etiqa,USD 3701.06,SOFIA.WONG@EXAMPLE.COM,unknown
+P1284,Clara,Tan,female,18/08/34,O +,A&E,2025-08-19 00:00:00,2025-09-18 00:00:00,e78.5,164.5,66.6,131,93,n,Etiqa,"2,842.96",CLARA.TAN@EXAMPLE.COM,1234266980
+P1181,Jonas,Lim,MALE,1944-06-28,b+,ONCOLOGY,2024-03-26,29/03/2024,A09,173.6,null,149,-,True,Prudential,5340.00,jonas.lim@example.com,(978) 610-3131
+P1124,Clara,Adeyemi,m,n/a,ab-,Pediatrics,26-Aug-2026,2026-08-27 00:00:00,J45.909,111.7,19.7,93,69,0,Allianz,n/a,n/a,074.276.1707
+P1242,Arjun,Okonkwo, F,20.06.1982,A-,Onco,2025-03-06,2025-03-06 00:00:00, G43.909,180.9,67.7,118,78,False,NULL,699.84,arjun.okonkwo@example.com,677.722.6602
+P1351,Owen,Reyes,MALE,   ,O +,Neuro ,2024-07-10 00:00:00,2024-07-12 00:00:00,K21.9,69.9,8.3,108,63,No,Prudential,3776.54,OWEN.REYES@EXAMPLE.COM,(369) 881-6498
+P1079,Jonas,Lim,female,22/04/1994,AB+,NEURO,20-May-2025,19/06/2025,j44.9,149.9,53.3,99,69,TRUE,BlueCross,"3,827.95",-,(728) 857-4489
+P1355,Marcus,Farouk,null,23.11.1970,O-,NEURO,10/03/2026,15/03/2026,i10,190.1,75.9,143,72,No,   ,USD 6651.22,marcus.farouk@example.com,(734) 493-0537
+P1363,Marcus,Farouk,null,19701123,O-,Gen Med,2025-08-10 00:00:00,11/08/2025,i10,190.1,75.9,143,72,No,   ,USD 6651.22,,922.884.9874
+P1049,Aisha,Adeyemi,F,19-Jul-1971,b-,GENMED,02/02/2026,N/A,NA,,47.8,123,74,False,BlueCross,5035.60,aisha.adeyemi@example.com,924.141.8328
+P1170,null,Delgado,m,1952-12-25,   ,General Medicine,06-May-2024,null,NULL,178.0,85.9,123,83,0,Allianz,"$6,284.49",VICTOR.DELGADO@EXAMPLE.COM,818.209.6790
+P1185,Hana,Haddad, F,"October 22, 1980",A-,GENMED,2026-04-15,n/a,j44.9,168.3,76.0,131,67,FALSE,-,"9,889.22",?,7010415914
+P1174,Lucia,Adeyemi, F,1952-10-02,B +,Gen Med,2025-12-05,08-Dec-2025,F32.9,180.0,83.0,136,76,N,Medicare,"4,154.80",lucia.adeyemi@example.com,(649) 111-1096
+P1163,Mei Ling,Tan,F,1957-06-04,ab+,cardiology,2025-07-10 00:00:00,2025-07-13,k21.9,188.3,75.1,93,80,False,Allianz,USD 6896.93,mei.tan@example.com,NA
+P1288,Nadia,Silva,male,26/05/1986,ab+,Neurology,2024-07-24,2024-07-26 00:00:00, K21.9,182.0,43.3,111,81,Yes,Aetna,4402.49,nadia.silva@example.com,210-217-9821
+P1084,Jonas,Kumar,FEMALE,1981-01-15,b-,emergency,2026-03-23,25-Mar-2026, J44.9,164.1,57.4,143,70,0,n/a,4547.35, jonas.kumar@example.com ,570-862-0959
+P1070,Farah,Abadi, F,20171020,n/a,Neurology,2025-11-01 00:00:00,null, M54.5,113.8,27.0,0,0,False,N/A,"$2,049.38",farah.abadi@example.com,901.581.4491
+P1231,Hana,Fischer, F,13/05/1966,AB-,orthopaedics,2026-01-05,08-Jan-2026,E11.9,166.5,94.5,0,0,n,NULL,"6,749.25", hana.fischer@example.com ,(647) 124-6335
+P1193,Victor,Reyes,female,01/08/1986,?, Cardiology,2025-07-09,null,J45.909,NULL,69.6,NA,66,No,AIA,"2,757.48",VICTOR.REYES@EXAMPLE.COM,6164205955
+P1195,Clara,Bergstrom,male,10.02.1945,ab+,orthopaedics,N/A,19-Jun-2024,n39.0,167.3,47.6,124,-,No,?,6487.54,clara.bergstrom@example.com,(683) 415-5999
+P1198,Arjun,Rossi, F,17.07.1936,O +,Pediatrics,2025-11-15 00:00:00,16-Nov-2025, K21.9,164.9,64.9,113,80,y,BlueCross,USD 4619.38, arjun.rossi@example.com ,2751562779
+P1233,Elena,Bergstrom,male,20.01.1960,A-,emergency,09/04/2026,10/04/2026, E11.9,159.6,68.3,121,71,no,BlueCross,USD 5585.72, elena.bergstrom@example.com ,(803) 149-9825
+P1245,Priya,Larsen,M ,2004-01-27,ab+,general medicine,02-Nov-2025,07-Nov-2025,M54.5,153.9,59.7,100,69,N,Medicare,NULL,priya.larsen@example.com,525.680.6562
+P1305,Marcus,Delgado, F,12/04/1947,A-,Onco,2026-02-25,2026-02-26,l40.0,175.2,71.4,120,75,y,AIA,3038.01,marcus.delgado@example.com,1708894801
+P1012,Daniel,Chen,M,02/04/73,A-,orthopaedics,16-Sep-2024,30/09/2024,f32.9,156.1,46.6,125,76,TRUE,AIA,"4,119.46",daniel.chen@example.com,1232812067
+P1082,Talia,Abadi,female,26.01.1940,o+,NEURO,2025-10-29 00:00:00,2025-10-29,m54.5,159.7,69.5,136,83,Y,?,"$4,202.69",TALIA.ABADI@EXAMPLE.COM,427.031.2073
+P1089,Kwame,Mwangi,M,19390101,B-,ONCOLOGY,2024-12-02,07-Dec-2024,e78.5,153.9,NULL,152,93,No,Aetna,?,KWAME.MWANGI@EXAMPLE.COM,762.055.5438
+P1261,Sean,Costa,M ,1980-04-15,a-,Cardio,2025-04-20,NULL,N39.0,163.9,65.5,107,74,False,NA,-, sean.costa@example.com ,(975) 954-5089
+P1066,Victor,Mensah,Female,25.06.2022,ab-,Orthopedics,2026-05-18,NULL,L40.0,84.2,13.0,113,48,Yes,-,"$5,238.91", victor.mensah@example.com ,(163) 735-1609
+P1091,Hana,Okafor,Male,17/03/1961,B+,neurology,11-Jun-2026,16-Jun-2026,M54.5,175.1,60.3,131,67,y,Medicare,"$1,691.42",hana.okafor@example.com,038-860-8680
+P1187,Lucia,Silva, F,1942-06-03,O-,PAEDS,01-Jul-2025,09/07/2025,a09,142.7,56.9,145,88,no,Etiqa,"$5,969.46", lucia.silva@example.com ,679.298.8425
+P1296,Priya,Larsen,male,19991222,o-,Gen Med,2024-03-15 00:00:00,2024-03-23 00:00:00, I10,0,80.8,123,n/a,unknown,BlueCross,"6,411.96",PRIYA.LARSEN@EXAMPLE.COM,8271721733
+P1258,Grace,Haddad,FEMALE,19370623,O+,Cardio,2025-06-10,15/06/2025,g43.909,158.4,   ,116,82,0,Aetna,"$8,578.31", grace.haddad@example.com ,454-722-3989
+P1244,Noah,Bergstrom,MALE,1969-08-04,B-,Onc ,2024-11-20 00:00:00,04-Dec-2024, E78.5,187.1,84.0,-,72,n,Allianz,"$4,868.28",NOAH.BERGSTROM@EXAMPLE.COM,055.978.2457
+P1358,Hana,Okaafor,female,"August 15, 1940",NA,paediatrics,2026-07-16 00:00:00,2026-07-26 00:00:00, J44.9,151.4,65.9,146,?,0,AIA,"$1,078.11",   ,3353900585
+P1131,Kwame,Okafor,FEMALE,19321104,A +,CARDIOLOGY,2026-06-21,21/06/2026, S72.001A,165.0,54.1,172,83,False,BlueCross,USD 4995.14, kwame.okafor@example.com ,628.843.1884
+P1269,Nadia,Petrov,Female,01/02/2007,NA,Cardiology,2024-05-27,2024-05-30 00:00:00,a09,167.8,75.5,99,71,?,AIA,7645.01, nadia.petrov@example.com ,(519) 053-4864
+P1031,Tomas,Haddad,m,08-May-1962,ab-,PAEDS,2026-07-13,2026-07-13,N39.0,152.3,35.2,129,72,FALSE,n/a,USD 1782.42,TOMAS.HADDAD@EXAMPLE.COM,298.259.5269
+P1241,Mei Ling,Nguyen,F,19421230,A-,general medicine,23-Nov-2024,01/12/2024, F32.9,163.8,69.8,129,92,No,Prudential,"7,014.33",mei.nguyen@example.com,1325326949
+P1200,Victor,Tan,?,05.07.1997,   ,Neuro ,2025-11-15 00:00:00,17-Nov-2025,null,170.4,   ,113,76,No,BlueCross,6413.01,victor.tan@example.com,836-076-5817
+P1340,Marcus,Silva,FEMALE,"October 09, 1939",B+,Onco,2024-07-13,13/07/2024,M54.5,157.1,86.4,126,81,yes,Medicare,4630.27,MARCUS.SILVA@EXAMPLE.COM,708.619.9314
+P1345,Beatriz,Fischer,Male,?,A +,Onc ,unknown,2026-04-07,NULL,173.7,87.1,131,66,TRUE,Medicare,2344.99,beatriz.fischer@example.com,266-329-5634
+P1276,Rajesh,Petrov,MALE,14/07/84,B +,CARDIOLOGY,2024-09-14,2024-09-22 00:00:00, J44.9,166.7,87.6,99,67,Yes,AIA,9596.69, rajesh.petrov@example.com ,(208) 283-2308
+P1035,Aisha,Mwangi,f,"February 26, 1961",A-,Neuro ,21-Sep-2024,22/09/2024,a09,167.0,63.4,115,85,   ,?,"7,537.91", aisha.mwangi@example.com ,(587) 139-7187
+P1171,Mei Ling,Wong,-,13/02/1984,O-,Cardiology,23-Jan-2026,2026-01-31,n39.0,169.6,59.4,99,84,No,Allianz,   ,MEI.WONG@EXAMPLE.COM,null
+P1268,Ines,NA,M,06/05/79,A-,cardiology,11-Mar-2026,16-Mar-2026,J45.909,162.6,55.3,129,70,Y,Prudential,USD 8187.44,INES.MENSAH@EXAMPLE.COM,9112252883
+P1056,Diego,Mensah,male,19650605,o-,General Medicine,2025-05-31 00:00:00,n/a, N39.0,172.2,N/A,113,90,0,BlueCross,"9,501.17",DIEGO.MENSAH@EXAMPLE.COM,015.336.8844
+P1029,Liam,Nguyen,female,14/03/2010,a-,PAEDS,2026-06-25,27/06/2026, I25.10,167.2,62.3,107,50,no,Etiqa,USD 3484.33, liam.nguyen@example.com ,818.299.2299
+P1189,Yusuf,Abadi,null,21/10/35,AB+,Oncology,05/09/2025,2025-09-07,e11.9,182.0,110.7,119,85,FALSE,AIA,USD 1550.58,-,   
+P1166,Victor,Kumar, F,1936-09-05,B-,Orthopaedics,27-Feb-2026,2026-03-01,J45.909,170.7,NA,105,72,True,Great Eastern,"$5,831.57",victor.kumar@example.com,132-797-2457
+P1127,Owen,Petrov,Male,"September 18, 2008",b+,NEURO,13/05/2025,2025-05-18,I10,166.7,?,-,66,Y,Aetna,5273.44,owen.petrov@example.com,(956) 412-2031
+P1058,Farah,Rossi,Male,   ,A-, Cardiology,27/01/2026,2026-02-04, F32.9,176.1,90.7,128,69,0,Aetna,null,FARAH.ROSSI@EXAMPLE.COM,null
+P1039,Tomas,Mensah,FEMALE,19990627,ab-,Cardio,2026-08-15,2026-08-16,g43.909,164.9,85.7,104,64,False,Prudential,   ,TOMAS.MENSAH@EXAMPLE.COM,-
+P1338,Liam,Adeyemi, F,-,ab+,PAEDS,10/04/2025,   ,I10,154.7,54.0,161,73,False,Aetna,50.00,LIAM.ADEYEMI@EXAMPLE.COM,827.636.4315
+P1067,Amara,Nguyen,female,01.03.1936,B +,PAEDS,27/08/2026,2026-08-30 00:00:00,L40.0,183.8,123.8,145,87,no,Medicare,"1,666.82", amara.nguyen@example.com ,4522885158
+P1179,Owen,Silva,,2003-05-28,AB+, Cardiology,2025-05-25 00:00:00,2025-05-26 00:00:00,l40.0,165.8,63.8,122,61,0,AIA,,OWEN.SILVA@EXAMPLE.COM,(215) 632-1358
+P1186,Hana,   ,M,27/02/2016,O-,Cardio,2024-09-12,2024-09-13 00:00:00,S72.001A,127.6,34.8,94,64,False,AIA,"$3,023.63",HANA.NOVAK@EXAMPLE.COM,3288377441
+P1222,Owen,Haddad,F,06/12/87,a-,ER,2026-05-31 00:00:00,05/06/2026,?,999,75.2,129,NA,n,Etiqa,2768.09,OWEN.HADDAD@EXAMPLE.COM,282.251.2073
+P1188,Beatriz,Mensah,F,1997-02-09,o+,Cardiology,2026-01-06 00:00:00,06-Jan-2026,A09,188.2,115.9,89,71,yes,Allianz,"8,427.90",N/A,302-056-9815
+P1306,Kwame,Silva,f,"September 11, 1944",a+,Neuro ,2025-09-01,04-Sep-2025,i25.10,167.4,61.3,173,79,Y,BlueCross,4963.89,,?
+P1362,HHana,Adeyemi,M ,10-Apr-1952,a+,Pediatrics,2025-11-10,16-Nov-2025, I25.10,157.3,65.4,140,58,N,Aetna,"$2,263.75",null,7189395309
+P1102,Amara,Adeyemi,f,20180423,O-,,N/A,2026-06-07,S72.001A,102.0,12.3,   ,72,FALSE,Prudential,"$4,084.37",amara.adeyemi@example.com,(926) 921-2447
+P1332,Talia,Rossi, F,unknown,O +,neurology,2026-04-30,30-Apr-2026,g43.909,166.5,55.7,127,62,FALSE,Medicare,"3,184.74", talia.rossi@example.com ,n/a
+P1165,NULL,Silva,Male,19941220,B-,orthopaedics,2026-01-14 00:00:00,2026-01-14,NULL,164.4,69.2,118,81,FALSE,AIA,8525.20, liam.silva@example.com ,983-735-4396
+P1235,Daniel,Wong,Male,30-Jan-1945,NA,Emergency,22-Apr-2026,2026-04-27, S72.001A,169.9,77.1,155,96,-,Medicare,"7,915.07", daniel.wong@example.com ,833-509-0254
+P1117,Marcus,Lim,,"January 02, 1967",unknown,Pediatrics,28-Mar-2026,2026-03-30, K21.9,175.2,59.7,110,71,no,Aetna,1529.06,MARCUS.LIM@EXAMPLE.COM,9778280647
+P1111,Talia, Okafor ,M ,29/01/1953,   ,Neurology,2025-04-07,12-Apr-2025, G43.909,156.3,88.8,122,93,FALSE,Etiqa,"$9,924.36",N/A,N/A
+P1032,Victor,Okafor, F,30/07/59,B-,N/A,NULL,01-Oct-2025, I10,182.4,82.1,136,64,False,Allianz,USD 5123.43, victor.okafor@example.com ,6527858549
+P1125,Beatriz,Mensah,f,19990208,A +,Pediatrics,2026-04-27,2026-04-29, G43.909,unknown,85.6,123,76,No,Great Eastern,473.30,beatriz.mensah@example.com,null
+P1341,Nadia,Lim,m,18/12/1985,NA,Ortho,06-Jun-2026,06-Jun-2026,L40.0,?,82.5,111,77,False,Allianz,USD 4723.32, nadia.lim@example.com ,(021) 774-1743
+P1194,Hakim,Larsen,FEMALE,20200130,NA,PAEDS,20-Mar-2026,2026-03-22, F32.9,unknown,17.5,97,61,N,Etiqa,USD 772.84, hakim.larsen@example.com ,537.513.7651
+P1319,Victor,Rossi,m,1935-05-26,B+,N/A,2026-03-18,   ,s72.001a,n/a,43.2,117,87,n,Medicare,"$2,811.08",NULL,3709230071
+P1272,Noah,Tan,M ,31/03/84,O+,A&E,2025-12-19 00:00:00,24/12/2025,N39.0,166.0,49.5,125,77,Y,Etiqa,unknown, noah.tan@example.com ,078.436.1424
+P1132,Lucia,Chen,m,03.04.1979,a-,Cardio,27/12/2025,2026-01-04 00:00:00, K21.9,164.2,82.1,98,73,Yes,Prudential,USD 7803.98,lucia.chen@example.com,(661) 106-2737
+P1209,Diego,Rossi,FEMALE,1949-04-14,O-,Cardio,-,31-Mar-2026, N39.0,169.4,53.0,151,103,0,Aetna,USD 5623.91,diego.rossi@example.com,6861205943
+P1211,Rajesh,Haddad,m,NA,-,general medicine,25-Oct-2025,NA,NULL,169.6,48.6,115,72,0,Medicare,3427.23,NULL,557.277.3826
+P1342,,Okonkwo,FEMALE,2017-04-01,B +,NA,2026-03-17 00:00:00,N/A,G43.909,107.0,17.0,93,-,Y,Medicare,USD 4638.63,liam.okonkwo@example.com,245.301.2398
+P1108,Aisha,Wong,Male,19520916,O-,Cardiology,2026-01-20 00:00:00,2026-01-21 00:00:00, L40.0,163.5,86.7,146,86,No,Medicare,$50.00, aisha.wong@example.com ,501-657-9055
+P1322,Hana,Lim,female,-,A+,Emergency,2024-09-27,02/10/2024,R07.9,125.2,28.3,102,56,FALSE,Aetna,7866.81, hana.lim@example.com ,327-980-5950
+P1295,Diego,Bergstrom,f,13-Aug-2012,A +,EMERGENCY,01-Jan-2026,02-Jan-2026, M54.5,153.2,51.5,60,190,y,Etiqa,76.09,DIEGO.BERGSTROM@EXAMPLE.COM,(825) 431-8328
+P1111,Talia,Okafor,M ,"January 29, 1953",unknown,Neurology,2025-04-07,12-Apr-2025, G43.909,156.3,88.8,122,93,FALSE,Etiqa,"$9,924.36",TALIA.OKAFOR@EXAMPLE.COM,186.375.9980
 P1216,Arjun,Novak,M ,19840910,a+,GENMED,2024-08-02 00:00:00,2024-08-03, E78.5,162.3,55.8,129,77,N,Aetna,"$3,171.66", arjun.novak@example.com ,371-717-3189
-P1088,Daniel,Chen,male,19540116,B-,paediatrics,2025-12-06,06/12/2025,e11.9,149.0,56.4,137,NA,N,Allianz,$50.00,   ,240-514-7705
-P1135,Aisha,Delgado,Male,19470404,A-,Pediatrics,2026-02-28 00:00:00,NA,k21.9,176.2,87.8,126,81,No,Medicare,,AISHA.DELGADO@EXAMPLE.COM,3048913824
-P1008,Noah,Novak,Male,26/04/42,O +,Onco,11/07/2026,2026-07-14,I25.10,172.9,72.5,146,89,0,-,USD 1051.20,NOAH.NOVAK@EXAMPLE.COM,366.909.6705
-P1246,Yusuf,Farouk,MALE,09.08.2018,ab-,emergency,2025-03-26,26-Mar-2025,e11.9,106.0,17.9,?,NA,NA,Prudential,"6,259.61",yusuf.farouk@example.com,608-470-6810
+P1270,Sofia, Wong ,male,19790430,null,Orthopedics,2024-05-18,20/05/2024, J45.909,null,,116,75,?,Etiqa,USD 3701.06,NULL,unknown
+P1151,Nadia,Petrov,N/A,19810522,b+,EMERGENCY,2025-12-26,28/12/2025, M54.5,170.0,85.7,114,72,1,BlueCross,"$3,600.53", nadia.petrov@example.com ,-
+P1161,Sean,Tan,female,"August 02, 1942",AB-,emergency,2024-12-07 00:00:00,15-Dec-2024,e11.9,165.5,71.2,136,74,False,-,"$4,739.59",SEAN.TAN@EXAMPLE.COM,313-402-6650
+P1016,Sean,Abadi,f,"March 25, 2019",A+,orthopaedics,07-Dec-2024,07/12/2024,N39.0,96.0,11.6,126,63,n,Etiqa,446.68,sean.abadi@example.com,946-474-3671
+P1142,Lucia,Nguyen,male,16-Nov-1966,B +,GENMED,21-Dec-2025,21-Dec-2025, F32.9,174.3,47.9,148,57,N,Etiqa,5115.02,LUCIA.NGUYEN@EXAMPLE.COM,548-121-4785
+P1193,Victor,reyes,female,01.08.1986,n/a, Cardiology,2025-07-09,null,J45.909,NULL,NA,NA,66,No,AIA,"2,757.48",VICTOR.REYES@EXAMPLE.COM,-
+P1254,Sofia,Delgado,m,12/12/81,B+,orthopaedics,02-Apr-2024,NULL, I25.10,NULL,96.4,110,74,False,Aetna,5022.89,sofia.delgado@example.com,N/A
+P1112,Aisha,Fischer,F,13-Oct-1963,O +,Orthopedics,06-Sep-2025,08-Sep-2025,a09,154.7,66.2,134,96,N,BlueCross,null,aisha.fischer@example.com,4787300244
+P1297,Marcus,Okafor,m,17-Mar-1967,A-,neuro,26/02/2026,2026-02-27 00:00:00,K21.9,182.8,66.1,118,65,N,Etiqa,"$1,377.62",MARCUS.OKAFOR@EXAMPLE.COM,(497) 912-7997
+P1074,Grace,Haddad,m,1998-09-17,O+,cardiology,21/02/2026,22-Feb-2026,M54.5,null,46.1,104,61,0,Allianz,4576.84,GRACE.HADDAD@EXAMPLE.COM,298-425-7991
+P1045,Victor,Novak,m,08/06/1969,A-,orthopaedics,28-Dec-2024,30/12/2024,j45.909,184.1,79.9,130,NULL,No,Prudential,6506.31, victor.novak@example.com ,772-190-3404
+P1274,Nadia,Adeyemi,FEMALE,20/08/1961,A +,Neurology,25-May-2026,27/05/2026,E11.9,151.6,41.6,116,94,yes,Aetna,"$5,117.57",NADIA.ADEYEMI@EXAMPLE.COM,114-983-0748
+P1294,Rajesh, Wong ,female,2040-10-26,AB-,NEURO,03/02/2025,2025-02-03 00:00:00,g43.909,167.4,,124,82,0,Medicare,USD 50.00,RAJESH.WONG@EXAMPLE.COM,911-650-2000
+P1044,Yusuf,Wong,Female,1935-11-15,NULL,Paediatrics,30/03/2026,01/04/2026,I25.10,173.1,77.5,105,93,False,BlueCross,"1,686.39",YUSUF.WONG@EXAMPLE.COM,033.419.1825
+P1011,Beatriz, Delgado ,FEMALE,15.01.1993,unknown,orthopaedics,2025-04-19 00:00:00,2025-04-20 00:00:00,J44.9,182.0,   ,102,80,Yes,unknown,"1,439.55", beatriz.delgado@example.com ,498-941-3435
+P1169,Rajesh,Adeyemi,Female,20120607,b+,Orthopaedics,30/04/2025,2025-05-08,S72.001A,155.9,43.8,103,63,1,Etiqa,USD 4990.12,rajesh.adeyemi@example.com,241-862-3690
+P1227,Hana,Abadi,f,27/01/1948,ab+,Oncology,26-Jun-2025,26-Jun-2025,E11.9,164.4,N/A,150,89,No,AIA,668.70, hana.abadi@example.com ,9660577980
+P1150,Victor,Kumar,MALE,"February 24, 1961",AB +,Ortho,20/07/2025,22/07/2025,J44.9,?,65.0,117,72,0,Medicare,USD 3226.91,VICTOR.KUMAR@EXAMPLE.COM,6016923645
+P1177,?,Delgado,M,1944-10-08,O-,emergency,2024-05-26 00:00:00,n/a, E78.5,160.0,56.9,164,75,No,Etiqa,1103.40,SEAN.DELGADO@EXAMPLE.COM,342-346-1994
+P1224,Amara,Farouk,f,1977-10-23,B+,ER,14-Jul-2024,22/07/2024, J45.909,163.0,79.1,135,85,no,Allianz,5848.68, amara.farouk@example.com ,(158) 415-6082
+P1359,Yusuf,Wong,Female,15/11/1935,NULL,general medicine,2025-09-18,28/09/2025,I25.10,173.1,77.5,105,93,False,BlueCross,"1,686.39",   ,7925511643
+P1162,Rajesh,Petrov,NULL,"December 01, 1937",A+,A&E,2025-02-14 00:00:00,16-Feb-2025,j45.909,165.6,63.4,136,66,False,BlueCross,"$8,633.51",RAJESH.PETROV@EXAMPLE.COM,239-231-2604
+P1301,Rajesh,Bergstrom,FEMALE,"April 04, 1944",AB+,GENMED,02-May-2026,03/05/2026, A09,171.3,87.3,166,71,Yes,null,"$3,205.14",rajesh.bergstrom@example.com,203.403.0109
+P1059,Beatriz,Wong,F,18/01/2008,b-,Ortho,2024-03-25,26/03/2024,s72.001a,184.1,77.7,130,67,n,BlueCross,"$1,938.79",BEATRIZ.WONG@EXAMPLE.COM,797.279.8552
+P1083,Lucia,Tan,FEMALE,1966-05-31,A+,Orthopaedics,10/06/2026,2026-06-18 00:00:00, G43.909,185.4,93.2,125,77,0,Prudential,"$3,212.32",LUCIA.TAN@EXAMPLE.COM,
+P1284,Clara,Tan,female,18/08/34,O +,A&E,2025-08-19 00:00:00,2025-09-18 00:00:00,e78.5,164.5,66.6,131,93,n,Etiqa,"2,842.96",CLARA.TAN@EXAMPLE.COM,1234266980
+P1263,Owen,Abadi,M,30.10.1976,B-,Onc ,2025-09-29 00:00:00,13/10/2025,A09,174.0,64.5,158,-,n,BlueCross,"$4,153.97",owen.abadi@example.com,437.769.3663
+P1260,Beatriz,Nguyen,M ,06.04.1982,O+,Cardio,2024-04-01 00:00:00,04-Apr-2024,i10,155.1,76.9,104,75,NULL,-,4227.47, beatriz.nguyen@example.com ,573.036.2792
+P1141,Arjun, Okafor ,f,27.07.1960,   ,oncology,n/a,21-Aug-2026,K21.9,165.5,76.5,131,77,no,BlueCross,"$5,854.32",NULL,(233) 865-5963
+P1159,Sofia,Bergstrom,female,1976-07-27,O-,Ortho,21-Aug-2026,21/08/2026,j44.9,176.6,90.5,121,89,NULL,Prudential,2844.58, sofia.bergstrom@example.com ,578.446.8341
+P1265,Elena,Adeyemi,N/A,16/06/1996,AB-,cardiology,2024-09-19 00:00:00,2024-09-21 00:00:00,m54.5,140.7,27.2,123,65,FALSE,Etiqa,"7,750.18",ELENA.ADEYEMI@EXAMPLE.COM,526-351-0046
+P1336,Grace,Farouk,female,15.08.2012,A +,CARDIOLOGY,2024-06-04,2024-06-05,n/a,147.3,36.2,   ,78,N/A,Allianz,"2,694.59", grace.farouk@example.com ,6967897609
+P1293,Kwame,Abadi, F,13/02/1974,NULL,cardiology,2024-05-09,10-May-2024,I25.10,146.7,64.1,124,61,N,Aetna,$474.07,kwame.abadi@example.com,500.942.1410
+P1107,Farah,Rossi,Male,03/03/56,a-,oncology,14/08/2025,15-Aug-2025,i25.10,167.4,67.7,-,85,N,BlueCross,"3,932.64",farah.rossi@example.com,(600) 780-6867
+P1320,Grace,Wong,MALE,"February 16, 2010",   ,Cardio,16-Mar-2024,2024-03-19 00:00:00,N39.0,166.9,38.3,null,72,N,BlueCross,null,GRACE.WONG@EXAMPLE.COM,5748352680
+P1053,Aisha,Lim,F,19440713,A-,Gen Med,08-Feb-2025,13-Feb-2025,e78.5,-,77.4,151,83,no,   ,"2,854.20",AISHA.LIM@EXAMPLE.COM,870-146-2638
+P1005,Hakim,Adeyemi,M,31/01/07,n/a,ER,15-Mar-2024,16-Mar-2024,i25.10,191.4,99.9,113,NULL,FALSE,null,USD 3519.52, hakim.adeyemi@example.com ,053-315-8692
+P1096,Mei Ling,Costa,male,18-Nov-1934,B+,General Medicine,2026-08-06,null,S72.001A,173.3,71.7,127,90,y,AIA,"6,885.11",   ,881.385.8542
+P1147,-,Haddad,f,28/06/2019,,Oncology,09/10/2024,2024-10-12, I10,103.8,17.9,104,56,0,Medicare,"1,830.17", marcus.haddad@example.com ,6613315520
+P1168,Yusuf,Petrov,female,14/09/1975,b-,GENMED,05/04/2026,05/04/2026, F32.9,175.0,77.8,113,79,NULL,Medicare,"1,856.50", yusuf.petrov@example.com ,(863) 330-2126
+P1114,Talia,Rossi,F,17-Apr-2007,o+,Peds,2026-01-20 00:00:00,N/A,A09,169.3,82.2,124,59,N,BlueCross,"$2,816.25", talia.rossi@example.com ,null
+P1164,Rajesh,Kumar,MALE,22.02.1964,O-,ER,27/10/2025,2025-11-01,S72.001A,175.4,77.8,127,74,No,BlueCross,9651.80, rajesh.kumar@example.com ,202.939.0878
+P1172,Talia,Adeyemi,f,11-Jul-2002,A +,Paediatrics,06-Jun-2025,2025-06-08 00:00:00,G43.909,183.2,51.4,95,77,0,Prudential,"$11,103.57", talia.adeyemi@example.com ,737-147-0827
+P1352,Marcus,Adeyemi,Female,1933-04-22,?,Cardio,2024-05-28,2024-05-30 00:00:00, L40.0,196.4,101.5,157,94,False,Medicare,unknown,marcus.adeyemi@example.com,000.305.6619
+P1324,Noah,Haddad,FEMALE,21/11/1990,B +,Emergency,2025-01-25 00:00:00,2025-02-02,N39.0,162.1,86.1,143,69,no,,"$4,033.21",noah.haddad@example.com,(053) 088-6843
+P1021,Noah,Fischer,Female,11.09.1964,o+,cardiology,2025-09-06,2025-09-06 00:00:00,i25.10,170.5,87.0,114,73,yes,Etiqa,5039.65,noah.fischer@example.com,369.003.4324
+P1360,MeiL ing,Nguyen,F,"December 30, 1942",A-,Cardio,27-Jul-2026,2026-07-28, F32.9,163.8,69.8,129,92,No,Prudential,"7,014.33",-,605.342.8164
+P1081,Talia, Abadi ,NULL,"January 05, 2016",B-, Cardiology,2026-08-05 00:00:00,10/08/2026,k21.9,124.0,n/a,97,74,TRUE,Etiqa,6391.85,talia.abadi@example.com,745-642-4008
+P1046,Ines,Abadi,M,1934-01-06,b-,Gen Med,08-May-2026,11/05/2026,L40.0,166.5,87.9,153,81,N,Etiqa,USD 5406.15,ines.abadi@example.com,126-042-2325
+P1330,Tomas,Nguyen,null,13-Feb-1975,A-,Neuro ,2025-05-17 00:00:00,16-Jun-2025,l40.0,172.1,88.6,139,78,False,Prudential,"4,898.37",tomas.nguyen@example.com,NULL
+P1153,Noah,Lim,NULL,NULL,O +,cardiology,05-Aug-2026,2026-08-08,M54.5,184.9,96.6,103,63,No,Etiqa,50.00,NOAH.LIM@EXAMPLE.COM,(802) 714-8727
+P1213,Liam,Delgado,male,30.05.1942,A-,   ,29-Oct-2024,30/10/2024, E78.5,163.5,79.1,128,68,N,,50.00,liam.delgado@example.com,973-278-1952
+P1101,Aisha,Fischer,f,19380909,B +,General Medicine,2026-06-08,09/06/2026,S72.001A,166.1,91.7,147,81,N,null,unknown, aisha.fischer@example.com ,unknown
+P1197,Liam,Novak,F,17/05/95,O +,Onc ,03/08/2026,2026-08-06, I25.10,179.7,115.3,n/a,64,yes,AIA,USD 3795.72,N/A,853-800-3296
+P1289,Elena,mensah,female,   ,B +,Onc ,2024-06-19,2024-06-24,r07.9,172.2,67.1,129,66,,null,"$6,380.83",null,3552165058
+P1234,Jonas,Chen,male,-,B-,Orthopaedics,2024-05-10,2024-05-18 00:00:00,N39.0,127.4,22.7,96,n/a,FALSE,Etiqa,2593.24,jonas.chen@example.com,4346066643
+P1325,Farah,Bergstrom,male,02/04/01,o-,Cardiology,08/12/2024,22/12/2024, L40.0,169.2,68.8,132,unknown,0,unknown,"$2,651.02", farah.bergstrom@example.com ,?
+P1349,Clara,Rossi,m,"June 19, 2014",B-,PAEDS,2026-07-01,03-Jul-2026,e78.5,139.9,28.1,102,71,No,Allianz,278.27, clara.rossi@example.com ,883.527.9187
+P1075,Amara,Novak,M ,"May 07, 1950",?, Cardiology,07-May-2024,08-May-2024,J44.9,174.3,91.7,143,79,yes,Prudential,"$3,715.65",AMARA.NOVAK@EXAMPLE.COM,6430098180
+P1291,Hana,Rossi,MALE,18/12/2020,O +,neuro,09-Dec-2024,2024-12-11, J45.909,86.2,n/a,106,52,null,Great Eastern,USD 1477.90,HANA.ROSSI@EXAMPLE.COM,957-900-1248
+P1348,Talia,Petrov,MALE,07.09.1999,A-,neuro,01/03/2026,01/03/2026, I25.10,-,86.8,n/a,71,NA,Allianz,"3,612.28",talia.petrov@example.com,(105) 052-4383
+P1037,Sean,Okafor, F,27.06.1982,B-,NEURO,01/02/2026,01/02/2026, J45.909,166.3,58.0,111,64,False,NULL,50.00, sean.okafor@example.com ,662.462.8733
+P1013,Noah,Costa,M ,24-Nov-2012,AB+,Orthopedics,2024-09-27 00:00:00,28-Sep-2024,E11.9,154.3,40.5,130,NA,False,Great Eastern,USD 1690.49,noah.costa@example.com,2787429671
+P1176,Yusuf,Lim,M ,23/12/1978,O+,NEURO,26/04/2024,29-Apr-2024, S72.001A,175.0,74.8,133,79,TRUE,AIA,$50.00, yusuf.lim@example.com ,N/A
+P1218,Kwame,Lim,M ,06-Nov-1994,ab+,-,2024-04-11,2024-04-12 00:00:00,j45.909,162.9,57.6,98,68,True,Etiqa,"$6,880.67",kwame.lim@example.com,(588) 339-8741
+P1078,Mei Ling,Lim,male,19860216,A-,Peds,07/10/2024,2024-10-12 00:00:00,A09,171.5,60.6,107,81,Yes,Aetna,"$1,975.14",MEI.LIM@EXAMPLE.COM,-
+P1339,Talia,Fischer,female,25.05.1951,a-,NEURO,27-Oct-2024,2024-10-29 00:00:00,E78.5,183.0,80.9,145,79,N,Medicare,"9,778.05",TALIA.FISCHER@EXAMPLE.COM,(398) 894-1321
+P1116,Farah,Bergstrom,F,04/08/1952,A-,ER,07-Nov-2025,07-Dec-2025,j45.909,148.5,65.7,60,190,False,Medicare,6403.85, farah.bergstrom@example.com ,(271) 147-7320
+P1001,Liam,Mensah,M ,19810929,ab-,Neuro ,17/03/2026,2026-03-19 00:00:00,K21.9,183.1,80.7,151,70,,AIA,"2,505.48",liam.mensah@example.com,166.978.4801
+P1225,Liam,NULL,female,11/08/1972,B-,General Medicine,2026-04-24 00:00:00,02/05/2026, L40.0,170.2,68.4,138,79,y,BlueCross,-, liam.wong@example.com ,867.752.4014
+P1323,Nadia,Fischer,M,19861115,NA,CARDIOLOGY,24/10/2025,2025-10-29 00:00:00, E78.5,161.9,86.8,119,-,-,Aetna,"$4,103.97",NADIA.FISCHER@EXAMPLE.COM,680-186-7740
+P1140,Sofia,Fischer,M,20/06/1947,B+,general medicine,2025-03-24 00:00:00,07-Apr-2025, M54.5,168.3,60.0,153,71,TRUE,Medicare,7285.14,SOFIA.FISCHER@EXAMPLE.COM,730.337.9337
+P1042,Clara,Delgado,Female,1956-07-19,ab+,Neuro ,19/08/2026,20/08/2026,J45.909,164.5,72.7,156,68,yes,Allianz,"5,197.03",CLARA.DELGADO@EXAMPLE.COM,   
 P1100,Nadia,Okonkwo, F,01/03/85,AB-,Neuro ,2026-02-22,2026-02-24,e78.5,180.9,84.3,116,58,No,Aetna,USD 7537.87,nadia.okonkwo@example.com,442-094-9407
+P1175,Yusuf,Tan,m,26-Aug-1973,O +,A&E,2024-04-11,, S72.001A,160.9,68.4,139,70,no,BlueCross,5365.66,YUSUF.TAN@EXAMPLE.COM,0962626582
+P1272,Noah,tan,M ,31-Mar-1984,,A&E,2025-12-19 00:00:00,24/12/2025,N39.0,166.0,49.5,125,77,Y,Etiqa,unknown, noah.tan@example.com ,078.436.1424
+P1316,Daniel,Abadi,null,31-Jan-1976,B-,Neuro ,,01-Jul-2025,G43.909,169.4,55.1,-,80,no,AIA,"4,372.71",unknown,(851) 699-4970
+P1357,Aisha,Tan,F,20070322,AB+,GENMED,09-Mar-2026,12-Mar-2026, A09,152.7,37.3,106,79,N,Etiqa,USD 8660.39,N/A,(045) 024-3736
+P1071,Hana,Okafor,female,15.08.1940,NA,Pediatrics,24/03/2026,27/03/2026, J44.9,151.4,65.9,146,?,0,AIA,"$1,078.11", hana.okafor@example.com ,975-523-1491
+P1223,Elena,Okafor,F,"January 13, 2021",B+,GENMED,2025-09-26,26-Sep-2025,i10,92.1,10.8,106,69,No,?,"6,295.69",elena.okafor@example.com,116.491.3342
+P1064,Aisha,Adeyemi,Female,20090913,ab+,Orthopaedics,n/a,18/05/2026,I10,167.7,45.0,121,72,yes,BlueCross,50.00,aisha.adeyemi@example.com,7621202169
+P1212,Jonas,Kumar,male,05.06.1988,a+,A&E,2024-07-27,26/08/2024, J44.9,161.8,74.7,108,83,N,Etiqa,USD 1726.83,JONAS.KUMAR@EXAMPLE.COM,5888636774
+P1303,Mei Ling,Tan, F,16-Jan-1974,AB-,NA,27/08/2025,10/09/2025, L40.0,165.2,84.8,60,190,y,Medicare,"6,699.29",mei.tan@example.com,700.046.6614
+P1047,Diego,Mwangi, F,07-May-1951,AB-,Peds,12-Aug-2025,14-Aug-2025, I10,167.7,52.4,112,89,yes,unknown,"$5,928.50",DIEGO.MWANGI@EXAMPLE.COM,770.632.4241
+P1036,Liam,Costa, F,19700517,O-,Peds,21-Aug-2024,21/08/2024,k21.9,168.0,73.1,126,79,N,Great Eastern,5101.41,liam.costa@example.com,(863) 375-2431
+P1219,Ines,Farouk,FEMALE,19410512,ab-,A&E,15/07/2026,20/07/2026,j44.9,162.9,41.7,158,80,n,N/A,USD 2301.75,ines.farouk@example.com,732.573.7553
+P1099,Talia,Adeyemi,Female,10-Jan-1971,AB-,ORTHO,2025-06-12 00:00:00,17-Jun-2025,I10,158.5,97.0,103,65,no,Allianz,"2,424.19",,276-212-6796
+P1201,Farah,Okonkwo,M ,13/02/40,B-,Pediatrics,2025-02-01 00:00:00,2025-02-02,j45.909,147.5,NA,143,79,FALSE,Prudential,3408.26, farah.okonkwo@example.com ,116-162-0281
+P1019,Priya,Kumar,m,1988-07-01,-,Onco,2025-01-08,2025-01-09 00:00:00,L40.0,0,84.4,?,83,False,Great Eastern,8668.15,priya.kumar@example.com,711.592.1249
+P1120,Owen,Mwangi,Male,02/03/1974,unknown,Emergency,2024-11-08,2024-11-09 00:00:00,j45.909,164.9,60.1,124,80,y,Allianz,"$1,611.14",OWEN.MWANGI@EXAMPLE.COM,8471391559
+P1311,Noah,Fischer,MALE,"December 12, 2015",A-,GENMED,2026-05-12 00:00:00,N/A,j45.909,125.2,NULL,121,65,n,BlueCross,"$5,056.27",noah.fischer@example.com,017-986-7782
+P1307,Hana,Wong,male,15.06.1985,A +,Onco,2025-09-24 00:00:00,2025-09-29 00:00:00,a09,160.1,51.8,137,56,no,Prudential,5349.46,HANA.WONG@EXAMPLE.COM,(089) 348-6883
+P1317,Priya,Fischer,male,2000-05-26,a-,paediatrics,2025-08-10,   , J44.9,N/A,52.2,103,75,no,Allianz,USD 7191.66, priya.fischer@example.com ,(095) 217-5585
+P1273,Amara,Kumar,male,18/02/1944,B+,PAEDS,2025-09-09,2025-09-11 00:00:00,   ,178.9,null,145,93,False,Allianz,$445.92,?,695.073.2146
+P1097,Sean,Delgado,M ,1946-01-25,O-, Cardiology,2026-07-11,null,n39.0,144.7,38.0,139,84,n,Etiqa,4733.94, sean.delgado@example.com ,5577017157
+P1308,Sofia,Novak,M ,1945-10-17,B+,Orthopaedics,2024-12-23 00:00:00,2024-12-26,s72.001a,154.3,68.3,146,84,n,Allianz,"$4,241.22", sofia.novak@example.com ,(344) 096-6177
+P1052,Daniel,Bergstrom,MALE,19320530,B+,emergency,05/07/2025,2025-07-10,k21.9,147.3,76.4,141,84,N,Aetna,"$7,742.16", daniel.bergstrom@example.com ,(490) 352-1356
+P1027,Arjun,Chen, F,23/09/40,O +,Ortho,15/12/2025,2025-12-15 00:00:00,i25.10,179.4,74.1,126,83,0,Great Eastern,USD 3579.98,ARJUN.CHEN@EXAMPLE.COM,(016) 582-0297
+P1023,Elena,Nguyen,FEMALE,06/10/46,   ,general medicine,23-Jun-2026,2026-06-25,R07.9,161.4,50.7,117,74,No,Aetna,"2,884.20",ELENA.NGUYEN@EXAMPLE.COM,6659051518
+P1041,Nadia,Adeyemi,null,23/02/66,AB-,NEURO,03-Aug-2025,   , G43.909,184.5,null,159,75,False,BlueCross,"$1,175.53",nadia.adeyemi@example.com,N/A
+P1024,Hana,null,m,26-Nov-1962,A-,orthopaedics,18/10/2025,2025-11-01,r07.9,164.5,56.2,101,66,-,Allianz,"1,849.22",NULL,379-473-8347
+P1115,Rajesh,Larsen,M,19881024,B-,General Medicine,2025-01-07,21-Jan-2025,E78.5,149.1,60.8,128,86,1,Prudential,USD 6914.91,rajesh.larsen@example.com,2754801571
+P1167,Aisha,Tan,F,2007-03-22,AB+,ER,2025-02-20 00:00:00,2025-02-21, A09,152.7,37.3,106,79,N,Etiqa,USD 8660.39, aisha.tan@example.com ,7541022526
+P1248,Nadia,Larsen,f,07-Jan-1996,AB+,A&E,2025-04-15 00:00:00,17-Apr-2025,k21.9,N/A,47.1,0,0,n,AIA,"$4,571.31", nadia.larsen@example.com ,(201) 137-9844
+P1245,Priya,Larsen,M ,2004-01-27,ab+,general medicine,02-Nov-2025,07-Nov-2025,M54.5,153.9,59.7,100,69,N,Medicare,NULL,priya.larsen@example.com,525.680.6562
+P1192,Priya,Lim, F,30/07/92,-,Pediatrics,25-Oct-2024,2024-10-27 00:00:00, S72.001A,176.9,84.1,102,null,Yes,Etiqa,null,PRIYA.LIM@EXAMPLE.COM,
+P1354,Kwame,Rossi,m,11-Aug-1992,AB +,orthopaedics,N/A,09/04/2024, K21.9,160.3,58.2,119,82,NA,n/a,"$2,230.96",unknown,327.726.4883
+P1022,Marcus,Nguyen,male,19570613,N/A,paediatrics,04-Mar-2025,09-Mar-2025,e11.9,147.2,55.2,N/A,0,N,Medicare,"1,183.50",MARCUS.NGUYEN@EXAMPLE.COM,3292127799
+P1210,Beatriz,Abadi,F,"February 02, 1943",N/A,orthopaedics,21-Aug-2025,2025-08-21 00:00:00,R07.9,159.4,57.7,117,88,y,NULL,   ,BEATRIZ.ABADI@EXAMPLE.COM,168.154.6602
+P1157,Victor,Reyes,male,17/03/34,o+,Cardio,13-Jan-2026,2026-01-13,E78.5,172.5,58.5,127,79,Yes,n/a,"8,452.78",null,011-845-8260
+P1271,Nadia,Chen,M ,?,a+,PAEDS,04/12/2025,NA, M54.5,169.4,101.5,98,67,FALSE,Etiqa,"$6,544.23",nadia.chen@example.com,970-169-3429
+P1118,Elena,Tan,F,2020-08-14,n/a,General Medicine,2025-01-04,04-Jan-2025,M54.5,94.3,13.5,102,61,0,Medicare,6875.73,ELENA.TAN@EXAMPLE.COM,5785294563
+P1215,Aisha,Bergstrom,NA,16.02.1959,B+,ONCOLOGY,31-Jan-2025,02/02/2025,e78.5,157.1,55.3,162,85,0,Aetna,N/A, aisha.bergstrom@example.com ,4332491357
+P1272,Noah, Tan ,M ,31/03/84,O+,A&E,2025-12-19 00:00:00,24/12/2025,N39.0,166.0,   ,125,77,Y,?,unknown, noah.tan@example.com ,N/A
+P1321,Farah,Haddad,F,"May 15, 1986",ab+, Cardiology,2024-08-27 00:00:00,2024-09-26 00:00:00,A09,175.3,105.9,,60,no,unknown,USD 4130.51, farah.haddad@example.com ,(913) 111-7861
+P1144,Elena,Haddad, F,24-Sep-1948,ab-,Orthopaedics,04/07/2024,2024-07-18 00:00:00,m54.5,157.7,70.0,137,79,-,Prudential,USD 8932.72, elena.haddad@example.com ,412-182-0970
+P1224,Amara,Farouk,f,1977-10-23,B+,ER,14-Jul-2024,22/07/2024, J45.909,163.0,79.1,135,85,no,Allianz,5848.68, amara.farouk@example.com ,(158) 415-6082
+P1246,Yusuf,Farouk,MALE,09.08.2018,ab-,emergency,2025-03-26,26-Mar-2025,e11.9,106.0,17.9,?,NA,NA,Prudential,"6,259.61",yusuf.farouk@example.com,608-470-6810
+P1237,Nadia,Mwangi,FEMALE,"November 26, 1996",AB-,A&E,20/08/2025,25/08/2025,f32.9,174.3,65.8,118,78,n,BlueCross,USD 4906.08,nadia.mwangi@example.com,187-496-0335
+P1062,Elena,Petrov,MALE,"July 27, 1943",NA,ONCOLOGY,2026-04-07 00:00:00,,G43.909,163.9,45.7,60,190,0,Etiqa,"$4,311.03",elena.petrov@example.com,898-562-5753
+P1126,Beatriz,Lim,MALE,"August 31, 2009",b+,Onc ,10-Aug-2026,18/08/2026,R07.9,NULL,65.4,102,80,False,Aetna,"$3,680.39",BEATRIZ.LIM@EXAMPLE.COM,(742) 243-8649
+P1024,Hana,null,m,26-Nov-1962,A-,orthopaedics,18/10/2025,2025-11-01,r07.9,164.5,56.2,101,66,-,Allianz,"1,849.22",NULL,379-473-8347
+P1015,Kwame,Petrov,Male,19640907,o-,GENMED,16-Jun-2024,19-Jun-2024, N39.0,152.6,63.5,117,?,TRUE,AIA,7497.77, kwame.petrov@example.com ,(026) 217-4596
+P1256,Yusuf,Novak,F,"July 22, 1994",AB +,Oncology,2026-05-03 00:00:00,08-May-2026, I25.10,179.2,65.8,121,85,0,Aetna,2367.11,YUSUF.NOVAK@EXAMPLE.COM,221.500.1418
+P1080,Grace,Abadi,M ,2008-05-22,b+,cardiology,2025-05-28 00:00:00,02-Jun-2025,n39.0,167.4,84.7,84,60,yes,BlueCross,5885.55, grace.abadi@example.com ,(987) 622-0234
+P1154,Kwame,Adeyemi,Male,15.08.2009,B +,ONCOLOGY,15-May-2026,17-May-2026, R07.9,168.8,N/A,134,57,Y,AIA,"7,896.27",KWAME.ADEYEMI@EXAMPLE.COM,904.098.3665
+P1121,Rajesh,Rossi,   ,1987-04-03,b-,Paediatrics,23/11/2025,25-Nov-2025,A09,163.7,67.9,136,63,y,Great Eastern,4352.54, rajesh.rossi@example.com ,413.432.7560
+P1329,Kwame,Mwangi,f,"October 02, 1971",a+,Neurology,29/10/2024,29-Oct-2024, R07.9,170.0,87.8,121,78,False,Great Eastern,6297.92,KWAME.MWANGI@EXAMPLE.COM,9196234199
+P1255,Jonas,Mwangi,M ,19550208,o-,Gen Med,17-Nov-2025,2025-11-19, G43.909,172.6,87.6,102,76,no,Prudential,USD 7238.71, jonas.mwangi@example.com ,644.963.9243
+P1002,Marcus,Costa,NULL,01/02/25,B +,cardiology,2024-08-22,30-Aug-2024, G43.909,60.7,7.7,114,80,N,BlueCross,"4,993.88", marcus.costa@example.com ,578-713-3150
+P1277,Mei Ling,Mwangi,M,24-Oct-1978,B +,,2025-09-25,2025-09-28,I25.10,n/a,72.0,117,56,No,Aetna,"$4,495.62",mei.mwangi@example.com,509.025.5618
+P1149,Sofia,Mwangi,f,19680910,B-,A&E,10/11/2024,unknown,J44.9,192.5,126.3,132,62,No,Prudential,"$6,625.23",SOFIA.MWANGI@EXAMPLE.COM,2336293449
+P1313,Clara,Mensah,female,11/07/1937,b+,Orthopedics,2024-10-02,2024-10-16,J45.909,166.2,NULL,96,63,0,Prudential,"5,903.47", clara.mensah@example.com ,5340018167
+P1287,Sofia,Tan,female,19590730,o+,A&E,2026-01-18,2026-01-21,R07.9,158.1,60.4,159,NA,N,n/a,USD 5480.28,sofia.tan@example.com,356-178-1703
+P1264,Elena,Farouk,Male,19/01/58,a+,Orthopaedics,2024-04-10 00:00:00,2024-04-10,J45.909,,102.4,148,79,1,   ,USD 50.00, elena.farouk@example.com ,9421794281
+P1092,Hakim,Costa,female,19/10/1995,NULL,orthopaedics,2025-06-25,26-Jun-2025,f32.9,182.7,72.7,126,64,N,n/a,USD 5300.35,hakim.costa@example.com,n/a
+P1146,Nadia,Wong,MALE,01-Nov-2017,,Emergency,29-Dec-2025,06-Jan-2026,E11.9,N/A,30.8,83,61,0,NA,462.30,NADIA.WONG@EXAMPLE.COM,
+P1344,Lucia,Wong,M,NULL,A-,GENMED,2025-08-02,2025-08-04,unknown,151.0,NA,147,70,FALSE,Etiqa,50.00,lucia.wong@example.com,171-222-7643
 P1331,Noah,Okafor,null,03/02/1966,o+,ORTHO,2024-04-25 00:00:00,2024-05-09,k21.9,160.4,75.1,121,84,Y,Allianz,"$5,442.72",NOAH.OKAFOR@EXAMPLE.COM,N/A
+P1184,Yusuf,Okonkwo,null,1973-12-02,AB+,Paediatrics,11/05/2026,2026-05-25 00:00:00,I25.10,151.3,58.5,115,76,N,Prudential,"$3,252.93",NULL,3666144942
+P1303,Mei Ling,Tan, F,16-Jan-1974,AB-,NA,27/08/2025,10/09/2025, L40.0,165.2,84.8,60,190,y,Medicare,"6,699.29",mei.tan@example.com,700.046.6614
+P1205,Noah,Tan,MALE,19690415,?,cardiology,2026-05-24,2026-06-01,s72.001a,172.7,71.0,152,68,No,unknown,$681.56, noah.tan@example.com ,112-125-9020
+P1228,Priya,Farouk, F,29/03/93,b-,EMERGENCY,07-Aug-2026,10/08/2026,I25.10,163.6,78.0,112,71,N,N/A,295.02, priya.farouk@example.com ,263-475-5752
+P1275,Priya, Petrov ,M ,29/04/66,B+,General Medicine,21/05/2026,21/05/2026,S72.001A,195.4,NA,111,75,False,Etiqa,6902.96,n/a,n/a
+P1060,Daniel,Rossi,M ,"March 20, 1987",A+,Ortho,06-Apr-2024,07-Apr-2024,NULL,169.2,82.6,108,63,null,Medicare,USD 7388.61,DANIEL.ROSSI@EXAMPLE.COM,(432) 830-9652
+P1338,Liam,Adeyemi, F,-,ab+,PAEDS,10/04/2025,   ,I10,154.7,54.0,161,73,False,Aetna,50.00,LIAM.ADEYEMI@EXAMPLE.COM,827.636.4315
+P1250,Kwame,Abadi,female,29/06/52,B +,Onc ,28-Aug-2025,2025-09-11, N39.0,175.2,84.3,154,96,False,Medicare,USD 4594.27, kwame.abadi@example.com ,8686395613
+P1334,Sean,Bergstrom,f,N/A,O-,Emergency,13/01/2026,14/01/2026, G43.909,163.8,71.1,126,80,n,Etiqa,5807.01,SEAN.BERGSTROM@EXAMPLE.COM,(422) 332-2280
+P1281,Sean,Silva,female,"December 30, 2016",O+,Neuro ,18-Dec-2024,n/a,S72.001A,,24.4,110,59,   ,Great Eastern,1469.61,sean.silva@example.com,744.916.0936
+P1249,Sofia,Haddad,F,23/12/13,AB +,Cardiology,2025-07-20,25-Jul-2025, K21.9,139.0,40.5,108,69,No,Aetna,"1,854.05",sofia.haddad@example.com,8825562965
+P1008,Noah,Novak,Male,26/04/42,O +,Onco,11/07/2026,2026-07-14,I25.10,172.9,72.5,146,89,0,-,USD 1051.20,NOAH.NOVAK@EXAMPLE.COM,366.909.6705
+P1290,Ines,Kumar,female,10/11/1931,AB+,Pediatrics,03/11/2024,08-Nov-2024, F32.9,182.3,126.5,147,90,FALSE,AIA,USD 431.54, ines.kumar@example.com ,8707152386
+P1304,Rajesh,Tan,M,   ,AB +,General Medicine,2025-01-06 00:00:00,08-Jan-2025,i10,144.1,57.6,158,85,Y,Aetna,7949.37, rajesh.tan@example.com ,4166123740
+P1295,Diego,Bergstrom,f,13-Aug-2012,A +,EMERGENCY,01-Jan-2026,02-Jan-2026, M54.5,153.2,51.5,60,190,y,Etiqa,76.09,DIEGO.BERGSTROM@EXAMPLE.COM,(825) 431-8328
+P1239,Tomas,unknown, F,11-May-1999,O-,Emergency,2025-06-02 00:00:00,02/06/2025,E78.5,174.5,108.1,119,58,n,AIA,   ,TOMAS.SILVA@EXAMPLE.COM,NA
+P1294,Rajesh,Wong,female,26/10/40,AB-,NEURO,03/02/2025,2025-02-03 00:00:00,g43.909,167.4,64.1,124,82,0,Medicare,USD 50.00,RAJESH.WONG@EXAMPLE.COM,911-650-2000
+P1086,Marcus,Chen,Male,19510305,o-,neuro,28/07/2024,2024-07-29 00:00:00,a09,161.3,,113,84,null,Great Eastern,395.38,MARCUS.CHEN@EXAMPLE.COM,488.899.2107
+P1229,Talia,Novak,MALE,19720709,B +,ONCOLOGY,2024-07-18,21/07/2024,?,192.6,105.9,NA,79,N,Prudential,"4,728.63",TALIA.NOVAK@EXAMPLE.COM,097-768-8936
+P1204,Sean,null,Female,13-Mar-1963,A+,Emergency,2026-03-02,02-Mar-2026,i25.10,159.8,75.8,   ,65,y,Aetna,2992.48,sean.petrov@example.com,8105092221
+P1076,Sofia,Petrov, F,28/02/80,o-,Peds,07/12/2025,15-Dec-2025, K21.9,158.7,69.8,-,87,No,Allianz,5640.93,SOFIA.PETROV@EXAMPLE.COM,(519) 066-9849
+P1350,Victor,Abadi,male,22-Jun-1956,b+,PAEDS,2026-05-26 00:00:00,31-May-2026,e78.5,-170,68.6,118,88,no,BlueCross,"4,217.02",VICTOR.ABADI@EXAMPLE.COM,125-734-9899
+P1292,Grace,Rossi,female,14-Feb-1955,O+,Gen Med,2025-05-17 00:00:00,20-May-2025,L40.0,171.4,87.8,136,72,N,Prudential,USD 3863.61, grace.rossi@example.com ,8186550784
+P1025,Kwame,Lim,f,1935-06-08,a-,Peds,2025-03-09,11-Mar-2025,E11.9,149.9,61.2,N/A,67,False,null,971.45,kwame.lim@example.com,null
+P1310,Tomas,Larsen,F,"October 25, 1954",AB+,ER,31-Jan-2026,-, K21.9,null,110.9,128,76,0,Great Eastern,USD 3377.94,TOMAS.LARSEN@EXAMPLE.COM,3890623546
+P1266,Lucia,Wong,F,11/08/1967,ab+,ER,28/05/2025,2025-05-29,e11.9,154.7,88.7,unknown,80,FALSE,Allianz,USD 5260.03,lucia.wong@example.com,NULL
+P1300,Clara,Mensah,MALE,20191211,o+,Oncology,2025-05-31 00:00:00,2025-06-01,N39.0,93.4,18.9,88,61,Yes,Medicare,"7,495.49",clara.mensah@example.com,093.556.1039
+P1220,Owen,Petrov,male,24.07.1954,AB-,Oncology,28-May-2024,30/05/2024, E11.9,999,89.4,146,74,True,   ,USD 4955.08,OWEN.PETROV@EXAMPLE.COM,606-940-9600
+P1195,Clara,Bergstrom,male,10.02.1945,ab+,orthopaedics,N/A,19-Jun-2024,n39.0,167.3,47.6,124,-,No,?,6487.54,clara.bergstrom@example.com,(683) 415-5999
+P1073,Clara,Adeyemi,NA,30.11.1995,A+,GENMED,2024-07-17,2024-07-20 00:00:00,g43.909,163.0,59.9,116,82,FALSE,BlueCross,"$2,991.44",CLARA.ADEYEMI@EXAMPLE.COM,386-557-7908
+P1346,Marcus,Rossi,FEMALE,23/04/1961,AB+,PAEDS,28-Jan-2025,29/01/2025,e11.9,148.0,67.1,125,81,0,Medicare,"$3,962.95", marcus.rossi@example.com ,133-138-0049
+P1018,Farah,Okonkwo,M,"August 18, 1978",O-,ORTHO,10-Jan-2025,12-Jan-2025, K21.9,161.2,56.7,114,64,NULL,Prudential,"4,368.13",NULL,NULL
+P1026,Tomas,Petrov,male,26/08/43,B +,Ortho,2026-06-28,2026-06-29 00:00:00,N/A,180.3,70.6,152,83,True,?,USD 2164.60, tomas.petrov@example.com ,772-217-0430
+P1055,Noah,Rossi,m,"August 11, 1967",O +,Gen Med,2026-07-02 00:00:00,02/07/2026,e11.9,156.4,39.0,   ,79,y,Great Eastern,USD 50.00, noah.rossi@example.com ,391-725-1355
+P1327,Sofia,n/a,M ,1980-06-17,AB-,Oncology,02/06/2026,03/06/2026, E78.5,163.0,57.0,121,74,no,Great Eastern,"5,541.26",SOFIA.TAN@EXAMPLE.COM,0646300593
+P1343,Grace,Wong,M,2002-01-07,O-,Onc ,2026-07-15 00:00:00,16-Jul-2026,J45.909,173.6,75.2,116,79,y,AIA,"3,603.70",NULL,838-727-2581
+P1088,Daniel,Chen,male,19540116,B-,paediatrics,2025-12-06,06/12/2025,e11.9,149.0,56.4,137,NA,N,Allianz,$50.00,   ,240-514-7705
+P1161,Sean,TAN,female,02-Aug-1942,AB-,emergency,2024-12-07 00:00:00,15-Dec-2024,e11.9,165.5,71.2,136,74,False,-,"$4,739.59",null,313-402-6650
+P1335,Jonas,Chen, F,"December 26, 1997",AB-,Orthopaedics,2024-08-27 00:00:00,04-Sep-2024, N39.0,NULL,94.1,111,75,No,N/A,"8,075.47", jonas.chen@example.com ,084.639.7561
+P1063,Ines,NGUYEN,F,"October 11, 1987",A +,CARDIOLOGY,10/08/2024,2024-08-10, I10,161.3,59.7,117,67,y,NA,$50.00, ines.nguyen@example.com ,483-564-2087
+P1148,Tomas,Kumar,M ,16/09/1975,AB-,Pediatrics,04-Nov-2024,2024-11-07,s72.001a,190.0,102.3,102,82,Yes,AIA,7313.36, tomas.kumar@example.com ,025-743-2630
+P1094,Amara,Haddad,f,"February 28, 1988",ab-,Ortho,13/12/2024,, J44.9,140.4,38.4,111,70,0,Medicare,NA, amara.haddad@example.com ,414.488.5015
+P1298,Daniel,Delgado,M,11-Jun-1981,B-,Paediatrics,18/10/2024,2024-11-01,J45.909,154.8,64.0,113,73,TRUE,Aetna,"10,185.59", daniel.delgado@example.com ,(585) 238-6003
+P1152,Owen,Rossi, F,07-Jan-1994,ab+,Emergency,13/08/2025,null, I25.10,   ,92.8,NA,70,No,Etiqa,5999.64, owen.rossi@example.com ,555.535.6690
+P1315,Priya,Chen,male,19850118,O+,orthopaedics,2025-01-02,2025-01-04, A09,N/A,63.4,117,73,,Aetna,N/A,priya.chen@example.com,356-140-3845
+P1040,Amara,Nguyen,MALE,"June 07, 1982",n/a,Cardiology,16-Feb-2026,2026-02-19 00:00:00, L40.0,167.8,85.0,NA,69,False,Aetna,"$4,796.41", amara.nguyen@example.com ,(890) 250-3926
+P1191,Hana,Silva,male,2011-11-21,AB +,neuro,2026-06-14,15/06/2026, M54.5,153.6,33.3,102,64,n,Prudential,1767.23,,-
+P1090,Arjun,Okafor,f,25.05.1975,o+,paediatrics,13/01/2026,14/01/2026, A09,180.8,?,134,79,no,Allianz,USD 1255.84,arjun.okafor@example.com,647.423.1220
+P1093,Grace,Okafor,n/a,1943-05-18,,Cardio,2025-04-09 00:00:00,-, A09,142.5,50.7,135,86,FALSE,Allianz,USD 2912.03,null,(556) 168-1472
+P1104,Nadia,Tan, F,27/05/2009,O+,ORTHO,22-Aug-2025,2025-08-25 00:00:00, R07.9,172.4,51.1,NULL,,?,Aetna,"3,034.55",NADIA.TAN@EXAMPLE.COM,(102) 707-9032
+P1208,Sofia,Haddad,M ,"October 18, 1994",O-,Paediatrics,2025-10-27 00:00:00,29/10/2025,r07.9,176.7,107.9,93,75,unknown,Great Eastern,"1,833.65",sofia.haddad@example.com,null
+P1130,Daniel,Chen,f,03/09/1977,A-,GENMED,2026-03-30,2026-04-07 00:00:00, I10,178.5,65.8,125,76,N,Aetna,"8,678.37",daniel.chen@example.com,6532863266
+P1199,Priya,Petrov,male,05.10.2014,b-,ORTHO,02/02/2025,2025-02-07,-,135.8,31.9,117,57,,Prudential,"5,971.25", priya.petrov@example.com ,
+P1077,Aisha,Haddad,male,1932-09-12,N/A,EMERGENCY,2025-11-12 00:00:00,2025-11-13 00:00:00,g43.909,180.7,87.4,n/a,78,No,Etiqa,$793.56,aisha.haddad@example.com,8947697357
+P1089,Kwame,MWANGI,M,01.01.1939,B-,ONCOLOGY,2024-12-02,07-Dec-2024,e78.5,153.9,NULL,152,93,No,?,?,unknown,762.055.5438
+P1285,Nadia,Reyes,m,19.07.2004,b-,Neurology,2025-05-20 00:00:00,2025-05-25 00:00:00, R07.9,164.7,72.5,109,53,n/a,BlueCross,USD 5741.67, nadia.reyes@example.com ,(418) 696-5613
+P1014,Beatriz,Rossi,female,29/06/66,A +,Orthopaedics,06/07/2025,11-Jul-2025, L40.0,   ,97.3,133,66,No,AIA,"$7,407.83",BEATRIZ.ROSSI@EXAMPLE.COM,274-846-7737
+P1238,Aisha,Wong, F,1988-08-16,b+,,2025-08-01 00:00:00,2025-08-04 00:00:00, N39.0,182.8,127.5,106,   ,no,Aetna,"1,718.92",aisha.wong@example.com,8222618962
+P1278,null,Nguyen,FEMALE,14-Feb-1940,A+,ONCOLOGY,10-Nov-2025,2025-11-12,E78.5,171.7,72.0,146,95,yes,Allianz,6888.05,ARJUN.NGUYEN@EXAMPLE.COM,0706336998
+P1141,Arjun,Okafor,f,27.07.1960,B-,oncology,n/a,21-Aug-2026,K21.9,165.5,76.5,131,77,no,BlueCross,"$5,854.32",arjun.okafor@example.com,(233) 865-5963
 P1299,Diego,Kumar,Female,14-Feb-1968,B +,oncology,11/05/2026,13-May-2026, E78.5,160.0,50.4,149,94,n/a,n/a,"$2,700.37",diego.kumar@example.com,7672019111
 P1073,Clara,Adeyemi,NA,30.11.1995,A+,GENMED,2024-07-17,2024-07-20 00:00:00,g43.909,163.0,59.9,116,82,FALSE,BlueCross,"$2,991.44",CLARA.ADEYEMI@EXAMPLE.COM,386-557-7908
-P1188,Beatriz,Mensah,F,1997-02-09,o+,Cardiology,2026-01-06 00:00:00,06-Jan-2026,A09,188.2,115.9,89,71,yes,Allianz,"8,427.90",N/A,302-056-9815
-P1193,Victor,Reyes,female,01/08/1986,?, Cardiology,2025-07-09,null,J45.909,NULL,69.6,NA,66,No,AIA,"2,757.48",VICTOR.REYES@EXAMPLE.COM,6164205955
-P1244,Noah,Bergstrom,MALE,1969-08-04,B-,Onc ,2024-11-20 00:00:00,04-Dec-2024, E78.5,187.1,84.0,-,72,n,Allianz,"$4,868.28",NOAH.BERGSTROM@EXAMPLE.COM,055.978.2457
-P1241,Mei Ling,Nguyen,F,19421230,A-,general medicine,23-Nov-2024,01/12/2024, F32.9,163.8,69.8,129,92,No,Prudential,"7,014.33",mei.nguyen@example.com,1325326949
-P1205,Noah,Tan,MALE,19690415,?,cardiology,2026-05-24,2026-06-01,s72.001a,172.7,71.0,152,68,No,unknown,$681.56, noah.tan@example.com ,112-125-9020
-P1315,Priya,Chen,male,19850118,O+,orthopaedics,2025-01-02,2025-01-04, A09,N/A,63.4,117,73,,Aetna,N/A,priya.chen@example.com,356-140-3845
-P1277,Mei Ling,Mwangi,M,24-Oct-1978,B +,,2025-09-25,2025-09-28,I25.10,n/a,72.0,117,56,No,Aetna,"$4,495.62",mei.mwangi@example.com,509.025.5618
-P1228,Priya,Farouk, F,29/03/93,b-,EMERGENCY,07-Aug-2026,10/08/2026,I25.10,163.6,78.0,112,71,N,N/A,295.02, priya.farouk@example.com ,263-475-5752
-P1324,Noah,Haddad,FEMALE,21/11/1990,B +,Emergency,2025-01-25 00:00:00,2025-02-02,N39.0,162.1,86.1,143,69,no,,"$4,033.21",noah.haddad@example.com,(053) 088-6843
-P1174,Lucia,Adeyemi, F,1952-10-02,B +,Gen Med,2025-12-05,08-Dec-2025,F32.9,180.0,83.0,136,76,N,Medicare,"4,154.80",lucia.adeyemi@example.com,(649) 111-1096
-P1209,Diego,Rossi,FEMALE,1949-04-14,O-,Cardio,-,31-Mar-2026, N39.0,169.4,53.0,151,103,0,Aetna,USD 5623.91,diego.rossi@example.com,6861205943
-P1164,Rajesh,Kumar,MALE,22.02.1964,O-,ER,27/10/2025,2025-11-01,S72.001A,175.4,77.8,127,74,No,BlueCross,9651.80, rajesh.kumar@example.com ,202.939.0878
-P1068,Arjun,Chen,Female,1974-05-14,B+,EMERGENCY,16-Mar-2024,2024-03-24 00:00:00,-,172.8,59.2,131,75,null,Prudential,8122.15,arjun.chen@example.com,598-933-4721
-P1035,Aisha,Mwangi,f,"February 26, 1961",A-,Neuro ,21-Sep-2024,22/09/2024,a09,167.0,63.4,115,85,   ,?,"7,537.91", aisha.mwangi@example.com ,(587) 139-7187
-P1313,Clara,Mensah,female,11/07/1937,b+,Orthopedics,2024-10-02,2024-10-16,J45.909,166.2,NULL,96,63,0,Prudential,"5,903.47", clara.mensah@example.com ,5340018167
-P1014,Beatriz,Rossi,female,29/06/66,A +,Orthopaedics,06/07/2025,11-Jul-2025, L40.0,   ,97.3,133,66,No,AIA,"$7,407.83",BEATRIZ.ROSSI@EXAMPLE.COM,274-846-7737
-P1230,Sean,Lim,female,01.10.1978,B-,EMERGENCY,2024-09-07 00:00:00,12/09/2024,E78.5,   ,77.6,109,n/a,No,Great Eastern,5549.27,sean.lim@example.com,5149409762
-P1013,Noah,Costa,M ,24-Nov-2012,AB+,Orthopedics,2024-09-27 00:00:00,28-Sep-2024,E11.9,154.3,40.5,130,NA,False,Great Eastern,USD 1690.49,noah.costa@example.com,2787429671
-P1037,Sean,Okafor, F,27.06.1982,B-,NEURO,01/02/2026,01/02/2026, J45.909,166.3,58.0,111,64,False,NULL,50.00, sean.okafor@example.com ,662.462.8733
-P1113,Talia,Wong,F,03/10/1981,O-,Peds,02/08/2026,2026-08-03,L40.0,140.6,45.0,164,86,Yes,Allianz,"5,951.11", talia.wong@example.com ,445.189.5202
-P1110,Hakim,Haddad,f,17/05/2014,o-,Emergency,2026-08-09 00:00:00,17/08/2026, K21.9,137.1,46.5,96,57,False,Allianz,"$2,588.05", hakim.haddad@example.com ,745.238.0552
-P1339,Talia,Fischer,female,25.05.1951,a-,NEURO,27-Oct-2024,2024-10-29 00:00:00,E78.5,183.0,80.9,145,79,N,Medicare,"9,778.05",TALIA.FISCHER@EXAMPLE.COM,(398) 894-1321
-P1069,Grace,Chen,M ,04/04/1978,ab+,PAEDS,20-Apr-2026,21/04/2026, G43.909,166.3,71.4,120,53,1,NULL,5485.54, grace.chen@example.com ,(930) 561-6484
-P1180,Daniel,Silva,male,"January 21, 2017",O +,Ortho,2025-10-24 00:00:00,2025-10-24, I25.10,114.6,27.7,108,57,No,Great Eastern,"3,579.03",daniel.silva@example.com,715-398-8547
-P1148,Tomas,Kumar,M ,16/09/1975,AB-,Pediatrics,04-Nov-2024,2024-11-07,s72.001a,190.0,102.3,102,82,Yes,AIA,7313.36, tomas.kumar@example.com ,025-743-2630
-P1072,Hakim,Wong,female,19980429,ab-,orthopaedics,29/01/2025,2025-02-01,i25.10,177.8,43.3,118,75,n,Great Eastern,4949.04,HAKIM.WONG@EXAMPLE.COM,639.427.8816
-P1049,Aisha,Adeyemi,F,19-Jul-1971,b-,GENMED,02/02/2026,N/A,NA,,47.8,123,74,False,BlueCross,5035.60,aisha.adeyemi@example.com,924.141.8328
-P1248,Nadia,Larsen,f,07-Jan-1996,AB+,A&E,2025-04-15 00:00:00,17-Apr-2025,k21.9,N/A,47.1,0,0,n,AIA,"$4,571.31", nadia.larsen@example.com ,(201) 137-9844
-P1155,Yusuf,Bergstrom,male,2006-07-18,B +,neuro,23/07/2025,NULL, R07.9,163.1,74.8,99,70,n/a,Aetna,USD 2203.78,YUSUF.BERGSTROM@EXAMPLE.COM,(208) 656-7566
-P1147,-,Haddad,f,28/06/2019,,Oncology,09/10/2024,2024-10-12, I10,103.8,17.9,104,56,0,Medicare,"1,830.17", marcus.haddad@example.com ,6613315520
-P1096,Mei Ling,Costa,male,18-Nov-1934,B+,General Medicine,2026-08-06,null,S72.001A,173.3,71.7,127,90,y,AIA,"6,885.11",   ,881.385.8542
-P1200,Victor,Tan,?,05.07.1997,   ,Neuro ,2025-11-15 00:00:00,17-Nov-2025,null,170.4,   ,113,76,No,BlueCross,6413.01,victor.tan@example.com,836-076-5817
-P1286,Hana,Nguyen,f,?,AB +, Cardiology,27-May-2024,2024-05-30,A09,140.2,38.1,115,63,FALSE,N/A,383.16,hana.nguyen@example.com,414-915-0762
-P1302,Kwame,,N/A,30/08/44,A-,-,19/08/2025,21-Aug-2025,l40.0,171.5,55.0,,90,n,Medicare,"6,064.30",kwame.reyes@example.com,(150) 713-8067
-P1271,Nadia,Chen,M ,?,a+,PAEDS,04/12/2025,NA, M54.5,169.4,101.5,98,67,FALSE,Etiqa,"$6,544.23",nadia.chen@example.com,970-169-3429
-P1105,Rajesh,Costa,m,16.01.1995,null,orthopaedics,28/04/2024,01/05/2024, E11.9,N/A,68.0,108,53,unknown,n/a,"$4,283.61", rajesh.costa@example.com ,467-232-4876
-P1268,Ines,NA,M,06/05/79,A-,cardiology,11-Mar-2026,16-Mar-2026,J45.909,162.6,55.3,129,70,Y,Prudential,USD 8187.44,INES.MENSAH@EXAMPLE.COM,9112252883
-P1061,Nadia,Lim,f,"May 02, 2019",AB-,ORTHO,11/01/2025,2025-01-16 00:00:00,K21.9,98.3,15.2,99,62,no,Etiqa,"$2,376.01", nadia.lim@example.com ,999.173.8168
-P1195,Clara,Bergstrom,male,10.02.1945,ab+,orthopaedics,N/A,19-Jun-2024,n39.0,167.3,47.6,124,-,No,?,6487.54,clara.bergstrom@example.com,(683) 415-5999
-P1082,Talia,Abadi,female,26.01.1940,o+,NEURO,2025-10-29 00:00:00,2025-10-29,m54.5,159.7,69.5,136,83,Y,?,"$4,202.69",TALIA.ABADI@EXAMPLE.COM,427.031.2073
-P1052,Daniel,Bergstrom,MALE,19320530,B+,emergency,05/07/2025,2025-07-10,k21.9,147.3,76.4,141,84,N,Aetna,"$7,742.16", daniel.bergstrom@example.com ,(490) 352-1356
-P1092,Hakim,Costa,female,19/10/1995,NULL,orthopaedics,2025-06-25,26-Jun-2025,f32.9,182.7,72.7,126,64,N,n/a,USD 5300.35,hakim.costa@example.com,n/a
-P1017,Noah,Fischer,Female,20210925,B-,neurology,2024-05-04,NULL,g43.909,86.7,12.7,120,57,N,Medicare,USD 248.61,NOAH.FISCHER@EXAMPLE.COM,-
-P1003,Daniel,Bergstrom,MALE,"July 29, 2013",b-,Cardiology,2026-07-30 00:00:00,2026-08-07,g43.909,145.3,41.2,110,62,No,?,"$2,623.49",DANIEL.BERGSTROM@EXAMPLE.COM,(326) 773-6026
-P1170,null,Delgado,m,1952-12-25,   ,General Medicine,06-May-2024,null,NULL,178.0,85.9,123,83,0,Allianz,"$6,284.49",VICTOR.DELGADO@EXAMPLE.COM,818.209.6790
-P1218,Kwame,Lim,M ,06-Nov-1994,ab+,-,2024-04-11,2024-04-12 00:00:00,j45.909,162.9,57.6,98,68,True,Etiqa,"$6,880.67",kwame.lim@example.com,(588) 339-8741
-P1162,Rajesh,Petrov,NULL,"December 01, 1937",A+,A&E,2025-02-14 00:00:00,16-Feb-2025,j45.909,165.6,63.4,136,66,False,BlueCross,"$8,633.51",RAJESH.PETROV@EXAMPLE.COM,239-231-2604
-P1048,Marcus,Tan,f,19540722,NULL,ER,29/11/2024,   ,n/a,999,60.3,120,68,0,Aetna,"$4,048.74", marcus.tan@example.com ,196-565-2341
-P1326,Victor,Mensah,male,20241125,O-,NEURO,28-Sep-2024,-,I25.10,63.9,7.5,112,68,FALSE,Etiqa,"$2,287.00", victor.mensah@example.com ,720-028-3948
-P1038,Daniel,Chen,male,16.08.1951,O +,Gen Med,2025-07-01,04/07/2025, E78.5,173.5,85.1,139,93,N,Prudential,USD 4604.70, daniel.chen@example.com ,544-587-7175
-P1079,Jonas,Lim,female,22/04/1994,AB+,NEURO,20-May-2025,19/06/2025,j44.9,149.9,53.3,99,69,TRUE,BlueCross,"3,827.95",-,(728) 857-4489
-P1287,Sofia,Tan,female,19590730,o+,A&E,2026-01-18,2026-01-21,R07.9,158.1,60.4,159,NA,N,n/a,USD 5480.28,sofia.tan@example.com,356-178-1703
-P1156,Priya,Wong,Female,06.01.1955,B+,orthopaedics,24-May-2026,25/05/2026, M54.5,168.2,53.5,?,63,FALSE,Allianz,1412.67,priya.wong@example.com,6749261764
-P1171,Mei Ling,wong,-,13/02/1984,O-,Cardiology,23-Jan-2026,2026-01-31,n39.0,169.6,NULL,99,84,No,   ,   ,MEI.WONG@EXAMPLE.COM,null
-P1036,Liam,Costa, F,19700517,O-,Peds,21-Aug-2024,21/08/2024,k21.9,168.0,73.1,126,79,N,Great Eastern,5101.41,liam.costa@example.com,(863) 375-2431
-P1128,Victor,Reyes,m,17/08/99,,General Medicine,04-Nov-2024,05-Nov-2024,I25.10,179.9,55.8,106,67,TRUE,Aetna,"$4,952.20",victor.reyes@example.com,5814671795
-P1084,Jonas,Kumar,FEMALE,1981-01-15,b-,emergency,2026-03-23,25-Mar-2026, J44.9,164.1,57.4,143,70,0,n/a,4547.35, jonas.kumar@example.com ,570-862-0959
-P1346,Marcus,Rossi,FEMALE,23/04/1961,AB+,PAEDS,28-Jan-2025,29/01/2025,e11.9,148.0,67.1,125,81,0,Medicare,"$3,962.95", marcus.rossi@example.com ,133-138-0049
-P1177,?,Delgado,M,1944-10-08,O-,emergency,2024-05-26 00:00:00,n/a, E78.5,160.0,56.9,164,75,No,Etiqa,1103.40,SEAN.DELGADO@EXAMPLE.COM,342-346-1994
-P1094,Amara,Haddad,f,"February 28, 1988",ab-,Ortho,13/12/2024,, J44.9,140.4,38.4,111,70,0,Medicare,NA, amara.haddad@example.com ,414.488.5015
-P1165,NULL,Silva,Male,19941220,B-,orthopaedics,2026-01-14 00:00:00,2026-01-14,NULL,164.4,69.2,118,81,FALSE,AIA,8525.20, liam.silva@example.com ,983-735-4396
-P1329,Kwame,Mwangi,f,"October 02, 1971",a+,Neurology,29/10/2024,29-Oct-2024, R07.9,170.0,87.8,121,78,False,Great Eastern,6297.92,KWAME.MWANGI@EXAMPLE.COM,9196234199
-P1154,Kwame,Adeyemi,Male,15.08.2009,B +,ONCOLOGY,15-May-2026,17-May-2026, R07.9,168.8,N/A,134,57,Y,AIA,"7,896.27",KWAME.ADEYEMI@EXAMPLE.COM,904.098.3665
-P1169,Rajesh,Adeyemi,Female,20120607,b+,Orthopaedics,30/04/2025,2025-05-08,S72.001A,155.9,43.8,103,63,1,Etiqa,USD 4990.12,rajesh.adeyemi@example.com,241-862-3690
-P1023,Elena,Nguyen,FEMALE,06/10/46,   ,general medicine,23-Jun-2026,2026-06-25,R07.9,161.4,50.7,117,74,No,Aetna,"2,884.20",ELENA.NGUYEN@EXAMPLE.COM,6659051518
-P1081,Talia,Abadi,NULL,05/01/16,B-, Cardiology,2026-08-05 00:00:00,10/08/2026,k21.9,124.0,11.7,97,74,TRUE,Etiqa,6391.85,talia.abadi@example.com,745-642-4008
-P1231,Hana,Fischer, F,13/05/1966,AB-,orthopaedics,2026-01-05,08-Jan-2026,E11.9,166.5,94.5,0,0,n,NULL,"6,749.25", hana.fischer@example.com ,(647) 124-6335
-P1225,Liam,NULL,female,11/08/1972,B-,General Medicine,2026-04-24 00:00:00,02/05/2026, L40.0,170.2,68.4,138,79,y,BlueCross,-, liam.wong@example.com ,867.752.4014
-P1133,Kwame,Lim,female,10/05/1978,n/a,neuro,2025-01-10,12-Jan-2025,I25.10,172.7,61.8,128,83,no,n/a,"2,933.97",kwame.lim@example.com,(443) 270-1851
-P1236,Nadia,Nguyen,M,24/04/1973,AB-,Emergency,2025-04-01,2025-04-01, E11.9,170.9,83.3,115,67,?,unknown,3837.36, nadia.nguyen@example.com ,737.945.7727
-P1021,Noah,Fischer,Female,11.09.1964,o+,cardiology,2025-09-06,2025-09-06 00:00:00,i25.10,170.5,87.0,114,73,yes,Etiqa,5039.65,noah.fischer@example.com,369.003.4324
-P1318,Hana,Mensah,FEMALE,30.11.2000,null,Orthopedics,19/04/2025,2025-04-20 00:00:00,K21.9,152.6,-,128,76,n,Allianz,USD 3588.05,   ,001-635-6407
-P1267,Lucia,Kumar,male,12/07/1940,A+,,2024-05-04,2024-05-12 00:00:00, R07.9,163.2,null,122,76,0,Prudential,USD 3010.30,LUCIA.KUMAR@EXAMPLE.COM,685-283-0615
-P1213,Liam,Delgado,male,30.05.1942,A-,   ,29-Oct-2024,30/10/2024, E78.5,163.5,79.1,128,68,N,,50.00,liam.delgado@example.com,973-278-1952
-P1185,Hana,Haddad, F,"October 22, 1980",A-,GENMED,2026-04-15,n/a,j44.9,168.3,76.0,131,67,FALSE,-,"9,889.22",?,7010415914
-P1024,Hana,null,m,26-Nov-1962,A-,orthopaedics,18/10/2025,2025-11-01,r07.9,164.5,56.2,101,66,-,Allianz,"1,849.22",NULL,379-473-8347
-P1227,Hana,Abadi,f,27/01/1948,ab+,Oncology,26-Jun-2025,26-Jun-2025,E11.9,164.4,N/A,150,89,No,AIA,668.70, hana.abadi@example.com ,9660577980
-P1076,Sofia, Petrov , F,"February 28, 1980",o-,Peds,07/12/2025,15-Dec-2025, K21.9,158.7,,-,87,No,,5640.93,   ,(519) 066-9849
-P1340,Marcus,silva,FEMALE,09.10.1939,-,Onco,2024-07-13,13/07/2024,M54.5,157.1,86.4,126,81,yes,Medicare,4630.27,n/a,708.619.9314
-P1063,Ines,Nguyen,F,"October 11, 1987",A +,CARDIOLOGY,10/08/2024,2024-08-10, I10,161.3,59.7,117,67,y,AIA,$50.00, ines.nguyen@example.com ,483-564-2087
-P1276,Rajesh,PETROV,MALE,14.07.1984,-,CARDIOLOGY,2024-09-14,2024-09-22 00:00:00, J44.9,166.7,n/a,99,67,Yes,AIA,9596.69,unknown,(208) 283-2308
-P1175,Yusuf,Tan,m,26-Aug-1973,O +,A&E,2024-04-11,, S72.001A,160.9,68.4,139,70,no,BlueCross,5365.66,YUSUF.TAN@EXAMPLE.COM,0962626582
-P1070,Farah,Abadi, F,20171020,n/a,Neurology,2025-11-01 00:00:00,null, M54.5,113.8,27.0,0,0,False,N/A,"$2,049.38",farah.abadi@example.com,901.581.4491
-P1131,Kwame,Okafor,FEMALE,19321104,A +,CARDIOLOGY,2026-06-21,21/06/2026, S72.001A,165.0,54.1,172,83,False,BlueCross,USD 4995.14, kwame.okafor@example.com ,628.843.1884
-P1150,Victor,Kumar,MALE,"February 24, 1961",AB +,Ortho,20/07/2025,22/07/2025,J44.9,?,65.0,117,72,0,Medicare,USD 3226.91,VICTOR.KUMAR@EXAMPLE.COM,6016923645
-P1069,Grace,Chen,M ,04/04/1978,ab+,PAEDS,20-Apr-2026,21/04/2026, G43.909,166.3,71.4,120,53,1,NULL,5485.54, grace.chen@example.com ,(930) 561-6484
-P1208,Sofia,Haddad,M ,"October 18, 1994",O-,Paediatrics,2025-10-27 00:00:00,29/10/2025,r07.9,176.7,107.9,93,75,unknown,Great Eastern,"1,833.65",sofia.haddad@example.com,null
-P1152,Owen,Rossi, F,07-Jan-1994,ab+,Emergency,13/08/2025,null, I25.10,   ,92.8,NA,70,No,Etiqa,5999.64, owen.rossi@example.com ,555.535.6690
-P1281,Sean,Silva,female,"December 30, 2016",O+,Neuro ,18-Dec-2024,n/a,S72.001A,,24.4,110,59,   ,Great Eastern,1469.61,sean.silva@example.com,744.916.0936
-P1005,Hakim,Adeyemi,M,31/01/07,n/a,ER,15-Mar-2024,16-Mar-2024,i25.10,191.4,99.9,113,NULL,FALSE,null,USD 3519.52, hakim.adeyemi@example.com ,053-315-8692
-P1361,Clara,Wong,n/a,"October 21, 1942",A+,Cardio,2025-10-04 00:00:00,2025-10-07 00:00:00, R07.9,176.4,84.8,152,90,FALSE,Great Eastern,50.00,clara.wong@example.com,9092288498
-P1238,Aisha, Wong , F,16-Aug-1988,b+,,2025-08-01 00:00:00,2025-08-04 00:00:00, N39.0,182.8,NULL,106,   ,no,NULL,"1,718.92",   ,8222618962
-P1278,null,Nguyen,FEMALE,14-Feb-1940,A+,ONCOLOGY,10-Nov-2025,2025-11-12,E78.5,171.7,72.0,146,95,yes,Allianz,6888.05,ARJUN.NGUYEN@EXAMPLE.COM,0706336998
-P1099,Talia,Adeyemi,Female,10-Jan-1971,AB-,ORTHO,2025-06-12 00:00:00,17-Jun-2025,I10,158.5,97.0,103,65,no,Allianz,"2,424.19",,276-212-6796
-P1362,Rajesh,Wong, F,1983-02-14,A-,General Medicine,02/05/2024,10-May-2024,g43.909,159.3,83.3,93,77,0,,"$8,813.14", rajesh.wong@example.com ,538.602.8262
-P1095,Elena,Delgado,   ,19390915,A +,Gen Med,03/05/2025,2025-05-08, K21.9,182.7,73.5,123,68,Yes,Etiqa,USD 267.45,ELENA.DELGADO@EXAMPLE.COM,(173) 574-3842
-P1217,Owen,Silva,Female,01.04.1946,b+,neuro,26-Jun-2024,29/06/2024,j44.9,166.9,54.3,125,-,True,Aetna,50.00, owen.silva@example.com ,334-845-8714
-P1042,Clara,Delgado,Female,1956-07-19,ab+,Neuro ,19/08/2026,20/08/2026,J45.909,164.5,72.7,156,68,yes,Allianz,"5,197.03",CLARA.DELGADO@EXAMPLE.COM,   
-P1343,Grace,Wong,M,2002-01-07,O-,Onc ,2026-07-15 00:00:00,16-Jul-2026,J45.909,173.6,75.2,116,79,y,AIA,"3,603.70",NULL,838-727-2581
-P1172,Talia,Adeyemi,f,11-Jul-2002,A +,Paediatrics,06-Jun-2025,2025-06-08 00:00:00,G43.909,183.2,51.4,95,77,0,Prudential,"$11,103.57", talia.adeyemi@example.com ,737-147-0827
-P1309,Liam,Farouk,M ,01-Mar-2018,A-,EMERGENCY,18/02/2025,21-Feb-2025,l40.0,115.4,23.6,103,50,NULL,Etiqa,"$7,075.31",LIAM.FAROUK@EXAMPLE.COM,(920) 753-6051
-P1198,Arjun,Rossi, F,17.07.1936,O +,Pediatrics,2025-11-15 00:00:00,16-Nov-2025, K21.9,164.9,64.9,113,80,y,BlueCross,USD 4619.38, arjun.rossi@example.com ,2751562779
-P1342,,Okonkwo,FEMALE,2017-04-01,B +,NA,2026-03-17 00:00:00,N/A,G43.909,107.0,17.0,93,-,Y,Medicare,USD 4638.63,liam.okonkwo@example.com,245.301.2398
-P1235,Daniel,Wong,Male,30-Jan-1945,NA,Emergency,22-Apr-2026,2026-04-27, S72.001A,169.9,77.1,155,96,-,Medicare,"7,915.07", daniel.wong@example.com ,833-509-0254
-P1363,Mei Ling,Reyes,m,05/02/95,O-,Cardiology,31-Mar-2024,n/a, E78.5,164.0,-65,?,68,False,Etiqa,1792.48,mei.reyes@example.com,?
-P1337,Victor,Bergstrom,m,20110502,O-,Pediatrics,2024-06-05,08-Jun-2024,j44.9,160.9,45.8,99,58,N,N/A,"$1,017.52",NULL,(764) 497-4700
-P1253,Talia,Silva,FEMALE,"June 14, 2007",NULL,GENMED,16/03/2026,17/03/2026,J44.9,168.8,70.6,74,57,no,n/a,3127.30,NA,242.605.0801
-P1071,Hana,Okafor,female,15.08.1940,NA,Pediatrics,24/03/2026,27/03/2026, J44.9,151.4,65.9,146,?,0,AIA,"$1,078.11", hana.okafor@example.com ,975-523-1491
-P1120,Owen,Mwangi,Male,02/03/1974,unknown,Emergency,2024-11-08,2024-11-09 00:00:00,j45.909,164.9,60.1,124,80,y,Allianz,"$1,611.14",OWEN.MWANGI@EXAMPLE.COM,8471391559
-P1077,Aisha,Haddad,male,1932-09-12,N/A,EMERGENCY,2025-11-12 00:00:00,2025-11-13 00:00:00,g43.909,180.7,87.4,n/a,78,No,Etiqa,$793.56,aisha.haddad@example.com,8947697357
-P1196,Jonas,Costa,male,21-Apr-1952,null, Cardiology,24-Nov-2024,26-Nov-2024,r07.9,172.6,65.4,126,81,N,Etiqa,USD 8978.66, jonas.costa@example.com ,(144) 773-2449
-P1047,Diego,Mwangi, F,07-May-1951,AB-,Peds,12-Aug-2025,14-Aug-2025, I10,167.7,52.4,112,89,yes,unknown,"$5,928.50",DIEGO.MWANGI@EXAMPLE.COM,770.632.4241
-P1011,Beatriz,Delgado,FEMALE,1993-01-15,o+,orthopaedics,2025-04-19 00:00:00,2025-04-20 00:00:00,J44.9,182.0,0,102,80,Yes,?,"1,439.55", beatriz.delgado@example.com ,498-941-3435
-P1282,Mei Ling,Fischer,female,2012-12-11,O+,ONCOLOGY,2024-05-26,2024-05-27, J45.909,139.3,32.3,102,76,n,Great Eastern,USD 460.19,mei.fischer@example.com,660-811-2600
-P1073,Clara,Adeyemi,NA,30.11.1995,A+,GENMED,2024-07-17,2024-07-20 00:00:00,g43.909,163.0,59.9,116,82,FALSE,BlueCross,"$2,991.44",CLARA.ADEYEMI@EXAMPLE.COM,386-557-7908
-P1319,Victor,Rossi,m,1935-05-26,B+,N/A,2026-03-18,   ,s72.001a,n/a,43.2,117,87,n,Medicare,"$2,811.08",NULL,3709230071
-P1129,Priya,Abadi,MALE,22/12/63,o+,Oncology,09/06/2025,10/06/2025, L40.0,173.5,83.0,158,71,No,Medicare,USD 7190.32,PRIYA.ABADI@EXAMPLE.COM,801-561-9318
-P1062,Elena,Petrov,MALE,"July 27, 1943",NA,ONCOLOGY,2026-04-07 00:00:00,,G43.909,163.9,45.7,60,190,0,Etiqa,"$4,311.03",elena.petrov@example.com,898-562-5753
-P1042,Clara,Delgado,Female,1956-07-19,ab+,Neuro ,19/08/2026,20/08/2026,J45.909,164.5,72.7,156,68,yes,Allianz,"5,197.03",CLARA.DELGADO@EXAMPLE.COM,   
-P1266,Lucia,Wong,F,11/08/1967,ab+,ER,28/05/2025,2025-05-29,e11.9,154.7,88.7,unknown,80,FALSE,Allianz,USD 5260.03,lucia.wong@example.com,NULL
-P1264,Elena,Farouk,Male,19/01/58,a+,Orthopaedics,2024-04-10 00:00:00,2024-04-10,J45.909,,102.4,148,79,1,   ,USD 50.00, elena.farouk@example.com ,9421794281
-P1296,Priya,Larsen,male,19991222,o-,Gen Med,2024-03-15 00:00:00,2024-03-23 00:00:00, I10,0,80.8,123,n/a,unknown,BlueCross,"6,411.96",PRIYA.LARSEN@EXAMPLE.COM,8271721733
-P1002,Marcus,Costa,NULL,01/02/25,B +,cardiology,2024-08-22,30-Aug-2024, G43.909,60.7,7.7,114,80,N,BlueCross,"4,993.88", marcus.costa@example.com ,578-713-3150
-P1353,Rajesh,Chen,M ,1978-10-30,A +,Ortho,2024-07-07,2024-07-10 00:00:00, E11.9,173.5,95.8,86,unknown,no,BlueCross,50.00,RAJESH.CHEN@EXAMPLE.COM,4062215599
-P1122,Talia,Delgado,NA,19491119,A +,Paediatrics,17/03/2024,31-Mar-2024,R07.9,173.3,81.8,134,84,n,Etiqa,3613.89,TALIA.DELGADO@EXAMPLE.COM,693-008-9317
-P1232,Sean,Larsen,Male,20140928,B+,neuro,07-Feb-2025,07/02/2025, R07.9,999,32.7,122,62,n,Etiqa,$50.00, sean.larsen@example.com ,8217392957
-P1340,Marcus,Silva,FEMALE,"October 09, 1939",B+,Onco,2024-07-13,13/07/2024,M54.5,157.1,86.4,126,81,yes,Medicare,4630.27,MARCUS.SILVA@EXAMPLE.COM,708.619.9314
-P1349,Clara,Rossi,m,"June 19, 2014",B-,PAEDS,2026-07-01,03-Jul-2026,e78.5,139.9,28.1,102,71,No,Allianz,278.27, clara.rossi@example.com ,883.527.9187
-P1127,Owen,Petrov,Male,"September 18, 2008",b+,NEURO,13/05/2025,2025-05-18,I10,166.7,?,-,66,Y,Aetna,5273.44,owen.petrov@example.com,(956) 412-2031
-P1192,Priya,Lim, F,30/07/92,-,Pediatrics,25-Oct-2024,2024-10-27 00:00:00, S72.001A,176.9,84.1,102,null,Yes,Etiqa,null,PRIYA.LIM@EXAMPLE.COM,
-P1265,Elena,Adeyemi,N/A,16/06/1996,AB-,cardiology,2024-09-19 00:00:00,2024-09-21 00:00:00,m54.5,140.7,27.2,123,65,FALSE,Etiqa,"7,750.18",ELENA.ADEYEMI@EXAMPLE.COM,526-351-0046
-P1280,Jonas,Okonkwo,female,1973-07-11,o+,ER,27/03/2024,2024-04-04 00:00:00,f32.9,175.5,103.6,NULL,,n,Prudential,"5,281.59", jonas.okonkwo@example.com ,   
-P1009,Liam,Larsen,FEMALE,"February 05, 1986",a+,NEURO,2025-04-19 00:00:00,20-Apr-2025, E78.5,156.6,59.8,119,65,No,Medicare,"$7,560.14",liam.larsen@example.com,033-092-3271
-P1010,Clara,Larsen,F,12.02.2005,B-,GENMED,2024-06-26,-,s72.001a,173.1,74.8,121,68,False,Allianz,USD 5310.66, clara.larsen@example.com ,776-945-3147
-P1031,Tomas,Haddad,m,08-May-1962,ab-,PAEDS,2026-07-13,2026-07-13,N39.0,152.3,35.2,129,72,FALSE,n/a,USD 1782.42,TOMAS.HADDAD@EXAMPLE.COM,298.259.5269
-P1001,Liam,Mensah,M ,19810929,ab-,Neuro ,17/03/2026,2026-03-19 00:00:00,K21.9,183.1,80.7,151,70,,AIA,"2,505.48",liam.mensah@example.com,166.978.4801
-P1111,Talia,Okafor,M ,"January 29, 1953",unknown,Neurology,2025-04-07,12-Apr-2025, G43.909,156.3,88.8,122,93,FALSE,Etiqa,"$9,924.36",TALIA.OKAFOR@EXAMPLE.COM,186.375.9980
-P1106,Victor,Larsen,MALE,16/11/2009,NULL,NEURO,2024-11-27 00:00:00,,I10,166.2,56.5,99,64,Y,Medicare,USD 1298.64, victor.larsen@example.com ,-
-P1000,Tomas,Bergstrom,m,19-Aug-2000,O+,CARDIOLOGY,07-Aug-2024,2024-08-08 00:00:00, I25.10,167.2,53.8,108,67,FALSE,Medicare,NA, tomas.bergstrom@example.com ,131-647-5255
-P1168,Yusuf,Petrov,female,14/09/1975,b-,GENMED,05/04/2026,05/04/2026, F32.9,175.0,77.8,113,79,NULL,Medicare,"1,856.50", yusuf.petrov@example.com ,(863) 330-2126
-P1183,Ines,Delgado,m,16/06/44,O-,CARDIOLOGY,16/04/2025,21-Apr-2025, K21.9,999,90.3,135,73,False,Aetna,"4,409.77", ines.delgado@example.com ,569.644.3098
-P1007,Amara,Fischer,male,23-May-1952,O +,emergency,01/10/2025,2025-10-03 00:00:00,L40.0,156.8,60.9,140,61,N,NA,7159.21,AMARA.FISCHER@EXAMPLE.COM,(769) 367-6320
-P1035,Aisha,Mwangi,f,"February 26, 1961",A-,Neuro ,21-Sep-2024,22/09/2024,a09,167.0,63.4,115,85,   ,?,"7,537.91", aisha.mwangi@example.com ,(587) 139-7187
-P1350,Victor,Abadi,male,22-Jun-1956,b+,PAEDS,2026-05-26 00:00:00,31-May-2026,e78.5,-170,68.6,118,88,no,BlueCross,"4,217.02",VICTOR.ABADI@EXAMPLE.COM,125-734-9899
-P1102,Amara,Adeyemi,f,20180423,O-,,N/A,2026-06-07,S72.001A,102.0,12.3,   ,72,FALSE,Prudential,"$4,084.37",amara.adeyemi@example.com,(926) 921-2447
-P1085,Arjun,Lim,-,19910808,B+,EMERGENCY,2025-03-13 00:00:00,NA,L40.0,162.5,68.1,107,68,no,BlueCross,"$6,812.40",arjun.lim@example.com,0141381138
-P1033,Tomas,Fischer,N/A,24-Oct-1973,o+,Ortho,2024-09-09 00:00:00,2024-09-10 00:00:00,l40.0,149.4,54.2,112,63,False,AIA,9126.87, tomas.fischer@example.com ,(082) 677-3454
-P1086,Marcus,Chen,Male,19510305,o-,neuro,28/07/2024,2024-07-29 00:00:00,a09,161.3,,113,84,null,Great Eastern,395.38,MARCUS.CHEN@EXAMPLE.COM,488.899.2107
-P1025,Kwame,Lim,f,1935-06-08,a-,Peds,2025-03-09,11-Mar-2025,E11.9,149.9,61.2,N/A,67,False,null,971.45,kwame.lim@example.com,null
-P1075,Amara,Novak,M ,"May 07, 1950",?, Cardiology,07-May-2024,08-May-2024,J44.9,174.3,91.7,143,79,yes,Prudential,"$3,715.65",AMARA.NOVAK@EXAMPLE.COM,6430098180
-P1095,Elena,Delgado,   ,19390915,A +,Gen Med,03/05/2025,2025-05-08, K21.9,182.7,73.5,123,68,Yes,Etiqa,USD 267.45,ELENA.DELGADO@EXAMPLE.COM,(173) 574-3842
-P1221,Yusuf,Adeyemi,M,24.01.1967,NULL,orthopaedics,04/03/2025,06-Mar-2025,J45.909,155.6,51.2,unknown,69,NA,unknown,3102.94,yusuf.adeyemi@example.com,(911) 289-8123
-P1140,Sofia,Fischer,M,20/06/1947,B+,general medicine,2025-03-24 00:00:00,07-Apr-2025, M54.5,168.3,60.0,153,71,TRUE,Medicare,7285.14,SOFIA.FISCHER@EXAMPLE.COM,730.337.9337
-P1345,Beatriz,Fischer,Male,?,A +,Onc ,unknown,2026-04-07,NULL,173.7,87.1,131,66,TRUE,Medicare,2344.99,beatriz.fischer@example.com,266-329-5634
-P1210,Beatriz,Abadi,F,"February 02, 1943",N/A,orthopaedics,21-Aug-2025,2025-08-21 00:00:00,R07.9,159.4,57.7,117,88,y,NULL,   ,BEATRIZ.ABADI@EXAMPLE.COM,168.154.6602
-P1338,Liam,Adeyemi, F,-,ab+,PAEDS,10/04/2025,   ,I10,154.7,54.0,161,73,False,Aetna,50.00,LIAM.ADEYEMI@EXAMPLE.COM,827.636.4315
-P1293,Kwame,Abadi, F,13/02/1974,NULL,cardiology,2024-05-09,10-May-2024,I25.10,146.7,64.1,124,61,N,Aetna,$474.07,kwame.abadi@example.com,500.942.1410
-P1114,Talia,Rossi,F,17-Apr-2007,o+,Peds,2026-01-20 00:00:00,N/A,A09,169.3,82.2,124,59,N,BlueCross,"$2,816.25", talia.rossi@example.com ,null
-P1060,Daniel,Rossi,M ,"March 20, 1987",A+,Ortho,06-Apr-2024,07-Apr-2024,NULL,169.2,82.6,108,63,null,Medicare,USD 7388.61,DANIEL.ROSSI@EXAMPLE.COM,(432) 830-9652
-P1080,Grace,Abadi,M ,2008-05-22,b+,cardiology,2025-05-28 00:00:00,02-Jun-2025,n39.0,167.4,84.7,84,60,yes,BlueCross,5885.55, grace.abadi@example.com ,(987) 622-0234
-P1258,Grace,Haddad,FEMALE,19370623,O+,Cardio,2025-06-10,15/06/2025,g43.909,158.4,   ,116,82,0,Aetna,"$8,578.31", grace.haddad@example.com ,454-722-3989
-P1020,Owen,Silva,FEMALE,20/02/05,o+,Pediatrics,2024-04-10,2024-04-15 00:00:00,r07.9,178.0,66.9,119,60,No,Etiqa,"3,195.93",OWEN.SILVA@EXAMPLE.COM,(158) 514-9368
-P1229,Talia,Novak,MALE,19720709,B +,ONCOLOGY,2024-07-18,21/07/2024,?,192.6,105.9,NA,79,N,Prudential,"4,728.63",TALIA.NOVAK@EXAMPLE.COM,097-768-8936
-P1138,Ines,Kumar,Male,"October 21, 2002",O-, Cardiology,2025-12-09,-, F32.9,182.0,57.5,109,60,NA,BlueCross,"2,256.87", ines.kumar@example.com ,(110) 760-9543
-P1344,Lucia,Wong,M,NULL,A-,GENMED,2025-08-02,2025-08-04,unknown,151.0,NA,147,70,FALSE,Etiqa,50.00,lucia.wong@example.com,171-222-7643
-P1360,Noah,Okonkwo,MALE,23/03/1934,ab+,Pediatrics,2024-08-24,2024-08-27 00:00:00,R07.9,161.2,62.6,136,94,1,n/a,7303.40,NOAH.OKONKWO@EXAMPLE.COM,-
-P1098,Yusuf,Nguyen,FEMALE,"July 13, 1934",o-,general medicine,2026-05-18,20-May-2026,e11.9,166.8,unknown,130,80,No,BlueCross,"$1,824.02",yusuf.nguyen@example.com,9022784699
-P1203,Rajesh,Mensah,NA,01/11/1986,AB +,cardiology,18-Nov-2025,, L40.0,188.7,82.3,115,59,?,BlueCross,3677.12, rajesh.mensah@example.com ,8581932426
-P1142,Lucia,Nguyen,male,16-Nov-1966,B +,GENMED,21-Dec-2025,21-Dec-2025, F32.9,174.3,47.9,148,57,N,Etiqa,5115.02,LUCIA.NGUYEN@EXAMPLE.COM,548-121-4785
-P1117,Marcus,Lim,,"January 02, 1967",unknown,Pediatrics,28-Mar-2026,2026-03-30, K21.9,175.2,59.7,110,71,no,Aetna,1529.06,MARCUS.LIM@EXAMPLE.COM,9778280647
-P1166,Victor,Kumar, F,1936-09-05,B-,Orthopaedics,27-Feb-2026,2026-03-01,J45.909,170.7,NA,105,72,True,Great Eastern,"$5,831.57",victor.kumar@example.com,132-797-2457
-P1101,Aisha,Fischer,f,19380909,B +,General Medicine,2026-06-08,09/06/2026,S72.001A,166.1,91.7,147,81,N,null,unknown, aisha.fischer@example.com ,unknown
-P1065,Kwame,Okonkwo, F,20200701,AB-,Onco,31/03/2024,05-Apr-2024, S72.001A,96.1,20.1,n/a,77,0,unknown,USD 8480.47,KWAME.OKONKWO@EXAMPLE.COM,unknown
-P1320,Grace,Wong,MALE,"February 16, 2010",   ,Cardio,16-Mar-2024,2024-03-19 00:00:00,N39.0,166.9,38.3,null,72,N,BlueCross,null,GRACE.WONG@EXAMPLE.COM,5748352680
-P1311,Noah,Fischer,MALE,"December 12, 2015",A-,GENMED,2026-05-12 00:00:00,N/A,j45.909,125.2,NULL,121,65,n,BlueCross,"$5,056.27",noah.fischer@example.com,017-986-7782
-P1201,Farah,Okonkwo,M ,13/02/40,B-,Pediatrics,2025-02-01 00:00:00,2025-02-02,j45.909,147.5,NA,143,79,FALSE,Prudential,3408.26, farah.okonkwo@example.com ,116-162-0281
-P1103,Sean,Adeyemi,FEMALE,23.08.1967,a-,General Medicine,2025-12-11 00:00:00,null,A09,unknown,110.8,137,70,False,Allianz,5770.52,SEAN.ADEYEMI@EXAMPLE.COM,(776) 618-3067
-P1270,Sofia,Wong,male,30/04/79,null,Orthopedics,2024-05-18,20/05/2024, J45.909,null,88.2,116,75,?,Etiqa,USD 3701.06,SOFIA.WONG@EXAMPLE.COM,unknown
-P1352,Marcus,Adeyemi,Female,1933-04-22,?,Cardio,2024-05-28,2024-05-30 00:00:00, L40.0,196.4,101.5,157,94,False,Medicare,unknown,marcus.adeyemi@example.com,000.305.6619
-P1206,Tomas,Fischer,female,20/05/91,ab+,   ,27-Jul-2024,01/08/2024,s72.001a,170.4,77.6,113,65,FALSE,NA,USD 3952.57,tomas.fischer@example.com,1827279559
-P1025,Kwame,Lim,f,1935-06-08,a-,Peds,2025-03-09,11-Mar-2025,E11.9,149.9,61.2,N/A,67,False,null,971.45,kwame.lim@example.com,null
-P1022,Marcus,Nguyen,male,19570613,N/A,paediatrics,04-Mar-2025,09-Mar-2025,e11.9,147.2,55.2,N/A,0,N,Medicare,"1,183.50",MARCUS.NGUYEN@EXAMPLE.COM,3292127799
-P1153,Noah,Lim,NULL,NULL,O +,cardiology,05-Aug-2026,2026-08-08,M54.5,184.9,96.6,103,63,No,Etiqa,50.00,NOAH.LIM@EXAMPLE.COM,(802) 714-8727
-P1223,Elena,Okafor,F,"January 13, 2021",B+,GENMED,2025-09-26,26-Sep-2025,i10,92.1,10.8,106,69,No,?,"6,295.69",elena.okafor@example.com,116.491.3342
-P1043,Marcus,Adeyemi,MALE,2020-11-03,B +,neuro,17-Aug-2024,2024-08-19 00:00:00,K21.9,93.6,14.6,88,59,False,Great Eastern,8060.87,MARCUS.ADEYEMI@EXAMPLE.COM,610-143-8889
-P1066,Victor,Mensah,Female,25.06.2022,ab-,Orthopedics,2026-05-18,NULL,L40.0,84.2,13.0,113,48,Yes,-,"$5,238.91", victor.mensah@example.com ,(163) 735-1609
-P1290,Ines,Kumar,female,10/11/1931,AB+,Pediatrics,03/11/2024,08-Nov-2024, F32.9,182.3,126.5,147,90,FALSE,AIA,USD 431.54, ines.kumar@example.com ,8707152386
-P1317,Priya,Fischer,male,2000-05-26,a-,paediatrics,2025-08-10,   , J44.9,N/A,52.2,103,75,no,Allianz,USD 7191.66, priya.fischer@example.com ,(095) 217-5585
-P1149,Sofia,Mwangi,f,19680910,B-,A&E,10/11/2024,unknown,J44.9,192.5,126.3,132,62,No,Prudential,"$6,625.23",SOFIA.MWANGI@EXAMPLE.COM,2336293449
-P1251,Lucia,Novak,M ,30-Apr-2006,NULL,   ,2025-04-11 00:00:00,2025-04-12 00:00:00,i10,170.8,106.5,124,unknown,Yes,unknown,6850.74,lucia.novak@example.com,6995706071
-P1016,Sean,Abadi,f,"March 25, 2019",A+,orthopaedics,07-Dec-2024,07/12/2024,N39.0,96.0,11.6,126,63,n,Etiqa,446.68,sean.abadi@example.com,946-474-3671
-P1292,Grace,Rossi,female,14-Feb-1955,O+,Gen Med,2025-05-17 00:00:00,20-May-2025,L40.0,171.4,87.8,136,72,N,Prudential,USD 3863.61, grace.rossi@example.com ,8186550784
-P1328,Rajesh,LARSEN,F,07-Jun-1985,A+,Pediatrics,18-Apr-2026,23/04/2026, E78.5,161.5,49.2,124,72,no,unknown,1711.67,rajesh.larsen@example.com,706.362.1986
-P1289,Elena,Mensah,female,   ,B +,Onc ,2024-06-19,2024-06-24,r07.9,172.2,67.1,129,66,,BlueCross,"$6,380.83", elena.mensah@example.com ,3552165058
-P1045,Victor,Novak,m,08/06/1969,A-,orthopaedics,28-Dec-2024,30/12/2024,j45.909,184.1,79.9,130,NULL,No,Prudential,6506.31, victor.novak@example.com ,772-190-3404
-P1285,Nadia,Reyes,m,19.07.2004,b-,Neurology,2025-05-20 00:00:00,2025-05-25 00:00:00, R07.9,164.7,72.5,109,53,n/a,BlueCross,USD 5741.67, nadia.reyes@example.com ,(418) 696-5613
-P1336,Grace,Farouk,female,15.08.2012,A +,CARDIOLOGY,2024-06-04,2024-06-05,n/a,147.3,36.2,   ,78,N/A,Allianz,"2,694.59", grace.farouk@example.com ,6967897609
-P1224,Amara,Farouk,f,1977-10-23,B+,ER,14-Jul-2024,22/07/2024, J45.909,163.0,79.1,135,85,no,Allianz,5848.68, amara.farouk@example.com ,(158) 415-6082
-P1118,Elena,Tan,F,2020-08-14,n/a,General Medicine,2025-01-04,04-Jan-2025,M54.5,94.3,13.5,102,61,0,Medicare,6875.73,ELENA.TAN@EXAMPLE.COM,5785294563
-P1261,Sean,Costa,M ,1980-04-15,a-,Cardio,2025-04-20,NULL,N39.0,163.9,65.5,107,74,False,NA,-, sean.costa@example.com ,(975) 954-5089
-P1012,Daniel,Chen,M,02/04/73,A-,orthopaedics,16-Sep-2024,30/09/2024,f32.9,156.1,46.6,125,76,TRUE,AIA,"4,119.46",daniel.chen@example.com,1232812067
-P1132,Lucia,Chen,m,03.04.1979,a-,Cardio,27/12/2025,2026-01-04 00:00:00, K21.9,164.2,82.1,98,73,Yes,Prudential,USD 7803.98,lucia.chen@example.com,(661) 106-2737
-P1233,Elena,Bergstrom,male,20.01.1960,A-,emergency,09/04/2026,10/04/2026, E11.9,159.6,68.3,121,71,no,BlueCross,USD 5585.72, elena.bergstrom@example.com ,(803) 149-9825
-P1159,Sofia,Bergstrom,female,1976-07-27,O-,Ortho,21-Aug-2026,21/08/2026,j44.9,176.6,90.5,121,89,NULL,Prudential,2844.58, sofia.bergstrom@example.com ,578.446.8341
-P1137,Sean,Okafor,male,14/07/1994,O-,Neurology,2025-07-04 00:00:00,,e11.9,167.9,66.5,99,67,False,Prudential,4867.28,unknown,930-361-4987
-P1269,Nadia,Petrov,Female,01/02/2007,NA,Cardiology,2024-05-27,2024-05-30 00:00:00,a09,167.8,75.5,99,71,?,AIA,7645.01, nadia.petrov@example.com ,(519) 053-4864
-P1256,Yusuf,Novak,F,"July 22, 1994",AB +,Oncology,2026-05-03 00:00:00,08-May-2026, I25.10,179.2,65.8,121,85,0,Aetna,2367.11,YUSUF.NOVAK@EXAMPLE.COM,221.500.1418
-P1004,Hakim,Petrov,FEMALE,07.05.1938,A-,General Medicine,2026-03-26 00:00:00,27/03/2026, E11.9,168.8,77.5,135,78,n,Great Eastern,"$7,835.24", hakim.petrov@example.com ,425.135.4278
+P1050,Ines,Bergstrom,m,20150413,o-,Orthopaedics,2025-12-24,24-Dec-2025, J44.9,125.7,29.7,unknown,59,No,Allianz,USD 4455.68, ines.bergstrom@example.com ,1380003075
+P1158,Sofia,Farouk,f,"September 02, 1937",B-,A&E,19/09/2024,2024-09-21, E78.5,199.6,65.7,122,75,no,Prudential,"5,032.55",sofia.farouk@example.com,N/A
+P1247,Aisha,Okonkwo,Male,16-Mar-2011,AB-,ONCOLOGY,13-Jan-2025,21-Jan-2025,F32.9,-170,NA,105,61,False,Prudential,USD 5099.65,NA,943-804-0325
 P1030,Mei Ling,Tan,MALE,08-Mar-1978,ab+,Gen Med,2024-11-03 00:00:00,04/11/2024, E11.9,154.3,53.5,150,77,null,BlueCross,5531.38,mei.tan@example.com,259.532.7877
-P1194,Hakim,Larsen,FEMALE,20200130,NA,PAEDS,20-Mar-2026,2026-03-22, F32.9,unknown,17.5,97,61,N,Etiqa,USD 772.84, hakim.larsen@example.com ,537.513.7651
-P1237,Nadia,Mwangi,FEMALE,"November 26, 1996",AB-,A&E,20/08/2025,25/08/2025,f32.9,174.3,65.8,118,78,n,BlueCross,USD 4906.08,nadia.mwangi@example.com,187-496-0335
-P1109,Priya,Nguyen,Male,"July 29, 1965",ab-,Neuro ,2025-12-30 00:00:00,2026-01-02 00:00:00, J44.9,152.9,48.3,unknown,77,0,Etiqa,$50.00,PRIYA.NGUYEN@EXAMPLE.COM,2723804682
-P1064,Aisha,Adeyemi,Female,20090913,ab+,Orthopaedics,n/a,18/05/2026,I10,167.7,45.0,121,72,yes,BlueCross,50.00,aisha.adeyemi@example.com,7621202169
-P1215,Aisha,Bergstrom,NA,16.02.1959,B+,ONCOLOGY,31-Jan-2025,02/02/2025,e78.5,157.1,55.3,162,85,0,Aetna,N/A, aisha.bergstrom@example.com ,4332491357
-P1345,Beatriz,Fischer,Male,?,A +,Onc ,unknown,2026-04-07,NULL,173.7,87.1,131,66,TRUE,Medicare,2344.99,beatriz.fischer@example.com,266-329-5634
-P1263,Owen,Abadi,M,30.10.1976,B-,Onc ,2025-09-29 00:00:00,13/10/2025,A09,174.0,64.5,158,-,n,BlueCross,"$4,153.97",owen.abadi@example.com,437.769.3663
-P1219,Ines,Farouk,FEMALE,19410512,ab-,A&E,15/07/2026,20/07/2026,j44.9,162.9,41.7,158,80,n,N/A,USD 2301.75,ines.farouk@example.com,732.573.7553
-P1284,Clara,Tan,female,18/08/34,O +,A&E,2025-08-19 00:00:00,2025-09-18 00:00:00,e78.5,164.5,66.6,131,93,n,Etiqa,"2,842.96",CLARA.TAN@EXAMPLE.COM,1234266980
-P1245,Priya,Larsen,M ,2004-01-27,ab+,general medicine,02-Nov-2025,07-Nov-2025,M54.5,153.9,59.7,100,69,N,Medicare,NULL,priya.larsen@example.com,525.680.6562
-P1130,Daniel,Chen,f,03/09/1977,A-,GENMED,2026-03-30,2026-04-07 00:00:00, I10,178.5,65.8,125,76,N,Aetna,"8,678.37",daniel.chen@example.com,6532863266
-P1211,Rajesh,Haddad,m,NA,-,general medicine,25-Oct-2025,NA,NULL,169.6,48.6,115,72,0,Medicare,3427.23,NULL,557.277.3826
-P1315,Priya,Chen,male,19850118,O+,orthopaedics,2025-01-02,2025-01-04, A09,N/A,63.4,117,73,,Aetna,N/A,priya.chen@example.com,356-140-3845
-P1310,Tomas,Larsen,F,"October 25, 1954",AB+,ER,31-Jan-2026,-, K21.9,null,110.9,128,76,0,Great Eastern,USD 3377.94,TOMAS.LARSEN@EXAMPLE.COM,3890623546
-P1288,Nadia,silva,male,1986-05-26,unknown,Neurology,2024-07-24,2024-07-26 00:00:00, K21.9,182.0,43.3,111,81,Yes,Aetna,4402.49,nadia.silva@example.com,210-217-9821
-P1146,Nadia,Wong,MALE,01-Nov-2017,,Emergency,29-Dec-2025,06-Jan-2026,E11.9,N/A,30.8,83,61,0,NA,462.30,NADIA.WONG@EXAMPLE.COM,
-P1359,Talia,Petrov,M ,1988-05-25,A +,?,17/01/2026,25-Jan-2026,N39.0,163.5,55.0,131,,False,AIA,NULL,n/a,4373615873
-P1207,Diego,Okonkwo,MALE,02/04/2024,O-,Orthopedics,22-Mar-2026,24/03/2026, I25.10,69.5,7.4,118,78,0,Allianz,USD 7584.52,diego.okonkwo@example.com,839.225.0142
-P1276,Rajesh,Petrov,MALE,14/07/84,B +,CARDIOLOGY,2024-09-14,2024-09-22 00:00:00, J44.9,166.7,87.6,99,67,Yes,AIA,9596.69, rajesh.petrov@example.com ,(208) 283-2308
-P1220,Owen,Petrov,male,24.07.1954,AB-,Oncology,28-May-2024,30/05/2024, E11.9,999,89.4,146,74,True,   ,USD 4955.08,OWEN.PETROV@EXAMPLE.COM,606-940-9600
+P1038,Daniel,Chen,male,16.08.1951,O +,Gen Med,2025-07-01,04/07/2025, E78.5,173.5,85.1,139,93,N,Prudential,USD 4604.70, daniel.chen@example.com ,544-587-7175
+P1282,Mei Ling,Fischer,female,2012-12-11,O+,ONCOLOGY,2024-05-26,2024-05-27, J45.909,139.3,32.3,102,76,n,Great Eastern,USD 460.19,mei.fischer@example.com,660-811-2600
+P1122,Talia,Delgado,NA,19491119,A +,Paediatrics,17/03/2024,31-Mar-2024,R07.9,173.3,81.8,134,84,n,Etiqa,3613.89,TALIA.DELGADO@EXAMPLE.COM,693-008-9317
+P1190,Owen,Larsen,male,"March 18, 2011",B-,Ortho,13/02/2025,2025-02-15,e78.5,162.6,55.5,119,NA,No,Prudential,"$5,069.51",NA,010-272-4055
+P1297,Marcus,okafor,m,17-Mar-1967,A-,neuro,26/02/2026,2026-02-27 00:00:00,K21.9,182.8,66.1,118,65,N,Etiqa,"$1,377.62",MARCUS.OKAFOR@EXAMPLE.COM,NA
+P1081,Talia,Abadi,NULL,05/01/16,B-, Cardiology,2026-08-05 00:00:00,10/08/2026,k21.9,124.0,11.7,97,74,TRUE,Etiqa,6391.85,talia.abadi@example.com,745-642-4008
+P1110,Hakim,Haddad,f,17/05/2014,o-,Emergency,2026-08-09 00:00:00,17/08/2026, K21.9,137.1,46.5,96,57,False,Allianz,"$2,588.05", hakim.haddad@example.com ,745.238.0552
+P1289,Elena,Mensah,female,   ,B +,Onc ,2024-06-19,2024-06-24,r07.9,172.2,67.1,129,66,,BlueCross,"$6,380.83", elena.mensah@example.com ,3552165058
+P1051,Lucia,Wong,Male,04-Jun-1950,B-,General Medicine,2026-01-14 00:00:00,2026-01-16 00:00:00,i10,169.3,53.3,145,80,True,Prudential,?,lucia.wong@example.com,0506413836
+P1139,Elena,Novak,FEMALE,19830311,-,GENMED,18-Jun-2026,2026-06-23,i10,166.3,53.3,103,64,True,Aetna,"1,776.61",N/A,9392845679
+P1189,Yusuf,abadi,null,"October 21, 2035",n/a,Oncology,05/09/2025,2025-09-07,e11.9,182.0,110.7,119,85,FALSE,AIA,USD 1550.58,N/A,?
+P1253,Talia,Silva,FEMALE,"June 14, 2007",NULL,GENMED,16/03/2026,17/03/2026,J44.9,168.8,70.6,74,57,no,n/a,3127.30,NA,242.605.0801
+P1028,Jonas,Lim,Male,10/11/2019,b+,GENMED,20/12/2024,21-Dec-2024,j44.9,94.0,16.3,97,64,False,AIA,USD 4203.11,JONAS.LIM@EXAMPLE.COM,258.313.2370
+P1075,Amara,novak,M ,"May 07, 1950",NULL, Cardiology,07-May-2024,08-May-2024,J44.9,174.3,91.7,143,79,yes,N/A,"$3,715.65",?,6430098180
+P1209,Diego,rossi,FEMALE,14-Apr-1949,O-,Cardio,-,31-Mar-2026, N39.0,169.4,53.0,151,103,0,Aetna,USD 5623.91,diego.rossi@example.com,-
+P1143,Owen,Costa,f,1941-10-11,AB +,NEURO,2025-06-15 00:00:00,2025-06-17 00:00:00, J44.9,153.3,63.4,124,77,null,Etiqa,5301.91,owen.costa@example.com,0782633373
+P1137,Sean,Okafor,male,14/07/1994,O-,Neurology,2025-07-04 00:00:00,,e11.9,167.9,66.5,99,67,False,Prudential,4867.28,unknown,930-361-4987
+P1003,Daniel,Bergstrom,MALE,"July 29, 2013",b-,Cardiology,2026-07-30 00:00:00,2026-08-07,g43.909,145.3,41.2,110,62,No,?,"$2,623.49",DANIEL.BERGSTROM@EXAMPLE.COM,(326) 773-6026
+P1337,Victor,Bergstrom,m,20110502,O-,Pediatrics,2024-06-05,08-Jun-2024,j44.9,160.9,45.8,99,58,N,N/A,"$1,017.52",NULL,(764) 497-4700
+P1236,Nadia,Nguyen,M,24/04/1973,AB-,Emergency,2025-04-01,2025-04-01, E11.9,170.9,83.3,115,67,?,unknown,3837.36, nadia.nguyen@example.com ,737.945.7727
+P1329,Kwame,MWANGI,f,02.10.1971,a+,Neurology,29/10/2024,29-Oct-2024, R07.9,170.0,?,121,78,False,Great Eastern,6297.92,?,9196234199
+P1182,Rajesh,Mwangi,female,13-Jan-1985,AB +,oncology,2024-12-04,2024-12-09 00:00:00,I10,unknown,71.5,null,88,Y,Great Eastern,2966.32,rajesh.mwangi@example.com,371-009-4388
+P1275,Priya, Petrov ,M ,19660429,B+,General Medicine,21/05/2026,21/05/2026,S72.001A,195.4,59.7,111,75,False,null,6902.96,n/a,(760) 250-8261
+P1312,Jonas,Costa,M ,"March 24, 2023",AB+,Neuro ,01/06/2024,2024-06-02 00:00:00,s72.001a,78.3,12.9,108,45,no,Medicare,-,jonas.costa@example.com,547-523-1123
+P1043,Marcus,Adeyemi,MALE,2020-11-03,B +,neuro,17-Aug-2024,2024-08-19 00:00:00,K21.9,93.6,14.6,88,59,False,Great Eastern,8060.87,MARCUS.ADEYEMI@EXAMPLE.COM,610-143-8889
+P1353,Rajesh,Chen,M ,1978-10-30,A +,Ortho,2024-07-07,2024-07-10 00:00:00, E11.9,173.5,95.8,86,unknown,no,BlueCross,50.00,RAJESH.CHEN@EXAMPLE.COM,4062215599
 P1087,Tomas,Bergstrom,FEMALE,1979-09-10,A-,Ortho,2024-05-23,25/05/2024,r07.9,167.5,55.1,113,?,No,Allianz,"5,220.50", tomas.bergstrom@example.com ,679-981-3646
-P1046,Ines,Abadi,M,1934-01-06,b-,Gen Med,08-May-2026,11/05/2026,L40.0,166.5,87.9,153,81,N,Etiqa,USD 5406.15,ines.abadi@example.com,126-042-2325
-P1297,Marcus,Okafor,m,17-Mar-1967,A-,neuro,26/02/2026,2026-02-27 00:00:00,K21.9,182.8,66.1,118,65,N,Etiqa,"$1,377.62",MARCUS.OKAFOR@EXAMPLE.COM,(497) 912-7997
-P1274,Nadia,Adeyemi,FEMALE,20/08/1961,A +,Neurology,25-May-2026,27/05/2026,E11.9,151.6,41.6,116,94,yes,Aetna,"$5,117.57",NADIA.ADEYEMI@EXAMPLE.COM,114-983-0748
-P1163,Mei Ling,Tan,F,1957-06-04,ab+,cardiology,2025-07-10 00:00:00,2025-07-13,k21.9,188.3,75.1,93,80,False,Allianz,USD 6896.93,mei.tan@example.com,NA
-P1056,Diego,Mensah,male,19650605,o-,General Medicine,2025-05-31 00:00:00,n/a, N39.0,172.2,N/A,113,90,0,BlueCross,"9,501.17",DIEGO.MENSAH@EXAMPLE.COM,015.336.8844
-P1341,Nadia,Lim,m,18/12/1985,NA,Ortho,06-Jun-2026,06-Jun-2026,L40.0,?,82.5,111,77,False,Allianz,USD 4723.32, nadia.lim@example.com ,(021) 774-1743
-P1294,Rajesh,Wong,female,26/10/40,AB-,NEURO,03/02/2025,2025-02-03 00:00:00,g43.909,167.4,64.1,124,82,0,Medicare,USD 50.00,RAJESH.WONG@EXAMPLE.COM,911-650-2000
-P1195,Clara,Bergstrom,male,10.02.1945,ab+,orthopaedics,N/A,19-Jun-2024,n39.0,167.3,47.6,124,-,No,?,6487.54,clara.bergstrom@example.com,(683) 415-5999
+P1034,Liam,Mensah,MALE,23/12/2018,a-,emergency,2026-03-05 00:00:00,07-Mar-2026,k21.9,NULL,13.6,129,67,N,BlueCross,USD 4453.61,LIAM.MENSAH@EXAMPLE.COM,227.530.4637
+P1134,Elena,Lim, F,19400526,n/a,Neurology,2024-04-29 00:00:00,2024-05-04,m54.5,153.3,47.7,120,81,FALSE,Aetna,"$7,282.06",ELENA.LIM@EXAMPLE.COM,204.339.7189
+P1020,Owen,Silva,FEMALE,20/02/05,o+,Pediatrics,2024-04-10,2024-04-15 00:00:00,r07.9,178.0,66.9,119,60,No,Etiqa,"3,195.93",OWEN.SILVA@EXAMPLE.COM,(158) 514-9368
+P1085,Arjun,Lim,-,19910808,B+,EMERGENCY,2025-03-13 00:00:00,NA,L40.0,162.5,68.1,107,68,no,BlueCross,"$6,812.40",arjun.lim@example.com,0141381138
+P1135,Aisha,Delgado,Male,19470404,A-,Pediatrics,2026-02-28 00:00:00,NA,k21.9,176.2,87.8,126,81,No,Medicare,,AISHA.DELGADO@EXAMPLE.COM,3048913824
+P1347,Mei Ling,Rossi,M,05.06.1998,O +,Cardio,27-May-2026,2026-06-10 00:00:00, F32.9,161.6,-,117,69,0,Aetna,USD 1088.43,mei.rossi@example.com,664.641.9623
+P1068,Arjun,Chen,Female,1974-05-14,B+,EMERGENCY,16-Mar-2024,2024-03-24 00:00:00,-,172.8,59.2,131,75,null,Prudential,8122.15,arjun.chen@example.com,598-933-4721
+P1202,Victor,Rossi,M ,03.04.1938,B+,CARDIOLOGY,10/04/2026,-, K21.9,157.4,59.5,NA,91,No,   ,1802.45,?,3503446945
+P1065,Kwame,Okonkwo, F,20200701,AB-,Onco,31/03/2024,05-Apr-2024, S72.001A,96.1,20.1,n/a,77,0,unknown,USD 8480.47,KWAME.OKONKWO@EXAMPLE.COM,unknown
+P1279,Diego,Novak,m,"July 08, 1992",a+,general medicine,25/04/2026,2026-04-25, R07.9,170.9,74.0,119,76,False,Etiqa,-, diego.novak@example.com ,(258) 631-4417
+P1095,Elena,Delgado,   ,19390915,A +,Gen Med,03/05/2025,2025-05-08, K21.9,182.7,73.5,123,68,Yes,Etiqa,USD 267.45,ELENA.DELGADO@EXAMPLE.COM,(173) 574-3842
+P1011,Beatriz,Delgado,FEMALE,1993-01-15,o+,orthopaedics,2025-04-19 00:00:00,2025-04-20 00:00:00,J44.9,182.0,0,102,80,Yes,?,"1,439.55", beatriz.delgado@example.com ,498-941-3435
+P1214,Hana,Adeyemi,M ,04-Oct-1952,a+, Cardiology,2024-03-27,2024-03-30 00:00:00, I25.10,157.3,65.4,140,58,N,Aetna,"$2,263.75", hana.adeyemi@example.com ,773.454.7574
+P1326,Victor,Mensah,male,20241125,O-,NEURO,28-Sep-2024,-,I25.10,63.9,7.5,112,68,FALSE,Etiqa,"$2,287.00", victor.mensah@example.com ,720-028-3948
+P1167,Aisha, Tan ,F,"March 22, 2007",AB+,ER,2025-02-20 00:00:00,2025-02-21, A09,152.7,?,106,79,N,Etiqa,USD 8660.39, aisha.tan@example.com ,7541022526
+P1098,Yusuf,Nguyen,FEMALE,"July 13, 1934",o-,general medicine,2026-05-18,20-May-2026,e11.9,166.8,unknown,130,80,No,BlueCross,"$1,824.02",yusuf.nguyen@example.com,9022784699
+P1178,Owen,Larsen,n/a,03/12/76,o+,Pediatrics,18/05/2024,2024-05-20 00:00:00, E78.5,,88.9,126,82,no,AIA,"6,117.71",owen.larsen@example.com,(491) 966-5533
+P1057,Arjun,Abadi,MALE,10-Feb-1998,a-,paediatrics,07-Jul-2026,unknown,L40.0,163.6,58.2,N/A,62,no,BlueCross,"1,203.64",ARJUN.ABADI@EXAMPLE.COM,(868) 793-7416
+P1318,Hana,Mensah,FEMALE,30.11.2000,null,Orthopedics,19/04/2025,2025-04-20 00:00:00,K21.9,152.6,-,128,76,n,Allianz,USD 3588.05,   ,001-635-6407
+P1006,Ines,Delgado,Male,18/10/51,AB+,Peds,2024-06-01 00:00:00,2024-06-06,M54.5,167.2,60.8,   ,92,True,BlueCross,"$5,373.18",ines.delgado@example.com,406.088.3561
+P1309,Liam,Farouk,M ,01-Mar-2018,A-,EMERGENCY,18/02/2025,21-Feb-2025,l40.0,115.4,23.6,103,50,NULL,Etiqa,"$7,075.31",LIAM.FAROUK@EXAMPLE.COM,(920) 753-6051
+P1004,Hakim,Petrov,FEMALE,07.05.1938,A-,General Medicine,2026-03-26 00:00:00,27/03/2026, E11.9,168.8,77.5,135,78,n,Great Eastern,"$7,835.24", hakim.petrov@example.com ,425.135.4278
+P1209,Diego,Rossi,FEMALE,1949-04-14,O-,Cardio,-,31-Mar-2026, N39.0,169.4,53.0,151,103,0,Aetna,USD 5623.91,diego.rossi@example.com,6861205943
+P1048,Marcus,Tan,f,19540722,NULL,ER,29/11/2024,   ,n/a,999,60.3,120,68,0,Aetna,"$4,048.74", marcus.tan@example.com ,196-565-2341
+P1128,Victor,Reyes,m,17/08/99,,General Medicine,04-Nov-2024,05-Nov-2024,I25.10,179.9,55.8,106,67,TRUE,Aetna,"$4,952.20",victor.reyes@example.com,5814671795
+P1007,Amara,Fischer,male,23-May-1952,O +,emergency,01/10/2025,2025-10-03 00:00:00,L40.0,156.8,60.9,140,61,N,NA,7159.21,AMARA.FISCHER@EXAMPLE.COM,(769) 367-6320
+P1230,Sean,Lim,female,01.10.1978,B-,EMERGENCY,2024-09-07 00:00:00,12/09/2024,E78.5,   ,77.6,109,n/a,No,Great Eastern,5549.27,sean.lim@example.com,5149409762
+P1243,Owen,Adeyemi,MALE,01/09/1994,AB+,Pediatrics,2026-03-30,02-Apr-2026,m54.5,154.1,62.7,120,66,no,Medicare,5135.22,OWEN.ADEYEMI@EXAMPLE.COM,8455259710
+P1145,Hakim,Adeyemi,FEMALE,20130210,a-,Orthopedics,23-May-2025,2025-05-23,A09,145.3,33.1,105,71,TRUE,Aetna,"$2,136.07",HAKIM.ADEYEMI@EXAMPLE.COM,7546926329
+P1207,Diego,Okonkwo,MALE,02/04/2024,O-,Orthopedics,22-Mar-2026,24/03/2026, I25.10,69.5,7.4,118,78,0,Allianz,USD 7584.52,diego.okonkwo@example.com,839.225.0142
+P1109,Priya,Nguyen,Male,"July 29, 1965",ab-,Neuro ,2025-12-30 00:00:00,2026-01-02 00:00:00, J44.9,152.9,48.3,unknown,77,0,Etiqa,$50.00,PRIYA.NGUYEN@EXAMPLE.COM,2723804682
+P1119,Priya,Fischer,M,03-Feb-1978,A-,Gen Med,14-Jul-2026,15-Jul-2026, G43.909,167.4,48.8,110,58,0,Aetna,50.00,PRIYA.FISCHER@EXAMPLE.COM,0835723246
+P1113,Talia,Wong,F,03/10/1981,O-,Peds,02/08/2026,2026-08-03,L40.0,140.6,45.0,164,86,Yes,Allianz,"5,951.11", talia.wong@example.com ,445.189.5202
+P1262,Daniel,Adeyemi,f,21/11/1934,O+,paediatrics,2026-06-24 00:00:00,N/A,I10,unknown,107.1,125,94,N,unknown,USD 6332.67,daniel.adeyemi@example.com,749.885.5829
+P1183,Ines,Delgado,m,16/06/44,O-,CARDIOLOGY,16/04/2025,21-Apr-2025, K21.9,999,90.3,135,73,False,Aetna,"4,409.77", ines.delgado@example.com ,569.644.3098
+P1333,Ines,Nguyen,f,17/11/2013,b-,Gen Med,19/10/2025,20-Oct-2025, J44.9,147.9,25.9,111,68,n,Allianz,USD 6774.51,ines.nguyen@example.com,NULL
+P1226,Sofia,Nguyen,M ,"May 18, 1939",AB+,N/A,2024-05-11 00:00:00,12-May-2024,a09,197.7,90.3,149,80,n,Medicare,"$4,702.59",sofia.nguyen@example.com,(176) 927-4381
+P1240,Owen,Delgado, F,30-May-2018,b-,Ortho,2025-11-25 00:00:00,2025-11-30 00:00:00,f32.9,108.1,16.6,119,69,No,Medicare,n/a, owen.delgado@example.com ,
+P1280,Jonas,Okonkwo,female,1973-07-11,o+,ER,27/03/2024,2024-04-04 00:00:00,f32.9,175.5,103.6,NULL,,n,Prudential,"5,281.59", jonas.okonkwo@example.com ,   
+P1105,Rajesh,Costa,m,16.01.1995,null,orthopaedics,28/04/2024,01/05/2024, E11.9,N/A,68.0,108,53,unknown,n/a,"$4,283.61", rajesh.costa@example.com ,467-232-4876
+P1252,Arjun,Wong,MALE,20/10/2008,B +, Cardiology,2025-05-23,2025-05-25, L40.0,172.2,62.2,95,67,yes,Allianz,"$3,883.44", arjun.wong@example.com ,0626042359
+P1259,Tomas,Kumar,F,08.03.1997,b-,orthopaedics,29-May-2026,01/06/2026,K21.9,177.8,69.3,N/A,62,y,AIA,USD 3884.67,tomas.kumar@example.com,(230) 524-8088
+P1033,Tomas,Fischer,N/A,24-Oct-1973,o+,Ortho,2024-09-09 00:00:00,2024-09-10 00:00:00,l40.0,149.4,54.2,112,63,False,AIA,9126.87, tomas.fischer@example.com ,(082) 677-3454
+P1267,Lucia,Kumar,male,12/07/1940,A+,,2024-05-04,2024-05-12 00:00:00, R07.9,163.2,null,122,76,0,Prudential,USD 3010.30,LUCIA.KUMAR@EXAMPLE.COM,685-283-0615
+P1257,Priya,Tan,m,04/12/14,AB-,Emergency,2026-08-21,2026-08-22 00:00:00,J45.909,135.0,40.5,102,63,N,NA,USD 6085.03, priya.tan@example.com ,6733116772
+P1302,Kwame,,N/A,30/08/44,A-,-,19/08/2025,21-Aug-2025,l40.0,171.5,55.0,,90,n,Medicare,"6,064.30",kwame.reyes@example.com,(150) 713-8067
+P1106,Victor,Larsen,MALE,16/11/2009,NULL,NEURO,2024-11-27 00:00:00,,I10,166.2,56.5,99,64,Y,Medicare,USD 1298.64, victor.larsen@example.com ,-
+P1156,Priya,Wong,Female,06.01.1955,B+,orthopaedics,24-May-2026,25/05/2026, M54.5,168.2,53.5,?,63,FALSE,Allianz,1412.67,priya.wong@example.com,6749261764
+P1103,Sean,Adeyemi,FEMALE,23.08.1967,a-,General Medicine,2025-12-11 00:00:00,null,A09,unknown,110.8,137,70,False,Allianz,5770.52,SEAN.ADEYEMI@EXAMPLE.COM,(776) 618-3067
+P1017,Noah,Fischer,Female,20210925,B-,neurology,2024-05-04,NULL,g43.909,86.7,12.7,120,57,N,Medicare,USD 248.61,NOAH.FISCHER@EXAMPLE.COM,-
+P1300,Clara,mensah,MALE,11-Dec-2019,o+,Oncology,2025-05-31 00:00:00,2025-06-01,N39.0,93.4,18.9,88,61,Yes,   ,"7,495.49",,   
+P1138,Ines,Kumar,Male,"October 21, 2002",O-, Cardiology,2025-12-09,-, F32.9,182.0,57.5,109,60,NA,BlueCross,"2,256.87", ines.kumar@example.com ,(110) 760-9543
+P1196,Jonas,Costa,male,21-Apr-1952,null, Cardiology,24-Nov-2024,26-Nov-2024,r07.9,172.6,65.4,126,81,N,Etiqa,USD 8978.66, jonas.costa@example.com ,(144) 773-2449
 P1054,Jonas,Abadi,Male,15/09/38,NA,PAEDS,13-Sep-2025,27/09/2025,M54.5,157.1,62.8,141,NULL,FALSE,Prudential,5258.09,jonas.abadi@example.com,010.393.0870
+P1061,Nadia,Lim,f,"May 02, 2019",AB-,ORTHO,11/01/2025,2025-01-16 00:00:00,K21.9,98.3,15.2,99,62,no,Etiqa,"$2,376.01", nadia.lim@example.com ,999.173.8168
+P1286,Hana,Nguyen,f,?,AB +, Cardiology,27-May-2024,2024-05-30,A09,140.2,38.1,115,63,FALSE,N/A,383.16,hana.nguyen@example.com,414-915-0762
+P1283,Jonas,Lim,male,"April 15, 1954",b-,Neuro ,17/12/2024,2024-12-17 00:00:00,a09,158.4,66.0,130,85,0,Medicare,6561.29,jonas.lim@example.com,(826) 033-5910
+P1217,Owen,Silva,Female,01.04.1946,b+,neuro,26-Jun-2024,29/06/2024,j44.9,166.9,54.3,125,-,True,Aetna,50.00, owen.silva@example.com ,334-845-8714
+P1328,Rajesh,Larsen,F,07/06/85,A+,Pediatrics,18-Apr-2026,23/04/2026, E78.5,161.5,49.2,124,72,no,Medicare,1711.67,rajesh.larsen@example.com,706.362.1986
+P1010,Clara,Larsen,F,12.02.2005,B-,GENMED,2024-06-26,-,s72.001a,173.1,74.8,121,68,False,Allianz,USD 5310.66, clara.larsen@example.com ,776-945-3147
+P1100,Nadia,Okonkwo, F,01/03/85,AB-,Neuro ,2026-02-22,2026-02-24,e78.5,180.9,84.3,116,58,No,Aetna,USD 7537.87,nadia.okonkwo@example.com,442-094-9407
+P1136,Jonas,Chen,Male,29/06/1995,o-,General Medicine,2024-06-22,23-Jun-2024,e78.5,194.8,82.6,110,68,FALSE,Medicare,USD 4284.37, jonas.chen@example.com ,743-553-7950
+P1361,Nadia,Nuyen,M,24/04/73,AB-,Onc ,23/12/2025,2025-12-23 00:00:00, E11.9,170.9,83.3,115,67,?,unknown,3837.36,null,640-510-3880
+P1063,Ines,Nguyen,F,"October 11, 1987",A +,CARDIOLOGY,10/08/2024,2024-08-10, I10,161.3,59.7,117,67,y,AIA,$50.00, ines.nguyen@example.com ,483-564-2087
+P1251,Lucia,Novak,M ,30-Apr-2006,NULL,   ,2025-04-11 00:00:00,2025-04-12 00:00:00,i10,170.8,106.5,124,unknown,Yes,unknown,6850.74,lucia.novak@example.com,6995706071
+P1069,Grace,Chen,M ,04/04/1978,ab+,PAEDS,20-Apr-2026,21/04/2026, G43.909,166.3,71.4,120,53,1,NULL,5485.54, grace.chen@example.com ,(930) 561-6484
+P1232,Sean,Larsen,Male,20140928,B+,neuro,07-Feb-2025,07/02/2025, R07.9,999,32.7,122,62,n,Etiqa,$50.00, sean.larsen@example.com ,8217392957
+P1217,Owen,Silva,Female,01.04.1946,b+,neuro,26-Jun-2024,29/06/2024,j44.9,166.9,54.3,125,-,True,Aetna,50.00, owen.silva@example.com ,334-845-8714
+P1275,Priya,Petrov,M ,29/04/1966,B+,General Medicine,21/05/2026,21/05/2026,S72.001A,195.4,59.7,111,75,False,Etiqa,6902.96,n/a,(760) 250-8261
