@@ -42,6 +42,7 @@ Useful flags:
 | `--valid-only` | Write only rows that pass every blocking check |
 | `--fuzzy-threshold 0.88` | Name similarity needed to propose a duplicate pair |
 | `--fuzzy-report PATH` | Write the duplicate review queue to CSV |
+| `--no-dob-threshold 0.92` | Name similarity needed when a record has no date of birth |
 | `--no-fuzzy` | Skip fuzzy duplicate detection |
 
 ---
@@ -67,6 +68,12 @@ Everything else about the mock data is generated *coherently* — height follows
 weight follows a plausible BMI for that age, blood pressure rises with age. Drawing those
 independently would produce 200 cm toddlers, and the cleaning decisions below would be
 untestable against them.
+
+The name pools are deliberately large (70 given × 55 family names) for the same reason.
+An earlier version used 30 × 24, which left **136 of 364 patients sharing a full name with
+someone else** — and that alone made duplicate-matching precision unmeasurable, because
+most "duplicates" found were just name collisions. Mock data has to be realistic in the
+dimensions you intend to measure.
 
 ---
 
@@ -231,31 +238,74 @@ review queue (`--fuzzy-report`) and a `possible_duplicate_of` column, and stops 
 not grounds for invalidating a record.
 
 **Comparison is blocked, not all-pairs.** Comparing every record against every other is
-O(n²) — fine for 400 rows, ruinous at a million. Records are bucketed by date of birth
-and by (birth year + last-name prefix), and only records sharing a bucket are compared.
-Two keys, because either alone has a blind spot: blocking on date of birth misses a
-mistyped date, blocking on name misses a mistyped name. On the sample this turns 66,000
-possible pairs into **35 actual comparisons**.
+O(n²) — fine for 400 rows, ruinous at a million. Records are bucketed and only records
+sharing a bucket are compared, turning ~66,000 possible pairs into a few dozen. Four
+blocking keys, each covering the others' blind spots:
+
+| Key | Catches | Blind to |
+|---|---|---|
+| Exact date of birth | Name typos | A mistyped date |
+| Birth year + last-name prefix | A mistyped day or month | A mistyped surname |
+| **Soundex of first + last name** | Phonetic variants (`Smith`/`Smyth`), insertions (`Okafor`/`Okaafor`) | Transpositions — it is anchored on the first letter |
+| **Sorted letters of the full name** | Transpositions (`Wong`/`Wogn`), swapped given/family name | Insertions and deletions |
+
+The last two are **name-only** keys. They exist solely so records with *no date of birth*
+can be compared at all — previously those could never enter a block and were silently
+unmatchable. They are used only when at least one record in the pair lacks a date;
+pairing two dated records on name alone would add nothing but noise.
 
 **Weaker date evidence demands stronger name evidence.** An exact date of birth clears at
-the 0.88 default; a transposed or same-year date has to clear 0.95. Names are compared
-with `difflib` after accent/punctuation normalisation, and both name orderings are scored
-— "Ng Dominic" and "Dominic Ng" are the same person.
+the 0.88 default; a transposed or same-year date must clear 0.95; a *missing* date must
+clear 0.92 with no conflicting gender. Names are compared with `difflib` after
+accent/punctuation normalisation, scoring both orderings — "Ng Dominic" and "Dominic Ng"
+are the same person.
 
-On the sample data, against the generator's ground truth:
+A missing date returns `"unknown"`, not `None`. **Absence of evidence is not evidence of
+difference:** two records can still be the same person when one never captured a date of
+birth. Two records with *conflicting* dates are a different matter — that is real evidence
+they are two different people, so the pair is dropped outright.
+
+#### The threshold was measured, not guessed
+
+Name-only matching is the weakest evidence in the module, so where the bar sits decides
+whether the feature helps or hurts. Sweeping it against the generator's ground truth:
+
+| no-DOB threshold | pairs | true | false | recall | precision |
+|---|---|---|---|---|---|
+| off (feature disabled) | 6 | 6 | 0 | 6/8 | 6/6 |
+| 0.95 | 7 | 6 | 1 | 6/8 | 6/7 |
+| **0.92** | **8** | **7** | **1** | **7/8** | **7/8** |
+| 0.88 | 8 | 7 | 1 | 7/8 | 7/8 |
+
+**0.95 — the value intuition suggests — was strictly worse than not having the feature at
+all.** It contributed one false positive and zero true ones. 0.92 is where the tier starts
+recovering real duplicates. That is the argument for measuring a threshold rather than
+picking a round number that sounds cautious.
+
+Final performance, by confidence tier:
 
 ```
-precision  7/7      every pair proposed was a genuine re-registration
-recall     7/8      one planted duplicate missed
+high      1/1      exact date of birth, near-identical name
+medium    5/5      transposed date, or a weaker name match on an exact date
+low       1/2      name-only, no date of birth to corroborate
+overall   7/8 precision, 7/8 recall
 ```
 
-The miss is worth knowing rather than hiding. `P1344 "Lucia Wong"` and
-`P1356 "Ulcia Wogn"` both have **no date of birth**, so they never entered a block, and
-their name score is 0.800 against a 0.88 threshold. Matching on name alone would have
-caught it — and would also have proposed merging every unrelated pair who happen to share
-a common name. Given the asymmetry above, that is the right trade. The report states how
-many records were ineligible for exactly this reason, because a zero-match result is
-meaningless if half the file could not be compared.
+The low tier is where the residual risk lives, and it is separated deliberately so a
+reviewer can work the queue in confidence order. Its one false positive is two different
+patients who genuinely share a name — the irreducible limitation of matching on a name
+with no date to corroborate it.
+
+**A gender conflict vetoes a name-only match.** If two dateless records share a name but
+have *known, different* genders, the pair is dropped. `"Unknown"` never vetoes, because
+that value is itself imputed. This is applied only to the name-only tier — with a
+confirmed date of birth, a gender mismatch is more likely a data-entry error than proof of
+two different people.
+
+The remaining miss is `P1240 "Rosa"` vs `P1361 "Roa"` — both have *no surname recorded*,
+so the comparison string is four characters long and a single dropped letter costs 0.14 of
+similarity, landing at 0.857 against the 0.88 bar. Short names are fragile under string
+similarity. Lowering the bar to catch it would admit far more noise than it is worth.
 
 ### 11. Report
 
@@ -278,7 +328,7 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-75 tests covering the stages where a bug would be invisible in the output:
+99 tests covering the stages where a bug would be invisible in the output:
 
 - **`tests/test_date_parsing.py`** — every source format resolves to the same date;
   mixed formats in one column all parse; garbage becomes `NaT` instead of raising;
@@ -354,3 +404,4 @@ duplicate. See step 10; it scores 7/7 precision and 7/8 recall on the sample.
 phonetic blocking (Soundex/Metaphone) so the fuzzy matcher can catch records missing a
 date of birth, and tracking the JSON report over time so source-system drift shows up as a
 trend rather than a surprise.
+

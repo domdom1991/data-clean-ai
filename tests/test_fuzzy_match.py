@@ -10,11 +10,14 @@ import pytest
 
 from fuzzy_match import (
     DEFAULT_THRESHOLD,
+    NO_DOB_THRESHOLD,
     annotate,
     dob_relation,
     find_fuzzy_duplicates,
+    letter_signature,
     name_similarity,
     normalize_name,
+    soundex,
 )
 
 
@@ -42,6 +45,50 @@ class TestNormalizeName:
     @pytest.mark.parametrize("empty", [None, pd.NA, float("nan"), ""])
     def test_missing_values_become_empty_string(self, empty):
         assert normalize_name(empty) == ""
+
+
+class TestSoundex:
+    """Checked against the published NARA reference values, not against itself."""
+
+    @pytest.mark.parametrize("word, expected", [
+        ("Robert", "R163"),
+        ("Rupert", "R163"),
+        ("Rubin", "R150"),
+        ("Ashcraft", "A261"),   # the 'h' is transparent between two 2s
+        ("Tymczak", "T522"),
+        ("Pfister", "P236"),    # leading double consonant coded once
+        ("Honeyman", "H555"),
+    ])
+    def test_matches_published_reference_values(self, word, expected):
+        assert soundex(word) == expected
+
+    def test_phonetic_variants_share_a_code(self):
+        assert soundex("Smith") == soundex("Smyth")
+
+    def test_insertion_typo_survives(self):
+        assert soundex("Okafor") == soundex("Okaafor")
+
+    def test_transposition_changes_the_code(self):
+        """The documented blind spot -- letter_signature covers this case."""
+        assert soundex("Wong") != soundex("Wogn")
+
+    def test_empty_input_returns_empty(self):
+        assert soundex("") == ""
+
+
+class TestLetterSignature:
+    def test_transposition_produces_the_same_signature(self):
+        assert letter_signature("wong") == letter_signature("wogn")
+
+    def test_swapped_given_and_family_name_matches(self):
+        assert letter_signature("dominic", "ng") == letter_signature("ng", "dominic")
+
+    def test_insertion_changes_the_signature(self):
+        """The mirror blind spot -- soundex covers this case."""
+        assert letter_signature("okafor") != letter_signature("okaafor")
+
+    def test_different_names_differ(self):
+        assert letter_signature("aisha", "okafor") != letter_signature("daniel", "tan")
 
 
 class TestNameSimilarity:
@@ -89,8 +136,13 @@ class TestDobRelation:
         (pd.Timestamp("1985-04-12"), pd.NaT),
         (pd.NaT, pd.NaT),
     ])
-    def test_missing_dates_are_not_related(self, a, b):
-        assert dob_relation(a, b) is None
+    def test_missing_dates_are_unknown_not_disagreement(self, a, b):
+        """Absence of evidence is not evidence of difference.
+
+        A missing date must not be treated the same as a conflicting one: the
+        first leaves the question open, the second answers it.
+        """
+        assert dob_relation(a, b) == "unknown"
 
 
 class TestFindFuzzyDuplicates:
@@ -150,10 +202,9 @@ class TestFindFuzzyDuplicates:
         assert len(find_fuzzy_duplicates(exact)[0]) == 1
         assert find_fuzzy_duplicates(transposed)[0].empty
 
-    def test_records_without_a_date_of_birth_are_ineligible_and_counted(self):
-        """Name alone is too weak to match on, so these are skipped -- but the
-        count is reported, because a zero-match result is meaningless if half
-        the file could not be compared."""
+    def test_records_without_a_date_of_birth_match_via_name_only_blocking(self):
+        """They used to be unmatchable. Phonetic and signature blocking give
+        them a route in, at the strictest threshold and lowest confidence."""
         pairs, stats = find_fuzzy_duplicates(make_frame([
             {"patient_id": "P1", "first_name": "Lucia", "last_name": "Wong",
              "date_of_birth": None},
@@ -161,8 +212,69 @@ class TestFindFuzzyDuplicates:
              "date_of_birth": None},
         ]))
 
+        assert len(pairs) == 1
+        assert pairs.loc[0, "dob_relation"] == "unknown"
+        assert pairs.loc[0, "confidence"] == "low"
+        assert stats["records_without_dob"] == 2
+        assert stats["pairs_from_name_only_blocks"] == 1
+
+    def test_a_dateless_record_can_match_one_that_has_a_date(self):
+        """The valuable case: the record missing a date of birth is usually the
+        incomplete re-registration, not the original."""
+        pairs, _ = find_fuzzy_duplicates(make_frame([
+            {"patient_id": "P1", "first_name": "Aisha", "last_name": "Okafor",
+             "date_of_birth": "1985-04-12"},
+            {"patient_id": "P2", "first_name": "Aisha", "last_name": "Okafor",
+             "date_of_birth": None},
+        ]))
+
+        assert len(pairs) == 1
+        assert pairs.loc[0, "dob_relation"] == "unknown"
+
+    def test_name_only_threshold_is_stricter_than_the_dated_one(self):
+        """Name-only matching sits above the default, because the name is the
+        only evidence there is."""
+        assert NO_DOB_THRESHOLD > DEFAULT_THRESHOLD
+
+    def test_name_only_threshold_is_configurable_and_binding(self):
+        """The same pair is accepted or rejected purely by where the bar sits.
+
+        The pair scores ~0.93, which is why the sweep in the README matters:
+        the default was moved from 0.95 to 0.92 on measured evidence, and this
+        pair is exactly the kind that decision governs.
+        """
+        frame = make_frame([
+            {"patient_id": "P1", "first_name": "Mei Ling", "last_name": "Nguyen",
+             "date_of_birth": None},
+            {"patient_id": "P2", "first_name": "Meil Ing", "last_name": "Nguyen",
+             "date_of_birth": None},
+        ])
+        score = name_similarity("mei ling", "nguyen", "meil ing", "nguyen")
+        assert 0.92 <= score < 0.95, "test fixture no longer straddles the band"
+
+        assert find_fuzzy_duplicates(frame, no_dob_threshold=0.95)[0].empty
+        assert len(find_fuzzy_duplicates(frame, no_dob_threshold=0.92)[0]) == 1
+
+
+    def test_dateless_records_with_different_names_still_do_not_match(self):
+        pairs, _ = find_fuzzy_duplicates(make_frame([
+            {"patient_id": "P1", "first_name": "Aisha", "last_name": "Okafor",
+             "date_of_birth": None},
+            {"patient_id": "P2", "first_name": "Daniel", "last_name": "Tan",
+             "date_of_birth": None},
+        ]))
+
         assert pairs.empty
-        assert stats["skipped_no_dob"] == 2
+
+    def test_records_with_neither_date_nor_name_are_counted_unmatchable(self):
+        _, stats = find_fuzzy_duplicates(make_frame([
+            {"patient_id": "P1", "first_name": None, "last_name": None,
+             "date_of_birth": None},
+            {"patient_id": "P2", "first_name": "Aisha", "last_name": "Okafor",
+             "date_of_birth": "1985-04-12"},
+        ]))
+
+        assert stats["unmatchable_records"] == 1
 
     def test_different_birth_years_never_match(self):
         pairs, _ = find_fuzzy_duplicates(make_frame([
@@ -205,6 +317,46 @@ class TestFindFuzzyDuplicates:
         _, stats = find_fuzzy_duplicates(frame)
 
         assert stats["pairs_compared"] == 0  # no two records share a blocking key
+
+
+class TestGenderVeto:
+    """A known gender conflict rules out a name-only match, and only those."""
+
+    def _dateless_pair(self, gender_a, gender_b):
+        frame = make_frame([
+            {"patient_id": "P1", "first_name": "Elena", "last_name": "Kumar",
+             "date_of_birth": None},
+            {"patient_id": "P2", "first_name": "Elena", "last_name": "Kumar",
+             "date_of_birth": None},
+        ])
+        frame["gender"] = [gender_a, gender_b]
+        return frame
+
+    def test_conflicting_known_genders_veto_a_name_only_match(self):
+        pairs, stats = find_fuzzy_duplicates(self._dateless_pair("M", "F"))
+
+        assert pairs.empty
+        assert stats["vetoed_on_gender_conflict"] == 1
+
+    def test_matching_genders_do_not_veto(self):
+        assert len(find_fuzzy_duplicates(self._dateless_pair("F", "F"))[0]) == 1
+
+    def test_unknown_gender_never_vetoes(self):
+        """That value is imputed, so it is not evidence of anything."""
+        assert len(find_fuzzy_duplicates(self._dateless_pair("Unknown", "F"))[0]) == 1
+
+    def test_veto_does_not_apply_when_the_date_of_birth_agrees(self):
+        """With a confirmed date, a gender mismatch is more likely a data-entry
+        error than proof of two different people."""
+        frame = make_frame([
+            {"patient_id": "P1", "first_name": "Elena", "last_name": "Kumar",
+             "date_of_birth": "1985-04-12"},
+            {"patient_id": "P2", "first_name": "Elena", "last_name": "Kumar",
+             "date_of_birth": "1985-04-12"},
+        ])
+        frame["gender"] = ["M", "F"]
+
+        assert len(find_fuzzy_duplicates(frame)[0]) == 1
 
 
 class TestAnnotate:

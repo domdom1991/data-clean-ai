@@ -37,6 +37,12 @@ import pandas as pd
 DEFAULT_THRESHOLD = 0.88
 # Applied when the two dates of birth are not identical.
 STRICT_THRESHOLD = 0.95
+# Applied when at least one record has no date of birth at all, so the name is
+# the only evidence there is. Stricter than the default, but chosen by measuring
+# rather than by intuition: at 0.95 this tier contributed a false positive and
+# no true ones, making it strictly worse than leaving the feature off. 0.92 is
+# where it starts recovering real duplicates. See the README for the sweep.
+NO_DOB_THRESHOLD = 0.92
 
 # A bucket this large means the blocking key is not discriminating (every
 # record sharing one placeholder date, say). Comparing it would cost more than
@@ -60,6 +66,50 @@ def normalize_name(value: object) -> str:
     return _WHITESPACE.sub(" ", _NON_LETTERS.sub(" ", text)).strip()
 
 
+_SOUNDEX_CODES = {
+    letter: digit
+    for letters, digit in [("bfpv", "1"), ("cgjkqsxz", "2"), ("dt", "3"),
+                           ("l", "4"), ("mn", "5"), ("r", "6")]
+    for letter in letters
+}
+
+
+def soundex(word: str) -> str:
+    """Classic NARA Soundex: first letter plus three consonant-group digits.
+
+    Groups letters that sound alike, so "Smith" and "Smyth" share a code. Note
+    what it does NOT do: it is anchored on the first letter and it is order
+    sensitive, so a transposition ("Wong" -> "Wogn") produces a different code.
+    That blind spot is why letter_signature exists alongside it.
+    """
+    word = "".join(ch for ch in word.lower() if ch.isalpha())
+    if not word:
+        return ""
+
+    codes = [_SOUNDEX_CODES.get(ch, "") for ch in word]
+    digits: list[str] = []
+    previous = codes[0]
+    for ch, code in zip(word[1:], codes[1:]):
+        if code and code != previous:
+            digits.append(code)
+        # h and w are transparent: letters either side of them still count as
+        # adjacent, so they do not reset the previous code.
+        if ch not in "hw":
+            previous = code
+
+    return (word[0].upper() + "".join(digits) + "000")[:4]
+
+
+def letter_signature(*parts: str) -> str:
+    """The name's letters, sorted -- identical for any reordering of them.
+
+    Complements Soundex: this catches transpositions ("Wong"/"Wogn", and even
+    a swapped given/family name) but is blind to insertions and deletions,
+    which is exactly the case Soundex handles.
+    """
+    return "".join(sorted("".join(parts).replace(" ", "")))
+
+
 def name_similarity(first_a: str, last_a: str, first_b: str, last_b: str) -> float:
     """Similarity of two full names, tolerant of given/family name being swapped.
 
@@ -81,14 +131,20 @@ def name_similarity(first_a: str, last_a: str, first_b: str, last_b: str) -> flo
 
 
 def dob_relation(a: pd.Timestamp, b: pd.Timestamp) -> str | None:
-    """How two dates of birth relate, or None if they are simply different.
+    """How two dates of birth relate. None means they positively disagree.
 
     "transposed" is the day/month swap that the date-convention ambiguity
     produces -- 04/12 read one way in one system and the other way in another.
     Those records describe the same person and must still be comparable.
+
+    A missing date returns "unknown", not None. Absence of evidence is not
+    evidence of difference: two records can still be the same person when one
+    of them never captured a date of birth. Two records with *different* dates
+    of birth are a different matter -- that is real evidence they are two
+    different people, so it returns None and the pair is dropped.
     """
     if pd.isna(a) or pd.isna(b):
-        return None
+        return "unknown"
     if a == b:
         return "exact"
     if a.year == b.year and a.day == b.month and a.month == b.day:
@@ -96,6 +152,30 @@ def dob_relation(a: pd.Timestamp, b: pd.Timestamp) -> str | None:
     if a.year == b.year:
         return "same_year"
     return None
+
+
+def _required_score(relation: str, threshold: float, no_dob_threshold: float) -> float:
+    """The name score a pair must reach, given how strong the date evidence is."""
+    if relation == "exact":
+        return threshold
+    if relation == "unknown":
+        return no_dob_threshold
+    return STRICT_THRESHOLD  # transposed or same_year
+
+
+def _genders_conflict(a: object, b: object) -> bool:
+    """True only when both genders are known and they disagree.
+
+    Used to veto name-only matches. Two records sharing a common name with no
+    date of birth between them are weak evidence at the best of times; a known
+    gender conflict is enough to rule them out. "Unknown" never vetoes, because
+    that value is itself imputed.
+    """
+    if a is None or b is None or pd.isna(a) or pd.isna(b):
+        return False
+    if "Unknown" in (a, b):
+        return False
+    return a != b
 
 
 def _confidence(relation: str, score: float) -> str:
@@ -106,27 +186,50 @@ def _confidence(relation: str, score: float) -> str:
     return "low"
 
 
-def _build_blocks(dobs: list, last_keys: list[str]) -> dict:
+def _build_blocks(dobs: list, last_keys: list[str],
+                  firsts: list[str], lasts: list[str]) -> tuple[dict, dict]:
     """Bucket record positions by the keys a duplicate is likely to share.
 
-    Two keys, because either one alone has a blind spot: blocking on date of
-    birth misses records whose date was mistyped, and blocking on name prefix
-    misses records whose name was mistyped.
+    Returns two families of block, because they serve different purposes.
+
+    Dated blocks key on the date of birth, which is the strongest evidence
+    available. Two keys, because either alone has a blind spot: blocking on the
+    exact date misses a mistyped date, blocking on name prefix misses a
+    mistyped name.
+
+    Name-only blocks exist solely so that records with NO date of birth can be
+    compared at all -- previously they could never enter a block and were
+    silently unmatchable. Again two keys, covering different failure modes:
+    Soundex catches phonetic variants and insertions but not transpositions,
+    the letter signature catches transpositions but not insertions.
     """
-    blocks: dict = {}
+    dated: dict = {}
+    name_only: dict = {}
+
     for position, (dob, last_key) in enumerate(zip(dobs, last_keys)):
-        if pd.isna(dob):
+        if not pd.isna(dob):
+            dated.setdefault(("dob", dob), []).append(position)
+            if last_key:
+                dated.setdefault(("year_name", dob.year, last_key), []).append(position)
+
+        first, last = firsts[position], lasts[position]
+        if not first and not last:
             continue
-        blocks.setdefault(("dob", dob), []).append(position)
-        if last_key:
-            blocks.setdefault(("year_name", dob.year, last_key), []).append(position)
-    return blocks
+        name_only.setdefault(
+            ("phonetic", soundex(first), soundex(last)), []
+        ).append(position)
+        name_only.setdefault(
+            ("signature", letter_signature(first, last)), []
+        ).append(position)
+
+    return dated, name_only
 
 
 def find_fuzzy_duplicates(
     df: pd.DataFrame,
     key: str = "patient_id",
     threshold: float = DEFAULT_THRESHOLD,
+    no_dob_threshold: float = NO_DOB_THRESHOLD,
 ) -> tuple[pd.DataFrame, dict]:
     """Return candidate duplicate pairs and the stats describing the search."""
     columns = [f"{key}_a", f"{key}_b", "name_a", "name_b",
@@ -143,11 +246,12 @@ def find_fuzzy_duplicates(
 
     last_keys = [last[:3] for last in lasts]
 
-    blocks = _build_blocks(dobs, last_keys)
+    dated_blocks, name_blocks = _build_blocks(dobs, last_keys, firsts, lasts)
 
     pairs: set[tuple[int, int]] = set()
     oversized = 0
-    for members in blocks.values():
+
+    for members in dated_blocks.values():
         if len(members) < 2:
             continue
         if len(members) > MAX_BLOCK_SIZE:
@@ -155,15 +259,41 @@ def find_fuzzy_duplicates(
             continue
         pairs.update(combinations(sorted(members), 2))
 
+    # Name-only blocks are used exclusively to rescue records with no date of
+    # birth. Two records that both have dates are already covered above, and
+    # pairing them on name alone would only add noise.
+    no_dob_pairs = 0
+    for members in name_blocks.values():
+        if len(members) < 2:
+            continue
+        if len(members) > MAX_BLOCK_SIZE:
+            oversized += 1
+            continue
+        for a, b in combinations(sorted(members), 2):
+            if (pd.isna(dobs[a]) or pd.isna(dobs[b])) and (a, b) not in pairs:
+                pairs.add((a, b))
+                no_dob_pairs += 1
+
+    genders = (df["gender"].tolist() if "gender" in df.columns
+               else [None] * len(df))
+
     matches = []
+    vetoed_on_gender = 0
     for a, b in pairs:
         relation = dob_relation(dobs[a], dobs[b])
         if relation is None:
             continue
 
         score = name_similarity(firsts[a], lasts[a], firsts[b], lasts[b])
-        required = threshold if relation == "exact" else STRICT_THRESHOLD
-        if score < required:
+        if score < _required_score(relation, threshold, no_dob_threshold):
+            continue
+
+        # With no date of birth, the name is the only evidence -- so a known
+        # gender conflict is allowed to veto. Never applied when a date agrees,
+        # where the date is the stronger signal and a gender mismatch is more
+        # likely a data-entry error than two different people.
+        if relation == "unknown" and _genders_conflict(genders[a], genders[b]):
+            vetoed_on_gender += 1
             continue
 
         matches.append({
@@ -184,17 +314,23 @@ def find_fuzzy_duplicates(
             ["confidence", "name_score"], ascending=[True, False]
         ).reset_index(drop=True)
 
-    # Records that could not participate at all -- worth surfacing, because a
-    # clean-looking zero-match result is meaningless if half the file was
-    # ineligible for comparison.
+    # A record with neither a date of birth nor a name cannot be matched by any
+    # route. Worth surfacing, because a clean-looking zero-match result is
+    # meaningless if part of the file was never eligible for comparison.
     no_dob = int(sum(pd.isna(d) for d in dobs))
     no_name = int(sum(1 for f, l in zip(firsts, lasts) if not f and not l))
+    unmatchable = int(sum(
+        1 for d, f, l in zip(dobs, firsts, lasts) if pd.isna(d) and not f and not l
+    ))
 
     stats = {
         "threshold": threshold,
         "strict_threshold": STRICT_THRESHOLD,
-        "blocks_built": len(blocks),
+        "no_dob_threshold": no_dob_threshold,
+        "vetoed_on_gender_conflict": vetoed_on_gender,
+        "blocks_built": len(dated_blocks) + len(name_blocks),
         "pairs_compared": len(pairs),
+        "pairs_from_name_only_blocks": no_dob_pairs,
         "candidate_pairs": len(result),
         "records_involved": int(
             pd.concat([result[f"{key}_a"], result[f"{key}_b"]]).nunique()
@@ -202,8 +338,9 @@ def find_fuzzy_duplicates(
         "by_confidence": (
             result["confidence"].value_counts().to_dict() if not result.empty else {}
         ),
-        "skipped_no_dob": no_dob,
-        "skipped_no_name": no_name,
+        "records_without_dob": no_dob,
+        "records_without_name": no_name,
+        "unmatchable_records": unmatchable,
         "oversized_blocks_skipped": oversized,
     }
     return result, stats

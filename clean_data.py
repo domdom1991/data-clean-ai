@@ -613,15 +613,20 @@ def print_report(report: dict) -> None:
     if fuzzy.get("enabled"):
         header("Fuzzy duplicates (name + date of birth)")
         print(f"  name threshold          : {fuzzy['threshold']}"
-              f"  (strict {fuzzy['strict_threshold']} when dates differ)")
+              f"  (strict {fuzzy['strict_threshold']} when dates differ or are missing)")
         print(f"  pairs compared          : {fuzzy['pairs_compared']}"
               f"  across {fuzzy['blocks_built']} blocks")
+        print(f"    via phonetic/signature: {fuzzy['pairs_from_name_only_blocks']}"
+              f"  (records with no date of birth)")
         print(f"  candidate pairs         : {fuzzy['candidate_pairs']}"
               f"  involving {fuzzy['records_involved']} records")
         for level in ("high", "medium", "low"):
             if level in fuzzy["by_confidence"]:
                 print(f"    {level:<20} {fuzzy['by_confidence'][level]}")
-        print(f"  ineligible (no dob)     : {fuzzy['skipped_no_dob']}")
+        print(f"  records with no dob     : {fuzzy['records_without_dob']}"
+              f"  (matchable on name only)")
+        print(f"  unmatchable records     : {fuzzy['unmatchable_records']}"
+              f"  (no dob and no name)")
         print("  -> flagged for review, never merged automatically")
 
     header("Validation flags")
@@ -636,7 +641,8 @@ def print_report(report: dict) -> None:
 # --------------------------------------------------------------------------
 
 def clean(df: pd.DataFrame, convention: str, as_of: pd.Timestamp,
-          key: str = "patient_id", fuzzy_threshold: float | None = None
+          key: str = "patient_id", fuzzy_threshold: float | None = None,
+          no_dob_threshold: float = fuzzy_match.NO_DOB_THRESHOLD,
           ) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
     report: dict = {"dates": {}, "generated_at": datetime.now().isoformat(timespec="seconds")}
     report["volume"] = {"rows_in": len(df), "columns_in": len(df.columns)}
@@ -665,7 +671,7 @@ def clean(df: pd.DataFrame, convention: str, as_of: pd.Timestamp,
         report["fuzzy_duplicates"] = {"enabled": False}
     else:
         fuzzy_pairs, fuzzy_stats = fuzzy_match.find_fuzzy_duplicates(
-            df, key=key, threshold=fuzzy_threshold
+            df, key=key, threshold=fuzzy_threshold, no_dob_threshold=no_dob_threshold
         )
         df = fuzzy_match.annotate(df, fuzzy_pairs, key=key)
         report["fuzzy_duplicates"] = {"enabled": True, **fuzzy_stats}
@@ -710,6 +716,10 @@ def main() -> None:
     parser.add_argument("--fuzzy-threshold", type=float, default=fuzzy_match.DEFAULT_THRESHOLD,
                         help="Name similarity required to call two records a possible "
                              "duplicate (0-1). Lower catches more and costs more review.")
+    parser.add_argument("--no-dob-threshold", type=float,
+                        default=fuzzy_match.NO_DOB_THRESHOLD,
+                        help="Name similarity required when a record has no date of "
+                             "birth, so the name is the only evidence (0-1).")
     parser.add_argument("--no-fuzzy", action="store_true",
                         help="Skip fuzzy duplicate detection entirely.")
     parser.add_argument("--fuzzy-report", default=None,
@@ -726,6 +736,7 @@ def main() -> None:
     cleaned, report, fuzzy_pairs = clean(
         raw, args.date_convention, as_of, args.key,
         fuzzy_threshold=None if args.no_fuzzy else args.fuzzy_threshold,
+        no_dob_threshold=args.no_dob_threshold,
     )
 
     if args.valid_only:

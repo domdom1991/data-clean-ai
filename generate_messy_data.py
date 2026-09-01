@@ -37,17 +37,30 @@ REREGISTRATION_SHARE = 0.02
 # never uses just one of these, which is why the cleaner normalises them all.
 MISSING_TOKENS = ["", "N/A", "n/a", "NA", "null", "NULL", "-", "unknown", "?", "   "]
 
+# The pools need to be large enough that two unrelated patients rarely share a
+# full name. A small pool makes accidental collisions common, which would make
+# any measurement of duplicate-matching precision meaningless.
 FIRST_NAMES = [
     "Aisha", "Daniel", "Mei Ling", "Rajesh", "Sofia", "Marcus", "Priya", "Tomas",
     "Grace", "Hakim", "Elena", "Jonas", "Nadia", "Owen", "Farah", "Victor",
     "Amara", "Liam", "Yusuf", "Clara", "Diego", "Hana", "Noah", "Ines",
     "Kwame", "Lucia", "Arjun", "Beatriz", "Sean", "Talia",
+    "Imani", "Mateo", "Sanjay", "Freya", "Omar", "Camila", "Bilal", "Zara",
+    "Andre", "Keiko", "Lorenzo", "Anika", "Mikael", "Rosa", "Tariq", "Svetlana",
+    "Jamal", "Wei", "Esther", "Rafael", "Lena", "Idris", "Paloma", "Nikhil",
+    "Fatima", "Oscar", "Ayesha", "Henrik", "Divya", "Emeka", "Carmen", "Ravi",
+    "Sinead", "Yohan", "Amelia", "Karim", "Junko", "Pedro", "Nour", "Gabriel",
 ]
 
 LAST_NAMES = [
     "Okafor", "Tan", "Kumar", "Silva", "Nguyen", "Rossi", "Haddad", "Bergstrom",
     "Mwangi", "Fischer", "Delgado", "Okonkwo", "Lim", "Petrov", "Costa", "Abadi",
     "Novak", "Chen", "Farouk", "Larsen", "Reyes", "Adeyemi", "Wong", "Mensah",
+    "Ibrahim", "Kowalski", "Santos", "Yamamoto", "Baptiste", "Rahman", "Moreau",
+    "Andersen", "Diallo", "Vargas", "Sharma", "Nakamura", "Popescu", "Bakker",
+    "Osei", "Ferreira", "Hassan", "Lindqvist", "Marchetti", "Sultana", "Duarte",
+    "Ntoumos", "Vasquez", "Balogun", "Horvath", "Sasaki", "Almeida", "Cheung",
+    "Traore", "Weiss", "Kaur",
 ]
 
 # Canonical value -> the messy spellings that show up in the raw extract.
