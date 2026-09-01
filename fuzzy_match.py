@@ -14,104 +14,61 @@ Three design decisions worth being able to defend:
 
 2. Comparison is blocked, not all-pairs. Comparing every record against every
    other is O(n^2) -- fine for 400 rows, ruinous at a million. Records are
-   bucketed by date of birth and by (birth year + last name prefix), and only
+   bucketed by date of birth, by (birth year + last name prefix), and -- for
+   records with no date at all -- by phonetic and letter-signature keys. Only
    records sharing a bucket are ever compared.
 
 3. Weaker date evidence demands stronger name evidence. An exact date of birth
    match clears at the normal threshold; a transposed or same-year date has to
-   clear a stricter one.
+   clear a stricter one; a missing date is stricter still.
 
-Uses only difflib from the standard library, so the runtime dependencies stay
-pandas and numpy.
+String algorithms live in text_matching.py. This module holds only the policy
+that uses them.
 """
 
 from __future__ import annotations
 
-import re
-import unicodedata
-from difflib import SequenceMatcher
 from itertools import combinations
 
 import pandas as pd
 
-DEFAULT_THRESHOLD = 0.88
+from text_matching import (
+    jaro_winkler,
+    letter_signature,
+    metaphone,
+    normalize_name,
+    soundex,
+)
+
+# Thresholds are Jaro-Winkler scores, re-tuned when the scorer moved off
+# difflib -- Jaro-Winkler is systematically more generous, so the old values
+# would have been far too permissive. Each sits below the lowest observed true
+# match in its tier, with margin. See the README for the score distribution.
+DEFAULT_THRESHOLD = 0.90       # lowest true match with an exact date: 0.915
 # Applied when the two dates of birth are not identical.
-STRICT_THRESHOLD = 0.95
+STRICT_THRESHOLD = 0.96        # lowest true match with a transposed date: 0.986
 # Applied when at least one record has no date of birth at all, so the name is
-# the only evidence there is. Stricter than the default, but chosen by measuring
-# rather than by intuition: at 0.95 this tier contributed a false positive and
-# no true ones, making it strictly worse than leaving the feature off. 0.92 is
-# where it starts recovering real duplicates. See the README for the sweep.
-NO_DOB_THRESHOLD = 0.92
+# the only evidence there is. Note that no threshold makes this tier clean: its
+# worst false positive is two different patients with an identical name, which
+# scores a perfect 1.0 -- higher than any true match. That is why these land in
+# a separate low-confidence tier for review rather than being acted on.
+NO_DOB_THRESHOLD = 0.95        # lowest true match with no date: 0.983
 
 # A bucket this large means the blocking key is not discriminating (every
 # record sharing one placeholder date, say). Comparing it would cost more than
 # it is worth and would swamp the review queue, so it is skipped and reported.
 MAX_BLOCK_SIZE = 100
 
-_NON_LETTERS = re.compile(r"[^a-z\s]")
-_WHITESPACE = re.compile(r"\s+")
-
-
-def normalize_name(value: object) -> str:
-    """Casefold, strip accents and punctuation, collapse whitespace.
-
-    "D'Souza", "DSouza" and "d souza" all have to reduce to the same string
-    before any similarity score means anything.
-    """
-    if value is None or pd.isna(value):
-        return ""
-    text = unicodedata.normalize("NFKD", str(value)).lower()
-    text = "".join(ch for ch in text if not unicodedata.combining(ch))
-    return _WHITESPACE.sub(" ", _NON_LETTERS.sub(" ", text)).strip()
-
-
-_SOUNDEX_CODES = {
-    letter: digit
-    for letters, digit in [("bfpv", "1"), ("cgjkqsxz", "2"), ("dt", "3"),
-                           ("l", "4"), ("mn", "5"), ("r", "6")]
-    for letter in letters
-}
-
-
-def soundex(word: str) -> str:
-    """Classic NARA Soundex: first letter plus three consonant-group digits.
-
-    Groups letters that sound alike, so "Smith" and "Smyth" share a code. Note
-    what it does NOT do: it is anchored on the first letter and it is order
-    sensitive, so a transposition ("Wong" -> "Wogn") produces a different code.
-    That blind spot is why letter_signature exists alongside it.
-    """
-    word = "".join(ch for ch in word.lower() if ch.isalpha())
-    if not word:
-        return ""
-
-    codes = [_SOUNDEX_CODES.get(ch, "") for ch in word]
-    digits: list[str] = []
-    previous = codes[0]
-    for ch, code in zip(word[1:], codes[1:]):
-        if code and code != previous:
-            digits.append(code)
-        # h and w are transparent: letters either side of them still count as
-        # adjacent, so they do not reset the previous code.
-        if ch not in "hw":
-            previous = code
-
-    return (word[0].upper() + "".join(digits) + "000")[:4]
-
-
-def letter_signature(*parts: str) -> str:
-    """The name's letters, sorted -- identical for any reordering of them.
-
-    Complements Soundex: this catches transpositions ("Wong"/"Wogn", and even
-    a swapped given/family name) but is blind to insertions and deletions,
-    which is exactly the case Soundex handles.
-    """
-    return "".join(sorted("".join(parts).replace(" ", "")))
-
 
 def name_similarity(first_a: str, last_a: str, first_b: str, last_b: str) -> float:
     """Similarity of two full names, tolerant of given/family name being swapped.
+
+    Jaro-Winkler rather than difflib's ratio. Names are short, and a
+    subsequence ratio punishes a single dropped letter far too harshly at that
+    length: "rosa" vs "roa" scores 0.857 under difflib but 0.933 under
+    Jaro-Winkler, which is the difference between missing a real duplicate and
+    catching it. Winkler's prefix bonus also matches how names are actually
+    mistyped -- people fumble the end of a name far more often than the start.
 
     Registration forms routinely capture "Ng Dominic" in one system and
     "Dominic Ng" in another. Both orderings are scored and the better taken,
@@ -124,10 +81,7 @@ def name_similarity(first_a: str, last_a: str, first_b: str, last_b: str) -> flo
     if not left or not right:
         return 0.0
 
-    return max(
-        SequenceMatcher(None, left, right).ratio(),
-        SequenceMatcher(None, left, swapped).ratio(),
-    )
+    return max(jaro_winkler(left, right), jaro_winkler(left, swapped))
 
 
 def dob_relation(a: pd.Timestamp, b: pd.Timestamp) -> str | None:
@@ -198,10 +152,17 @@ def _build_blocks(dobs: list, last_keys: list[str],
     mistyped name.
 
     Name-only blocks exist solely so that records with NO date of birth can be
-    compared at all -- previously they could never enter a block and were
-    silently unmatchable. Again two keys, covering different failure modes:
-    Soundex catches phonetic variants and insertions but not transpositions,
-    the letter signature catches transpositions but not insertions.
+    compared at all -- otherwise they could never enter a block and would be
+    silently unmatchable. Three keys, covering different failure modes:
+
+      soundex    coarse phonetic grouping; high recall, collides often
+      metaphone  finer phonetic grouping; models digraphs and silent letters
+      signature  sorted letters; the only one that survives a transposition
+
+    Soundex and Metaphone overlap heavily by design. Metaphone is the more
+    precise of the two, but Soundex's very coarseness occasionally rescues a
+    pair Metaphone splits, and a redundant blocking key costs only comparisons
+    -- the scoring threshold still decides what actually matches.
     """
     dated: dict = {}
     name_only: dict = {}
@@ -216,7 +177,10 @@ def _build_blocks(dobs: list, last_keys: list[str],
         if not first and not last:
             continue
         name_only.setdefault(
-            ("phonetic", soundex(first), soundex(last)), []
+            ("soundex", soundex(first), soundex(last)), []
+        ).append(position)
+        name_only.setdefault(
+            ("metaphone", metaphone(first), metaphone(last)), []
         ).append(position)
         name_only.setdefault(
             ("signature", letter_signature(first, last)), []

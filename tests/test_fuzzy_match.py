@@ -11,13 +11,11 @@ import pytest
 from fuzzy_match import (
     DEFAULT_THRESHOLD,
     NO_DOB_THRESHOLD,
+    STRICT_THRESHOLD,
     annotate,
     dob_relation,
     find_fuzzy_duplicates,
-    letter_signature,
     name_similarity,
-    normalize_name,
-    soundex,
 )
 
 
@@ -28,67 +26,7 @@ def make_frame(rows: list[dict]) -> pd.DataFrame:
     return frame
 
 
-class TestNormalizeName:
-    @pytest.mark.parametrize("raw, expected", [
-        ("Okafor", "okafor"),
-        ("  Okafor  ", "okafor"),
-        ("O'Souza", "o souza"),
-        ("Mei  Ling", "mei ling"),
-        ("D'ANGELO", "d angelo"),
-        ("Bergström", "bergstrom"),
-        ("Núñez", "nunez"),
-        ("Smith-Jones", "smith jones"),
-    ])
-    def test_normalizes_to_comparable_form(self, raw, expected):
-        assert normalize_name(raw) == expected
 
-    @pytest.mark.parametrize("empty", [None, pd.NA, float("nan"), ""])
-    def test_missing_values_become_empty_string(self, empty):
-        assert normalize_name(empty) == ""
-
-
-class TestSoundex:
-    """Checked against the published NARA reference values, not against itself."""
-
-    @pytest.mark.parametrize("word, expected", [
-        ("Robert", "R163"),
-        ("Rupert", "R163"),
-        ("Rubin", "R150"),
-        ("Ashcraft", "A261"),   # the 'h' is transparent between two 2s
-        ("Tymczak", "T522"),
-        ("Pfister", "P236"),    # leading double consonant coded once
-        ("Honeyman", "H555"),
-    ])
-    def test_matches_published_reference_values(self, word, expected):
-        assert soundex(word) == expected
-
-    def test_phonetic_variants_share_a_code(self):
-        assert soundex("Smith") == soundex("Smyth")
-
-    def test_insertion_typo_survives(self):
-        assert soundex("Okafor") == soundex("Okaafor")
-
-    def test_transposition_changes_the_code(self):
-        """The documented blind spot -- letter_signature covers this case."""
-        assert soundex("Wong") != soundex("Wogn")
-
-    def test_empty_input_returns_empty(self):
-        assert soundex("") == ""
-
-
-class TestLetterSignature:
-    def test_transposition_produces_the_same_signature(self):
-        assert letter_signature("wong") == letter_signature("wogn")
-
-    def test_swapped_given_and_family_name_matches(self):
-        assert letter_signature("dominic", "ng") == letter_signature("ng", "dominic")
-
-    def test_insertion_changes_the_signature(self):
-        """The mirror blind spot -- soundex covers this case."""
-        assert letter_signature("okafor") != letter_signature("okaafor")
-
-    def test_different_names_differ(self):
-        assert letter_signature("aisha", "okafor") != letter_signature("daniel", "tan")
 
 
 class TestNameSimilarity:
@@ -188,11 +126,13 @@ class TestFindFuzzyDuplicates:
         """A name pair good enough under an exact date is rejected under a
         transposed one, because the strict threshold applies."""
         borderline = [
-            {"patient_id": "P1", "first_name": "Mei Ling", "last_name": "Nguyen"},
-            {"patient_id": "P2", "first_name": "Meil Ing", "last_name": "Nguyen"},
+            {"patient_id": "P1", "first_name": "Lucia", "last_name": "Wong"},
+            {"patient_id": "P2", "first_name": "Ulcia", "last_name": "Wogn"},
         ]
-        score = name_similarity("mei ling", "nguyen", "meil ing", "nguyen")
-        assert DEFAULT_THRESHOLD <= score < 0.95, "test fixture no longer sits in the band"
+        score = name_similarity("lucia", "wong", "ulcia", "wogn")
+        assert DEFAULT_THRESHOLD <= score < STRICT_THRESHOLD, (
+            "test fixture no longer sits between the two thresholds"
+        )
 
         exact = make_frame([{**borderline[0], "date_of_birth": "1942-12-30"},
                             {**borderline[1], "date_of_birth": "1942-12-30"}])
@@ -239,17 +179,17 @@ class TestFindFuzzyDuplicates:
     def test_name_only_threshold_is_configurable_and_binding(self):
         """The same pair is accepted or rejected purely by where the bar sits.
 
-        The pair scores ~0.93, which is why the sweep in the README matters:
-        the default was moved from 0.95 to 0.92 on measured evidence, and this
-        pair is exactly the kind that decision governs.
+        This pair scores ~0.93, straddling the shipped 0.95 default. The sweep
+        in the README is what decides such cases, and this test pins down that
+        the parameter genuinely governs the outcome.
         """
         frame = make_frame([
-            {"patient_id": "P1", "first_name": "Mei Ling", "last_name": "Nguyen",
+            {"patient_id": "P1", "first_name": "Lucia", "last_name": "Wong",
              "date_of_birth": None},
-            {"patient_id": "P2", "first_name": "Meil Ing", "last_name": "Nguyen",
+            {"patient_id": "P2", "first_name": "Ulcia", "last_name": "Wogn",
              "date_of_birth": None},
         ])
-        score = name_similarity("mei ling", "nguyen", "meil ing", "nguyen")
+        score = name_similarity("lucia", "wong", "ulcia", "wogn")
         assert 0.92 <= score < 0.95, "test fixture no longer straddles the band"
 
         assert find_fuzzy_duplicates(frame, no_dob_threshold=0.95)[0].empty
@@ -287,6 +227,7 @@ class TestFindFuzzyDuplicates:
         assert pairs.empty
 
     def test_threshold_is_respected(self):
+        """Same pair (scoring ~0.93), opposite outcomes either side of the bar."""
         frame = make_frame([
             {"patient_id": "P1", "first_name": "Lucia", "last_name": "Wong",
              "date_of_birth": "1960-01-01"},
@@ -294,8 +235,8 @@ class TestFindFuzzyDuplicates:
              "date_of_birth": "1960-01-01"},
         ])
 
-        assert find_fuzzy_duplicates(frame, threshold=0.88)[0].empty
-        assert len(find_fuzzy_duplicates(frame, threshold=0.75)[0]) == 1
+        assert find_fuzzy_duplicates(frame, threshold=0.95)[0].empty
+        assert len(find_fuzzy_duplicates(frame, threshold=0.90)[0]) == 1
 
     def test_empty_result_still_has_the_expected_columns(self):
         pairs, _ = find_fuzzy_duplicates(make_frame([

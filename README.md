@@ -40,9 +40,9 @@ Useful flags:
 | `--date-convention auto\|dayfirst\|monthfirst` | How to read ambiguous slash dates |
 | `--as-of 2026-01-01` | Reference date for age, so results are reproducible |
 | `--valid-only` | Write only rows that pass every blocking check |
-| `--fuzzy-threshold 0.88` | Name similarity needed to propose a duplicate pair |
+| `--fuzzy-threshold 0.90` | Name similarity needed to propose a duplicate pair |
 | `--fuzzy-report PATH` | Write the duplicate review queue to CSV |
-| `--no-dob-threshold 0.92` | Name similarity needed when a record has no date of birth |
+| `--no-dob-threshold 0.95` | Name similarity needed when a record has no date of birth |
 | `--no-fuzzy` | Skip fuzzy duplicate detection |
 
 ---
@@ -247,54 +247,77 @@ blocking keys, each covering the others' blind spots:
 | Exact date of birth | Name typos | A mistyped date |
 | Birth year + last-name prefix | A mistyped day or month | A mistyped surname |
 | **Soundex of first + last name** | Phonetic variants (`Smith`/`Smyth`), insertions (`Okafor`/`Okaafor`) | Transpositions — it is anchored on the first letter |
+| **Metaphone of first + last name** | The same, but modelling digraphs (`PH`→`F`, `TH`→`0`) and silent letters, so it collides far less | Transpositions, likewise |
 | **Sorted letters of the full name** | Transpositions (`Wong`/`Wogn`), swapped given/family name | Insertions and deletions |
 
-The last two are **name-only** keys. They exist solely so records with *no date of birth*
-can be compared at all — previously those could never enter a block and were silently
+The last three are **name-only** keys. They exist solely so records with *no date of birth*
+can be compared at all — otherwise those could never enter a block and would be silently
 unmatchable. They are used only when at least one record in the pair lacks a date;
 pairing two dated records on name alone would add nothing but noise.
 
 **Weaker date evidence demands stronger name evidence.** An exact date of birth clears at
-the 0.88 default; a transposed or same-year date must clear 0.95; a *missing* date must
-clear 0.92 with no conflicting gender. Names are compared with `difflib` after
-accent/punctuation normalisation, scoring both orderings — "Ng Dominic" and "Dominic Ng"
-are the same person.
+the 0.90 default; a transposed or same-year date must clear 0.96; a *missing* date must
+clear 0.95 with no conflicting gender.
+
+#### Jaro-Winkler, not `difflib`
+
+Names are short, and a subsequence ratio punishes a single dropped letter far too harshly
+at that length. `"rosa"` vs `"roa"` scores **0.857 under difflib but 0.933 under
+Jaro-Winkler** — which was exactly the difference between missing a real duplicate and
+catching it. Jaro normalises by the length of *both* strings rather than counting a longest
+common subsequence, and Winkler's prefix bonus matches how names are actually mistyped:
+people fumble the end of a name far more often than the start.
+
+Both are implemented from scratch in `text_matching.py` (standard library only, so the
+runtime dependencies stay pandas and numpy) and verified against Winkler's published
+worked examples — `MARTHA`/`MARHTA` = 0.961, `DIXON`/`DICKSONX` = 0.813 — rather than
+against their own output.
 
 A missing date returns `"unknown"`, not `None`. **Absence of evidence is not evidence of
 difference:** two records can still be the same person when one never captured a date of
 birth. Two records with *conflicting* dates are a different matter — that is real evidence
 they are two different people, so the pair is dropped outright.
 
-#### The threshold was measured, not guessed
+#### The thresholds were measured, not guessed
 
-Name-only matching is the weakest evidence in the module, so where the bar sits decides
-whether the feature helps or hurts. Sweeping it against the generator's ground truth:
+Every threshold was set by sweeping it against the generator's ground truth, and in both
+rounds the measurement contradicted the intuition.
 
-| no-DOB threshold | pairs | true | false | recall | precision |
-|---|---|---|---|---|---|
-| off (feature disabled) | 6 | 6 | 0 | 6/8 | 6/6 |
-| 0.95 | 7 | 6 | 1 | 6/8 | 6/7 |
-| **0.92** | **8** | **7** | **1** | **7/8** | **7/8** |
-| 0.88 | 8 | 7 | 1 | 7/8 | 7/8 |
+**Round one, under difflib.** The name-only threshold was first set to 0.95 on the
+reasoning that weak evidence deserves a strict bar. It turned out to be *strictly worse
+than not having the feature at all* — one false positive, zero true ones — because it also
+rejected the genuine matches. 0.92 was where the tier began paying for itself.
 
-**0.95 — the value intuition suggests — was strictly worse than not having the feature at
-all.** It contributed one false positive and zero true ones. 0.92 is where the tier starts
-recovering real duplicates. That is the argument for measuring a threshold rather than
-picking a round number that sounds cautious.
+**Round two, after switching to Jaro-Winkler.** Every threshold had to be re-tuned, since
+Jaro-Winkler is systematically more generous than difflib and the old values would have
+been far too permissive. Rather than sweep blindly, the scores of every candidate pair were
+plotted against ground truth:
+
+| tier | true-match scores | false-match scores | threshold chosen |
+|---|---|---|---|
+| exact date | 0.915 – 0.982 | *none at any threshold down to 0.70* | **0.90** |
+| transposed date | 0.986 | none | **0.96** |
+| no date (name only) | 0.983 | **1.000** | **0.95** |
+
+Two things fall out of that table. In the dated tiers the classes separate cleanly, so the
+threshold sits just below the lowest true match with margin. In the name-only tier **the
+worst false positive scores higher than the best true match** — a perfect 1.000, being two
+different patients who genuinely share a name. No threshold can separate those. That is not
+a tuning problem to be solved but an irreducible property of matching on a name with no
+date to corroborate it, and it is why those land in a separate low-confidence tier for
+human review rather than being acted on.
 
 Final performance, by confidence tier:
 
 ```
-high      1/1      exact date of birth, near-identical name
+high      2/2      exact date of birth, near-identical name
 medium    5/5      transposed date, or a weaker name match on an exact date
 low       1/2      name-only, no date of birth to corroborate
-overall   7/8 precision, 7/8 recall
+overall   8/9 precision, 8/8 recall     (7/7 precision on high+medium alone)
 ```
 
-The low tier is where the residual risk lives, and it is separated deliberately so a
-reviewer can work the queue in confidence order. Its one false positive is two different
-patients who genuinely share a name — the irreducible limitation of matching on a name
-with no date to corroborate it.
+Recall is now complete: every planted re-registration is found. The single false positive
+is the irreducible one described above.
 
 **A gender conflict vetoes a name-only match.** If two dateless records share a name but
 have *known, different* genders, the pair is dropped. `"Unknown"` never vetoes, because
@@ -302,10 +325,11 @@ that value is itself imputed. This is applied only to the name-only tier — wit
 confirmed date of birth, a gender mismatch is more likely a data-entry error than proof of
 two different people.
 
-The remaining miss is `P1240 "Rosa"` vs `P1361 "Roa"` — both have *no surname recorded*,
-so the comparison string is four characters long and a single dropped letter costs 0.14 of
-similarity, landing at 0.857 against the 0.88 bar. Short names are fragile under string
-similarity. Lowering the bar to catch it would admit far more noise than it is worth.
+This pair is what drove the move to Jaro-Winkler. `P1240 "Rosa"` vs `P1361 "Roa"` have no
+surname recorded, so the comparison string is four characters and one dropped letter cost
+0.14 of difflib similarity — 0.857 against a 0.88 bar, missed. Under Jaro-Winkler the same
+pair scores 0.933 and is caught. Choosing a similarity metric suited to the *shape* of the
+data beat trying to tune around the wrong one.
 
 ### 11. Report
 
@@ -328,7 +352,7 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-99 tests covering the stages where a bug would be invisible in the output:
+135 tests covering the stages where a bug would be invisible in the output:
 
 - **`tests/test_date_parsing.py`** — every source format resolves to the same date;
   mixed formats in one column all parse; garbage becomes `NaT` instead of raising;
@@ -339,11 +363,16 @@ pytest
   wins; completeness beats recency; recency breaks a completeness tie; a record with no
   admission date sorts last rather than winning by accident; the rule degrades gracefully
   when there is no admission date column at all; and the report's row counts reconcile.
-- **`tests/test_fuzzy_match.py`** — name normalisation across accents, punctuation and
-  casing; swapped given/family names still matching; two different people who share a
-  birthday *not* matching; the strict threshold rejecting a name pair that an exact date
-  would have accepted; records without a date of birth being excluded and counted; and
-  blocking actually reducing the comparison count.
+- **`tests/test_fuzzy_match.py`** — swapped given/family names still matching; two
+  different people who share a birthday *not* matching; the strict threshold rejecting a
+  name pair that an exact date would have accepted; dateless records matching via
+  name-only blocking; the gender veto firing only where it should; and blocking actually
+  reducing the comparison count.
+- **`tests/test_text_matching.py`** — the string algorithms, asserted against *published
+  reference values* rather than against their own output: Winkler's worked examples for
+  Jaro and Jaro-Winkler, the NARA table for Soundex. Metaphone is the exception — it has
+  no canonical implementation, so those tests assert equivalence properties (`Smith` and
+  `Smyth` must collide) which is what blocking actually depends on.
 
 The ambiguous-date test is the one worth reading. `04/12/1985` parses cleanly under both
 conventions, so no error and no null ever tells you it went wrong — the test asserts that
@@ -352,9 +381,16 @@ pipeline commits to.
 
 These were checked by mutation. Reversing the survivorship sort order fails 6 tests;
 flipping the no-evidence date default fails 1; disabling the century correction fails 4;
-ignoring the fuzzy matcher's strict threshold, removing its name-swap tolerance, treating
-a same-year date as exact evidence, and dropping accent normalisation each fail their own
-test. A test suite that cannot fail is not evidence of anything.
+dropping Jaro's transposition penalty fails 8; and removing Winkler's prefix cap, ignoring
+its boost threshold, breaking Metaphone's `PH` digraph, disabling the gender veto, and
+dropping accent normalisation each fail their own test.
+
+One mutation initially **survived**: changing Jaro's match window from
+`floor(max(len)/2) - 1` to `floor(max(len)/2)` broke nothing, because none of the published
+reference values happen to discriminate it. That is a coverage hole the published examples
+cannot close, so a hand-derived case was added — `jaro("aaab", "abcd")` is exactly 0.5 with
+the correct window and 0.667 with one too wide. Mutation testing is worth doing precisely
+because it finds the assertions you did not think to write.
 
 ### CI
 
@@ -398,7 +434,7 @@ idea as a dbt test, just carried in the data.
 **"How do you catch duplicates when the ID itself is different?"** Fuzzy matching on name
 plus date of birth, blocked across four keys to stay tractable — and flagged rather than
 merged, because the cost of wrongly merging two patients is not symmetric with the cost of
-missing a duplicate. See step 10; 7/8 precision and 7/8 recall on the sample, reported per
+missing a duplicate. See step 10; 8/9 precision and 8/8 recall on the sample, reported per
 confidence tier rather than as one number.
 
 **"How did you pick your thresholds?"** By measuring them, and the measurement changed my
@@ -424,9 +460,19 @@ picture emerged. The point worth making is that a number from a benchmark is onl
 as the data behind it — if a metric moves sharply, check whether the fixture changed before
 concluding the code did.
 
-**"What would you add next?"** Schema validation with Pandera or Great Expectations,
-Metaphone or Jaro-Winkler in place of Soundex and `difflib` (both are crude, and
-Jaro-Winkler is designed for exactly this short-string case), an active-learning loop so
-reviewer decisions on the queue feed back into the thresholds, and tracking the JSON report
-over time so source-system drift shows up as a trend rather than a surprise.
+**"How did you know which part to improve?"** By measuring which one was actually
+limiting. Recall could be capped either by *blocking* (pairs never compared) or by
+*scoring* (pairs compared and rejected). Those need completely different fixes, and I
+could not tell which from looking at the code. Instrumenting it showed blocking recall was
+already 8/8 — every true pair shared a key — so better phonetic blocking could not possibly
+help, and the entire deficit sat in the similarity metric. That pointed straight at
+Jaro-Winkler and took recall to 8/8. Metaphone still went in, because it makes the blocks
+tighter and covers phonetic variation this generator does not produce, but the honest
+statement is that it earned no measurable recall gain here.
+
+**"What would you add next?"** Schema validation with Pandera or Great Expectations, an
+active-learning loop so reviewer decisions on the queue feed back into the thresholds,
+Double Metaphone for non-English names (plain Metaphone encodes English pronunciation and
+will mis-group a lot of the surnames in this dataset), and tracking the JSON report over
+time so source-system drift shows up as a trend rather than a surprise.
 
